@@ -148,10 +148,10 @@
         
         .chart-container {
             width: 100%;
-            max-width: 650px;
-            height: 450px;
+            max-width: 800px; /* Aumentado significativamente */
+            height: 500px; /* Altura mayor */
             margin: 0 auto 30px;
-            padding: 20px;
+            padding: 30px 50px; /* Más padding, especialmente a los lados */
             background: white;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -438,7 +438,7 @@
         <div class="section">
             <h2><i class="fas fa-chart-pie"></i>Distribución de Participantes</h2>
             <div class="chart-container">
-                <canvas id="participantsChart" width="400" height="400"></canvas>
+                <canvas id="participantsChart" width="600" height="450"></canvas>
             </div>
         </div>
         
@@ -735,30 +735,58 @@
                     maintainAspectRatio: true,
                     layout: {
                         padding: {
-                            right: 30
+                            right: 50,
+                            top: 20,
+                            bottom: 20,
+                            left: 20
                         }
                     },
                     plugins: {
                         legend: {
                             position: 'right',
+                            align: 'center',
                             labels: { 
-                                font: { size: 12, family: "'Poppins', sans-serif" },
+                                font: { 
+                                    size: 14, /* Fuente más grande */
+                                    family: "'Poppins', sans-serif",
+                                    weight: 'bold' /* Texto más visible */
+                                },
                                 color: '#1e293b',
-                                padding: 20,
-                                boxWidth: 15
+                                padding: 25,
+                                boxWidth: 20,
+                                generateLabels: function(chart) {
+                                    // Personalizar las etiquetas para asegurar que se muestren completas
+                                    const datasets = chart.data.datasets;
+                                    const labels = chart.data.labels;
+                                    return labels.map(function(label, i) {
+                                        return {
+                                            text: label,
+                                            fillStyle: datasets[0].backgroundColor[i],
+                                            strokeStyle: datasets[0].borderColor,
+                                            lineWidth: datasets[0].borderWidth,
+                                            hidden: isNaN(datasets[0].data[i]) || chart.getDatasetMeta(0).data[i].hidden,
+                                            index: i
+                                        };
+                                    });
+                                }
                             }
                         },
                         tooltip: {
                             backgroundColor: 'rgba(255, 255, 255, 0.9)',
                             titleColor: '#1e293b',
+                            titleFont: {
+                                size: 14,
+                                weight: 'bold'
+                            },
                             bodyColor: '#1e293b',
                             bodyFont: {
-                                family: "'Poppins', sans-serif"
+                                family: "'Poppins', sans-serif",
+                                size: 13
                             },
                             borderColor: '#e2e8f0',
                             borderWidth: 1,
                             displayColors: true,
-                            padding: 10,
+                            padding: 12,
                             boxPadding: 5
                         }
                     }
