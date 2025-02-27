@@ -148,8 +148,8 @@
         
         .chart-container {
             width: 100%;
-            max-width: 500px;
-            height: 400px;
+            max-width: 650px;
+            height: 450px;
             margin: 0 auto 30px;
             padding: 20px;
             background: white;
@@ -733,13 +733,19 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: true,
+                    layout: {
+                        padding: {
+                            right: 30
+                        }
+                    },
                     plugins: {
                         legend: {
                             position: 'right',
                             labels: { 
                                 font: { size: 12, family: "'Poppins', sans-serif" },
                                 color: '#1e293b',
-                                padding: 15
+                                padding: 20,
+                                boxWidth: 15
                             }
                         },
                         tooltip: {
