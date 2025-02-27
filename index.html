@@ -146,19 +146,92 @@
             justify-content: center;
         }
         
-        .chart-container {
-            width: 100%;
-            max-width: 800px; /* Aumentado significativamente */
-            height: 500px; /* Altura mayor */
-            margin: 0 auto 30px;
-            padding: 30px 50px; /* Más padding, especialmente a los lados */
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        /* Nueva sección para la gráfica moderna */
+        .dashboard-chart {
+            margin-bottom: 40px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: #f5f8ff;
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 4px solid #2d43e7;
+            box-shadow: 0 4px 10px rgba(45, 67, 231, 0.1);
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: #606990;
+            margin-bottom: 5px;
+        }
+        
+        .stat-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2a3050;
+        }
+        
+        .chart-wrapper {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 20px;
+            background: #f5f8ff;
+            border-radius: 16px;
+            padding: 25px;
+            max-height: 400px;
+            box-shadow: 0 4px 15px rgba(45, 67, 231, 0.08);
         }
+        
+        .chart-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .legend {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        
+        .legend-item:hover {
+            background: rgba(45, 67, 231, 0.05);
+            transform: translateX(5px);
+        }
+        
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 4px;
+        }
+        
+        .legend-label {
+            color: #2a3050;
+        }
+        
+        .legend-value {
+            font-weight: 600;
+            margin-left: auto;
+            color: #2d43e7;
+        }
+        /* Fin de la nueva sección para la gráfica moderna */
         
         .grid-container {
             display: grid;
@@ -406,6 +479,11 @@
             .testimonials {
                 grid-template-columns: 1fr;
             }
+            
+            .chart-wrapper {
+                flex-direction: column;
+                max-height: none;
+            }
         }
     </style>
 </head>
@@ -437,9 +515,40 @@
         
         <div class="section">
             <h2><i class="fas fa-chart-pie"></i>Distribución de Participantes</h2>
-            <div class="chart-container">
-                <canvas id="participantsChart" width="600" height="450"></canvas>
+            <!-- Inicio de la nueva sección de gráfica moderna -->
+            <div class="dashboard-chart">
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-label">Jefes y Gerentes</div>
+                        <div class="stat-value">31%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Analistas</div>
+                        <div class="stat-value">29%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Propietarios</div>
+                        <div class="stat-value">18%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Funcionarios</div>
+                        <div class="stat-value">17%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Freelance</div>
+                        <div class="stat-value">5%</div>
+                    </div>
+                </div>
+                
+                <div class="chart-wrapper">
+                    <div class="chart-container">
+                        <canvas id="participantsChart"></canvas>
+                    </div>
+                    
+                    <div class="legend" id="customLegend"></div>
+                </div>
             </div>
+            <!-- Fin de la nueva sección de gráfica moderna -->
         </div>
         
         <div class="section-divider"></div>
@@ -660,7 +769,7 @@
                 </div>
 
                 <div class="testimonial-card">
-                    <p>"Me llevo mucho aprendizaje para mejorar mi trabajo diario. Ha sido una experiencia muy enriquecedora que me ayudará a ser más eficiente."</p>
+                    <p>"Me llevo mucho aprendizaje para mejorar mi trabajo diario. Ha sido una experiencia muy enriquecedora que me ayudará aser más eficiente."</p>
                     <footer>
                         <strong>Liliam</strong>
                     </footer>
@@ -707,93 +816,107 @@
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('participantsChart').getContext('2d');
             
-            // Crear el gráfico
-            new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: [
-                        'Jefes y Gerentes (31%)', 
-                        'Analistas y Supervisores (29%)', 
-                        'Propietarios de empresa (18%)', 
-                        'Funcionarios públicos (17%)', 
-                        'Freelance e Independientes (5%)'
+            // Datos para el gráfico
+            const chartData = {
+                labels: [
+                    'Jefes y Gerentes', 
+                    'Analistas y Supervisores', 
+                    'Propietarios de empresa', 
+                    'Funcionarios públicos', 
+                    'Freelance e Independientes'
+                ],
+                datasets: [{
+                    data: [31, 29, 18, 17, 5],
+                    backgroundColor: [
+                        '#2d43e7', // Azul principal (Jefes)
+                        '#4361ee', // Azul secundario (Analistas)
+                        '#5a7cff', // Azul claro (Propietarios)
+                        '#7b93db', // Azul grisáceo (Funcionarios)
+                        '#98b7ff'  // Azul muy claro (Freelance)
                     ],
-                    datasets: [{
-                        data: [31, 29, 18, 17, 5],
-                        backgroundColor: [
-                            '#3b82f6', // Azul (Jefes)
-                            '#10b981', // Verde (Analistas)
-                            '#8b5cf6', // Morado (Propietarios)
-                            '#f59e0b', // Amarillo (Funcionarios)
-                            '#ef4444'  // Rojo (Freelance)
-                        ],
-                        borderColor: '#ffffff',
-                        borderWidth: 2}]
-                },
+                    borderWidth: 0,
+                    hoverOffset: 15
+                }]
+            };
+            
+            const config = {
+                type: 'doughnut',
+                data: chartData,
                 options: {
                     responsive: true,
-                    maintainAspectRatio: true,
-                    layout: {
-                        padding: {
-                            right: 50,
-                            top: 20,
-                            bottom: 20,
-                            left: 20
-                        }
-                    },
+                    maintainAspectRatio: false,
+                    cutout: '70%',
                     plugins: {
                         legend: {
-                            position: 'right',
-                            align: 'center',
-                            labels: { 
-                                font: { 
-                                    size: 14, /* Fuente más grande */
-                                    family: "'Poppins', sans-serif",
-                                    weight: 'bold' /* Texto más visible */
-                                },
-                                color: '#1e293b',
-                                padding: 25,
-                                boxWidth: 20,
-                                generateLabels: function(chart) {
-                                    // Personalizar las etiquetas para asegurar que se muestren completas
-                                    const datasets = chart.data.datasets;
-                                    const labels = chart.data.labels;
-                                    return labels.map(function(label, i) {
-                                        return {
-                                            text: label,
-                                            fillStyle: datasets[0].backgroundColor[i],
-                                            strokeStyle: datasets[0].borderColor,
-                                            lineWidth: datasets[0].borderWidth,
-                                            hidden: isNaN(datasets[0].data[i]) || chart.getDatasetMeta(0).data[i].hidden,
-                                            index: i
-                                        };
-                                    });
-                                }
-                            }
+                            display: false
                         },
                         tooltip: {
-                            backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                            titleColor: '#1e293b',
+                            backgroundColor: 'rgba(45, 67, 231, 0.9)',
                             titleFont: {
+                                family: "'Poppins', sans-serif",
                                 size: 14,
                                 weight: 'bold'
                             },
-                            bodyColor: '#1e293b',
                             bodyFont: {
                                 family: "'Poppins', sans-serif",
                                 size: 13
                             },
-                            borderColor: '#e2e8f0',
-                            borderWidth: 1,
+                            padding: 15,
+                            cornerRadius: 8,
                             displayColors: true,
-                            padding: 12,
-                            boxPadding: 5
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.raw + '%';
+                                }
+                            }
                         }
+                    },
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
                     }
                 }
+            };
+            
+            const chart = new Chart(ctx, config);
+            
+            // Crear leyenda personalizada
+            const customLegend = document.getElementById('customLegend');
+            
+            chartData.labels.forEach((label, index) => {
+                const item = document.createElement('div');
+                item.className = 'legend-item';
+                
+                const color = document.createElement('div');
+                color.className = 'legend-color';
+                color.style.backgroundColor = chartData.datasets[0].backgroundColor[index];
+                
+                const labelEl = document.createElement('div');
+                labelEl.className = 'legend-label';
+                labelEl.textContent = label;
+                
+                const value = document.createElement('div');
+                value.className = 'legend-value';
+                value.textContent = chartData.datasets[0].data[index] + '%';
+                
+                item.appendChild(color);
+                item.appendChild(labelEl);
+                item.appendChild(value);
+                
+                // Añadir interactividad
+                item.addEventListener('mouseover', () => {
+                    chart.setActiveElements([{datasetIndex: 0, index: index}]);
+                    chart.update();
+                });
+                
+                item.addEventListener('mouseout', () => {
+                    chart.setActiveElements([]);
+                    chart.update();
+                });
+                
+                customLegend.appendChild(item);
             });
         });
     </script>
 </body>
 </html>
-                    
