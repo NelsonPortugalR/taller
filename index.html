@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infografía: Taller de Inteligencia Aplicada</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -146,7 +145,6 @@
             justify-content: center;
         }
         
-        /* Nueva sección para la gráfica moderna */
         .dashboard-chart {
             margin-bottom: 40px;
         }
@@ -177,61 +175,6 @@
             font-weight: 700;
             color: #2a3050;
         }
-        
-        .chart-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background: #f5f8ff;
-            border-radius: 16px;
-            padding: 25px;
-            max-height: 400px;
-            box-shadow: 0 4px 15px rgba(45, 67, 231, 0.08);
-        }
-        
-        .chart-container {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-        
-        .legend {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 14px;
-            padding: 8px 12px;
-            border-radius: 8px;
-            transition: all 0.2s;
-        }
-        
-        .legend-item:hover {
-            background: rgba(45, 67, 231, 0.05);
-            transform: translateX(5px);
-        }
-        
-        .legend-color {
-            width: 12px;
-            height: 12px;
-            border-radius: 4px;
-        }
-        
-        .legend-label {
-            color: #2a3050;
-        }
-        
-        .legend-value {
-            font-weight: 600;
-            margin-left: auto;
-            color: #2d43e7;
-        }
-        /* Fin de la nueva sección para la gráfica moderna */
         
         .grid-container {
             display: grid;
@@ -431,9 +374,9 @@
         
         .company-tag {
             background: white;
-            padding: 8px 15px;
+            padding: 10px 20px; /* Ajustado para mayor espacio */
             border-radius: 30px;
-            font-size: 13px;
+            font-size: 15px; /* Tamaño de fuente aumentado */
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
             color: var(--dark);
             transition: all 0.2s;
@@ -479,11 +422,6 @@
             .testimonials {
                 grid-template-columns: 1fr;
             }
-            
-            .chart-wrapper {
-                flex-direction: column;
-                max-height: none;
-            }
         }
     </style>
 </head>
@@ -515,7 +453,6 @@
         
         <div class="section">
             <h2><i class="fas fa-chart-pie"></i>Distribución de Participantes</h2>
-            <!-- Inicio de la nueva sección de gráfica moderna -->
             <div class="dashboard-chart">
                 <div class="stats">
                     <div class="stat-card">
@@ -539,16 +476,7 @@
                         <div class="stat-value">5%</div>
                     </div>
                 </div>
-                
-                <div class="chart-wrapper">
-                    <div class="chart-container">
-                        <canvas id="participantsChart"></canvas>
-                    </div>
-                    
-                    <div class="legend" id="customLegend"></div>
-                </div>
             </div>
-            <!-- Fin de la nueva sección de gráfica moderna -->
         </div>
         
         <div class="section-divider"></div>
@@ -769,7 +697,7 @@
                 </div>
 
                 <div class="testimonial-card">
-                    <p>"Me llevo mucho aprendizaje para mejorar mi trabajo diario. Ha sido una experiencia muy enriquecedora que me ayudará aser más eficiente."</p>
+                    <p>"Me llevo mucho aprendizaje para mejorar mi trabajo diario. Ha sido una experiencia muy enriquecedora que me ayudará a ser más eficiente."</p>
                     <footer>
                         <strong>Liliam</strong>
                     </footer>
@@ -810,113 +738,5 @@
             <p><strong>Portugal Research International SAC</strong>: Consultoría y capacitación con más de una década de experiencia, formando a miles de ejecutivos en Perú y el extranjero (Minsur, Cosapi, Petroperú, Huawei, Entel, entre otros).</p>
         </div>
     </div>
-
-    <script>
-        // Aseguramos que el DOM esté cargado completamente
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctx = document.getElementById('participantsChart').getContext('2d');
-            
-            // Datos para el gráfico
-            const chartData = {
-                labels: [
-                    'Jefes y Gerentes', 
-                    'Analistas y Supervisores', 
-                    'Propietarios de empresa', 
-                    'Funcionarios públicos', 
-                    'Freelance e Independientes'
-                ],
-                datasets: [{
-                    data: [31, 29, 18, 17, 5],
-                    backgroundColor: [
-                        '#2d43e7', // Azul principal (Jefes)
-                        '#4361ee', // Azul secundario (Analistas)
-                        '#5a7cff', // Azul claro (Propietarios)
-                        '#7b93db', // Azul grisáceo (Funcionarios)
-                        '#98b7ff'  // Azul muy claro (Freelance)
-                    ],
-                    borderWidth: 0,
-                    hoverOffset: 15
-                }]
-            };
-            
-            const config = {
-                type: 'doughnut',
-                data: chartData,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    cutout: '70%',
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            backgroundColor: 'rgba(45, 67, 231, 0.9)',
-                            titleFont: {
-                                family: "'Poppins', sans-serif",
-                                size: 14,
-                                weight: 'bold'
-                            },
-                            bodyFont: {
-                                family: "'Poppins', sans-serif",
-                                size: 13
-                            },
-                            padding: 15,
-                            cornerRadius: 8,
-                            displayColors: true,
-                            callbacks: {
-                                label: function(context) {
-                                    return context.label + ': ' + context.raw + '%';
-                                }
-                            }
-                        }
-                    },
-                    animation: {
-                        animateScale: true,
-                        animateRotate: true
-                    }
-                }
-            };
-            
-            const chart = new Chart(ctx, config);
-            
-            // Crear leyenda personalizada
-            const customLegend = document.getElementById('customLegend');
-            
-            chartData.labels.forEach((label, index) => {
-                const item = document.createElement('div');
-                item.className = 'legend-item';
-                
-                const color = document.createElement('div');
-                color.className = 'legend-color';
-                color.style.backgroundColor = chartData.datasets[0].backgroundColor[index];
-                
-                const labelEl = document.createElement('div');
-                labelEl.className = 'legend-label';
-                labelEl.textContent = label;
-                
-                const value = document.createElement('div');
-                value.className = 'legend-value';
-                value.textContent = chartData.datasets[0].data[index] + '%';
-                
-                item.appendChild(color);
-                item.appendChild(labelEl);
-                item.appendChild(value);
-                
-                // Añadir interactividad
-                item.addEventListener('mouseover', () => {
-                    chart.setActiveElements([{datasetIndex: 0, index: index}]);
-                    chart.update();
-                });
-                
-                item.addEventListener('mouseout', () => {
-                    chart.setActiveElements([]);
-                    chart.update();
-                });
-                
-                customLegend.appendChild(item);
-            });
-        });
-    </script>
 </body>
 </html>
