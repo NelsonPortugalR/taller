@@ -194,7 +194,7 @@
             background: white;
             padding: 6px 12px;
             border-radius: 20px;
-            font-size: 12px; /* Reducido para que quepan más etiquetas */
+            font-size: 12px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
             color: var(--dark);
         }
@@ -216,14 +216,14 @@
         .grid-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px; /* Reducido para que quepan más perfiles */
         }
         
         .grid-item {
             background: #f5f8ff;
-            padding: 8px;
+            padding: 6px; /* Reducido para compactar */
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 12px; /* Reducido para que quepan más perfiles */
             color: var(--dark);
             display: flex;
             align-items: center;
@@ -328,12 +328,13 @@
         
         .testimonial-card {
             background: white;
-            padding: 10px;
+            padding: 12px; /* Aumentado para que ocupe más espacio */
             border-radius: 10px;
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
             position: relative;
+            break-inside: avoid; /* Evita que se corte entre páginas */
         }
         
         .testimonial-card::before {
@@ -349,7 +350,7 @@
         
         .testimonial-card p {
             margin: 0 0 8px;
-            font-size: 11px; /* Reducido para que quepan más testimonios */
+            font-size: 12px; /* Aumentado para ocupar más espacio */
             color: var(--dark);
             line-height: 1.3;
             flex-grow: 1;
@@ -561,18 +562,41 @@
                 <h2><i class="fas fa-user-tie"></i>Perfiles Profesionales</h2>
                 <div class="profiles">
                     <div class="grid-container">
-                        <div class="grid-item"><i class="fas fa-user-tie"></i>Jefe de Asuntos Regulatorios</div>
+                        <div class="grid-item"><i class="fas fa-user-tie"></i>Jefe de Asuntos Regulatorios Laborales</div>
                         <div class="grid-item"><i class="fas fa-hard-hat"></i>Ingeniero Civil</div>
+                        <div class="grid-item"><i class="fas fa-user-shield"></i>Especialista en GRD</div>
                         <div class="grid-item"><i class="fas fa-clipboard-check"></i>Consultora ISO</div>
-                        <div class="grid-item"><i class="fas fa-chart-line"></i>Analista de Gestión</div>
-                        <div class="grid-item"><i class="fas fa-tasks"></i>Scrum Master</div>
-                        <div class="grid-item"><i class="fas fa-users-cog"></i>Gerente de Operaciones</div>
-                        <div class="grid-item"><i class="fas fa-gavel"></i>Juez</div>
-                        <div class="grid-item"><i class="fas fa-hands-helping"></i>Coordinadora de Proyectos</div>
-                        <div class="grid-item"><i class="fas fa-user-md"></i>Químico Farmacéutico</div>
-                        <div class="grid-item"><i class="fas fa-chalkboard-teacher"></i>Docente</div>
+                        <div class="grid-item"><i class="fas fa-chart-line"></i>Analista Control de Gestión</div>
+                        <div class="grid-item"><i class="fas fa-user-check"></i>Registrador Público</div>
+                        <div class="grid-item"><i class="fas fa-users-cog"></i>Jefe nacional de adquisición de talento</div>
+                        <div class="grid-item"><i class="fas fa-chalkboard-teacher"></i>Docente escolar</div>
+                        <div class="grid-item"><i class="fas fa-user-cog"></i>Asesor</div>
+                        <div class="grid-item"><i class="fas fa-smile"></i>Analista de customer experience</div>
                         <div class="grid-item"><i class="fas fa-balance-scale"></i>Abogado</div>
-                        <div class="grid-item"><i class="fas fa-laptop-code"></i>Technical Leader</div>
+                        <div class="grid-item"><i class="fas fa-money-bill"></i>Administración y Finanzas</div>
+                        <div class="grid-item"><i class="fas fa-tasks"></i>Scrum Master</div>
+                        <div class="grid-item"><i class="fas fa-user-md"></i>Químico farmacéutico</div>
+                        <div class="grid-item"><i class="fas fa-laptop-code"></i>Technical Líder</div>
+                        <div class="grid-item"><i class="fas fa-chalkboard-teacher"></i>Docente Educación</div>
+                        <div class="grid-item"><i class="fas fa-user-check"></i>Supervisor</div>
+                        <div class="grid-item"><i class="fas fa-project-diagram"></i>Jefe de proyectos</div>
+                        <div class="grid-item"><i class="fas fa-user-graduate"></i>Profesional Especializado</div>
+                        <div class="grid-item"><i class="fas fa-money-check-alt"></i>Especialista en Operaciones de Inversión</div>
+                        <div class="grid-item"><i class="fas fa-industry"></i>Ing. de Planta</div>
+                        <div class="grid-item"><i class="fas fa-user-tie"></i>Sub Gerente General</div>
+                        <div class="grid-item"><i class="fas fa-gavel"></i>Juez</div>
+                        <div class="grid-item"><i class="fas fa-users-cog"></i>Gerente de operaciones</div>
+                        <div class="grid-item"><i class="fas fa-file-alt"></i>Analista Legal</div>
+                        <div class="grid-item"><i class="fas fa-bolt"></i>Especialista en Electricidad</div>
+                        <div class="grid-item"><i class="fas fa-file-medical"></i>Suscriptor de EPS</div>
+                        <div class="grid-item"><i class="fas fa-user-tie"></i>Manager Wholesale Monitoring</div>
+                        <div class="grid-item"><i class="fas fa-users"></i>Jefe Desarrollo Humano</div>
+                        <div class="grid-item"><i class="fas fa-hard-hat"></i>Supervisor de obras</div>
+                        <div class="grid-item"><i class="fas fa-user"></i>Independiente</div>
+                        <div class="grid-item"><i class="fas fa-calculator"></i>Analista Sr. de Contabilidad</div>
+                        <div class="grid-item"><i class="fas fa-user-shield"></i>Gerente de SSOMA</div>
+                        <div class="grid-item"><i class="fas fa-hands-helping"></i>Coordinadora de proyectos sociales</div>
+                        <div class="grid-item"><i class="fas fa-user-tie"></i>Gerente General</div>
                     </div>
                 </div>
             </div>
@@ -660,6 +684,14 @@
                         <p>"Me llevo la apertura a interactuar y apoyarme en la IA, junto con la motivación para seguir insistiendo y mejorando en la utilización de estas herramientas."</p>
                         <footer><strong>Nadya Flores</strong></footer>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página 4 -->
+        <div class="page">
+            <div class="section">
+                <div class="testimonials">
                     <div class="testimonial-card">
                         <p>"Me ha generado mucha expectativa sobre las herramientas de IA y cómo aprovecharlas al máximo para mejorar la productividad y los servicios de mi consultora."</p>
                         <footer><strong>Beatriz Martinez</strong></footer>
@@ -698,7 +730,7 @@
             <div class="section">
                 <h2><i class="fas fa-info-circle"></i>Quiénes Somos</h2>
                 <div class="about-us">
-                    <p><strong>Portugal Research International SAC</strong>: Consultoría con +10 años formando a miles de ejecutivos en Perú y el extranjero (Minsur, Huawei, Entel).</p>
+                    <p><strong>Portugal Research International SAC</strong>, una empresa de consultoría y capacitación con más de una década en el país, que ha capacitado a miles ejecutivos(as) de empresas en el Perú y en el extranjero como Minsur, Cosapi, Petroperú, Huawei, Entel, entre otros.</p>
                 </div>
             </div>
         </div>
