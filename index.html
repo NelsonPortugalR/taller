@@ -155,8 +155,8 @@
         
         .chart-container {
             width: 100%;
-            max-width: 500px;
-            height: 400px;
+            max-width: 600px;
+            height: 450px;
             margin: 0 auto 30px;
             padding: 20px;
             background: white;
@@ -165,6 +165,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+        }
+        
+        /* Asegurar que el canvas del gráfico tenga dimensiones correctas */
+        #participantsChart {
+            position: relative !important;
+            width: 100% !important;
+            height: 400px !important;
         }
         
         .grid-container {
@@ -286,24 +294,6 @@
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
             margin: 30px 0;
-            max-height: 800px;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-        
-        /* Estilizar la barra de desplazamiento para los testimonios */
-        .testimonials::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        .testimonials::-webkit-scrollbar-track {
-            background: #f1f5f9;
-            border-radius: 10px;
-        }
-        
-        .testimonials::-webkit-scrollbar-thumb {
-            background-color: var(--primary);
-            border-radius: 10px;
         }
         
         .testimonial-card {
@@ -728,73 +718,78 @@
     </div>
 
     <script>
-        const ctx = document.getElementById('participantsChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: [
-                    'Jefes y Gerentes (31%)', 
-                    'Analistas y Supervisores (29%)', 
-                    'Propietarios de empresa (18%)', 
-                    'Funcionarios públicos (17%)', 
-                    'Freelance e Independientes (5%)'
-                ],
-                datasets: [{
-                    data: [31, 29, 18, 17, 5],
-                    backgroundColor: [
-                        '#3b82f6', // Azul (Jefes)
-                        '#10b981', // Verde (Analistas)
-                        '#8b5cf6', // Morado (Propietarios)
-                        '#f59e0b', // Amarillo (Funcionarios)
-                        '#ef4444'  // Rojo (Freelance)
+        // Aseguramos que el DOM esté completamente cargado antes de inicializar el gráfico
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('participantsChart').getContext('2d');
+            
+            // Configurar el canvas correctamente
+            ctx.canvas.width = 400;
+            ctx.canvas.height = 400;
+            
+            new Chart(ctx, {
+                type: 'pie', // Cambiado de doughnut a pie para mejor visibilidad
+                data: {
+                    labels: [
+                        'Jefes y Gerentes (31%)', 
+                        'Analistas y Supervisores (29%)', 
+                        'Propietarios de empresa (18%)', 
+                        'Funcionarios públicos (17%)', 
+                        'Freelance e Independientes (5%)'
                     ],
-                    borderColor: '#ffffff',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: { 
-                            font: { size: 12, family: "'Poppins', sans-serif" },
+                    datasets: [{
+                        data: [31, 29, 18, 17, 5],
+                        backgroundColor: [
+                            '#3b82f6', // Azul (Jefes)
+                            '#10b981', // Verde (Analistas)
+                            '#8b5cf6', // Morado (Propietarios)
+                            '#f59e0b', // Amarillo (Funcionarios)
+                            '#ef4444'  // Rojo (Freelance)
+                        ],
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            position: 'right', // Cambiado a la derecha para mejor visualización
+                            labels: { 
+                                font: { size: 12, family: "'Poppins', sans-serif" },
+                                color: '#1e293b',
+                                padding: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                            titleColor: '#1e293b',
+                            bodyColor: '#1e293b',
+                            bodyFont: {
+                                family: "'Poppins', sans-serif"
+                            },
+                            borderColor: '#e2e8f0',
+                            borderWidth: 1,
+                            displayColors: true,
+                            padding: 10,
+                            boxPadding: 5
+                        },
+                        title: {
+                            display: true,
+                            text: 'Distribución por Roles',
+                            font: {
+                                size: 16,
+                                family: "'Poppins', sans-serif",
+                                weight: 'bold'
+                            },
                             color: '#1e293b',
-                            padding: 15,
-                            usePointStyle: true,
-                            pointStyle: 'circle'
-                        }
-                    },
-                    tooltip: {
-                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                        titleColor: '#1e293b',
-                        bodyColor: '#1e293b',
-                        bodyFont: {
-                            family: "'Poppins', sans-serif"
-                        },
-                        borderColor: '#e2e8f0',
-                        borderWidth: 1,
-                        displayColors: true,
-                        padding: 10,
-                        boxPadding: 5
-                    },
-                    title: {
-                        display: true,
-                        text: 'Distribución por Roles',
-                        font: {
-                            size: 16,
-                            family: "'Poppins', sans-serif",
-                            weight: 'bold'
-                        },
-                        color: '#1e293b',
-                        padding: {
-                            bottom: 15
+                            padding: {
+                                bottom: 15
+                            }
                         }
                     }
-                },
-                cutout: '60%'
-            }
+                }
+            });
         });
     </script>
 </body>
