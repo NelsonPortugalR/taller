@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infografía: Taller de Inteligencia Aplicada</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
@@ -24,41 +25,38 @@
             font-family: 'Poppins', sans-serif;
             background: #f1f5f9;
             margin: 0;
-            padding: 20px;
+            padding: 10px;
             color: var(--dark);
         }
         
         .infografia {
-            max-width: 1000px;
+            max-width: 1120px; /* Ajustado para A4 apaisada (aprox. 11.69 pulgadas a 96dpi) */
             margin: 0 auto;
             background: #ffffff;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
         
         header {
             text-align: center;
-            margin-bottom: 40px;
-            position: relative;
+            margin-bottom: 20px;
         }
         
         header::after {
             content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
+            display: block;
+            width: 80px;
             height: 3px;
             background: var(--primary);
             border-radius: 2px;
+            margin: 10px auto;
         }
         
         h1 {
-            font-size: 36px;
+            font-size: 40px;
             color: var(--primary-dark);
-            margin-bottom: 15px;
+            margin: 0 0 10px;
             font-weight: 700;
         }
         
@@ -66,43 +64,36 @@
             display: inline-block;
             background: var(--primary);
             color: white;
-            padding: 6px 12px;
+            padding: 5px 10px;
             border-radius: 20px;
-            font-size: 14px;
-            margin-bottom: 10px;
+            font-size: 16px;
             font-weight: 500;
         }
         
         .highlights {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin: 30px 0;
+            gap: 20px;
+            margin: 20px 0;
             flex-wrap: wrap;
         }
         
         .highlight-card {
             background: linear-gradient(135deg, var(--light), #e0f2fe);
-            padding: 20px;
-            border-radius: 15px;
+            padding: 15px;
+            border-radius: 10px;
             text-align: center;
             flex: 1;
-            min-width: 180px;
-            max-width: 250px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .highlight-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
+            min-width: 150px;
+            max-width: 200px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+            border-left: 3px solid var(--primary);
         }
         
         .highlight-card i {
-            font-size: 32px;
+            font-size: 28px;
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
         
         .highlight-card h3 {
@@ -119,108 +110,132 @@
         }
         
         .section {
-            margin: 50px 0;
-            position: relative;
+            margin: 20px 0;
         }
         
         h2 {
-            font-size: 24px;
+            font-size: 26px;
             color: var(--primary-dark);
-            margin: 0 0 25px;
+            margin: 0 0 15px;
             font-weight: 600;
             display: flex;
             align-items: center;
         }
         
         h2 i {
-            margin-right: 12px;
-            font-size: 22px;
+            margin-right: 10px;
+            font-size: 20px;
             color: var(--primary);
             background: var(--light);
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
         .dashboard-chart {
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
         
         .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-around;
         }
         
         .stat-card {
             background: #f5f8ff;
-            padding: 15px;
-            border-radius: 12px;
-            border-left: 4px solid #2d43e7;
-            box-shadow: 0 4px 10px rgba(45, 67, 231, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            border-left: 3px solid #2d43e7;
+            box-shadow: 0 3px 8px rgba(45, 67, 231, 0.1);
+            flex: 1;
+            min-width: 120px;
+            max-width: 150px;
+            text-align: center;
         }
         
         .stat-label {
-            font-size: 13px;
+            font-size: 14px;
             color: #606990;
             margin-bottom: 5px;
         }
         
         .stat-value {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             color: #2a3050;
         }
         
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        .companies-profiles {
+            display: flex;
             gap: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
-        .grid-item {
+        .companies, .profiles {
+            flex: 1;
             background: white;
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
-            transition: transform 0.2s;
             border-left: 3px solid var(--info);
         }
         
-        .grid-item:hover {
-            transform: translateY(-3px);
+        .companies h3, .profiles h3 {
+            font-size: 20px;
+            margin: 0 0 10px;
+            color: var(--primary-dark);
         }
         
-        .grid-item p {
-            margin: 0;
-            font-size: 14px;
+        .companies-cloud, .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .company-tag {
+            background: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+            color: var(--dark);
+        }
+        
+        .grid-item {
+            background: #f5f8ff;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 16px;
             color: var(--dark);
             display: flex;
             align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
         }
         
         .grid-item i {
             color: var(--info);
-            margin-right: 10px;
+            margin-right: 8px;
         }
         
         .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: nowrap;
         }
         
         .experience-card {
             background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-width: 200px;
             position: relative;
             overflow: hidden;
         }
@@ -230,7 +245,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 5px;
+            width: 4px;
             height: 100%;
         }
         
@@ -239,21 +254,20 @@
         .experience-card.intermediate::before { background: var(--success); }
         
         .experience-card h3 {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 0;
+            margin: 0 0 10px;
             font-size: 18px;
             font-weight: 600;
             color: var(--dark);
-            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
         
         .experience-card h3 span {
             font-size: 16px;
             color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
+            padding: 4px 8px;
+            border-radius: 15px;
         }
         
         .experience-card.beginner h3 span { background: var(--warning); }
@@ -264,11 +278,12 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            font-size: 14px;
         }
         
         .list-group li {
             display: flex;
-            padding: 10px 0;
+            padding: 5px 0;
             border-bottom: 1px solid #f1f5f9;
         }
         
@@ -278,39 +293,34 @@
         
         .list-group i {
             color: var(--primary);
-            margin-right: 10px;
-            width: 20px;
+            margin-right: 8px;
+            width: 18px;
             text-align: center;
         }
         
         .tools-container {
             background: var(--light);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
         }
         
         .testimonials {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
         }
         
         .testimonial-card {
             background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
             position: relative;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
         
         .testimonial-card::before {
@@ -318,91 +328,75 @@
             font-family: 'Font Awesome 5 Free';
             font-weight: 900;
             position: absolute;
-            top: 15px;
-            left: 15px;
-            font-size: 18px;
+            top: 10px;
+            left: 10px;
+            font-size: 16px;
             color: rgba(43, 108, 176, 0.1);
         }
         
         .testimonial-card p {
-            margin: 0 0 15px;
+            margin: 0 0 10px;
             font-size: 14px;
             color: var(--dark);
-            line-height: 1.5;
+            line-height: 1.4;
             flex-grow: 1;
         }
         
         .testimonial-card footer {
             margin-top: auto;
             border-top: 1px solid #f1f5f9;
-            padding-top: 15px;
+            padding-top: 10px;
         }
         
         .testimonial-card strong {
             color: var(--primary-dark);
             font-weight: 600;
-            display: block;
+            font-size: 14px;
         }
         
         .about-us {
             background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-            padding: 25px;
-            border-radius: 15px;
+            padding: 15px;
+            border-radius: 10px;
             text-align: center;
-            margin-top: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
         }
         
         .about-us p {
             margin: 0;
-            font-size: 15px;
+            font-size: 16px;
             color: var(--primary-dark);
-            line-height: 1.6;
+            line-height: 1.5;
         }
         
         .about-us strong {
             font-weight: 600;
         }
         
-        .companies-cloud {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .company-tag {
-            background: white;
-            padding: 10px 20px; /* Ajustado para mayor espacio */
-            border-radius: 30px;
-            font-size: 15px; /* Tamaño de fuente aumentado */
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
-            color: var(--dark);
-            transition: all 0.2s;
-        }
-        
-        .company-tag:hover {
+        .download-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
             background: var(--primary);
             color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
         }
         
-        .section-divider {
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--primary), transparent);
-            margin: 40px 0;
-            opacity: 0.3;
+        .download-btn:hover {
+            background: var(--primary-dark);
         }
         
         @media (max-width: 768px) {
             .infografia {
-                padding: 25px;
+                padding: 15px;
             }
             
             h1 {
-                font-size: 28px;
+                font-size: 32px;
             }
             
             .highlights {
@@ -416,17 +410,45 @@
             }
             
             .experience-grid {
-                grid-template-columns: 1fr;
+                flex-direction: column;
             }
             
             .testimonials {
                 grid-template-columns: 1fr;
             }
+            
+            .companies-profiles {
+                flex-direction: column;
+            }
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+
+            .infografia {
+                box-shadow: none;
+                padding: 10px;
+                width: 1120px;
+                max-width: 1120px;
+            }
+
+            .download-btn {
+                display: none;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="infografia">
+    <button class="download-btn" onclick="generatePDF()">Descargar como PDF</button>
+
+    <div class="infografia" id="infografia">
         <header>
             <span class="tag">7ma Edición</span>
             <h1>Taller de Inteligencia Aplicada</h1>
@@ -479,72 +501,35 @@
             </div>
         </div>
         
-        <div class="section-divider"></div>
-        
         <div class="section">
-            <h2><i class="fas fa-building"></i>Empresas Participantes</h2>
-            <div class="companies-cloud">
-                <span class="company-tag">BBVA Perú</span>
-                <span class="company-tag">Pacífico Seguros</span>
-                <span class="company-tag">Financiera Confianza</span>
-                <span class="company-tag">MEF</span>
-                <span class="company-tag">SUNARP</span>
-                <span class="company-tag">PageGroup</span>
-                <span class="company-tag">Ajinomoto</span>
-                <span class="company-tag">OSITRAN</span>
-                <span class="company-tag">Osinergmin</span>
-                <span class="company-tag">AFP Integra</span>
-                <span class="company-tag">Indra Perú</span>
-                <span class="company-tag">Corte Suprema</span>
-                <span class="company-tag">5S Consultores</span>
-                <span class="company-tag">GRD GEOCONSULTORES</span>
-                <span class="company-tag">Inteligo Perú</span>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2><i class="fas fa-user-tie"></i>Perfiles Profesionales</h2>
-            <div class="grid-container">
-                <div class="grid-item">
-                    <p><i class="fas fa-user-tie"></i>Jefe de Asuntos Regulatorios</p>
+            <h2><i class="fas fa-building"></i>Empresas y Perfiles</h2>
+            <div class="companies-profiles">
+                <div class="companies">
+                    <h3>Empresas Participantes</h3>
+                    <div class="companies-cloud">
+                        <span class="company-tag">BBVA Perú</span>
+                        <span class="company-tag">Pacífico Seguros</span>
+                        <span class="company-tag">MEF</span>
+                        <span class="company-tag">SUNARP</span>
+                        <span class="company-tag">PageGroup</span>
+                        <span class="company-tag">Ajinomoto</span>
+                        <span class="company-tag">OSITRAN</span>
+                        <span class="company-tag">Indra Perú</span>
+                    </div>
                 </div>
-                <div class="grid-item">
-                    <p><i class="fas fa-hard-hat"></i>Ingeniero Civil</p>
-                </div>
-                <div class="grid-item">
-                    <p><i class="fas fa-clipboard-check"></i>Consultora ISO</p>
-                </div>
-                <div class="grid-item">
-                    <p><i class="fas fa-chart-line"></i>Analista de Gestión</p>
-                </div>
-                <div class="grid-item">
-                    <p><i class="fas fa-tasks"></i>Scrum Master</p>
-                </div>
-                <div class="grid-item">
-                    <p><i class="fas fa-users-cog"></i>Gerente de Operaciones</p>
-                </div>
-                <div class="grid-item">
-                    <p><i class="fas fa-gavel"></i>Juez</p>
-                </div>
-                <div class="grid-item">
-                    <p><i class="fas fa-hands-helping"></i>Coordinadora de Proyectos</p>
-                </div>
-                <div class="grid-item">
-                    <p><i class="fas fa-user-md"></i>Químico Farmacéutico</p>
-                </div>
-                <div class="grid-item">
-                    <p><i class="fas fa-chalkboard-teacher"></i>Docente</p>
-                </div>
-                <div class="grid-item">
-                    <p><i class="fas fa-balance-scale"></i>Abogado</p>
-                </div>
-                <div class="grid-item">
-                    <p><i class="fas fa-laptop-code"></i>Technical Leader</p>
+                <div class="profiles">
+                    <h3>Perfiles Profesionales</h3>
+                    <div class="grid-container">
+                        <div class="grid-item"><i class="fas fa-user-tie"></i>Jefe de Asuntos Regulatorios</div>
+                        <div class="grid-item"><i class="fas fa-hard-hat"></i>Ingeniero Civil</div>
+                        <div class="grid-item"><i class="fas fa-clipboard-check"></i>Consultora ISO</div>
+                        <div class="grid-item"><i class="fas fa-chart-line"></i>Analista de Gestión</div>
+                        <div class="grid-item"><i class="fas fa-tasks"></i>Scrum Master</div>
+                        <div class="grid-item"><i class="fas fa-gavel"></i>Juez</div>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <div class="section-divider"></div>
         
         <div class="section">
             <h2><i class="fas fa-robot"></i>Experiencia y Usos de la IA</h2>
@@ -552,27 +537,25 @@
                 <div class="experience-card beginner">
                     <h3>Sin experiencia <span>50%</span></h3>
                     <ul class="list-group">
-                        <li><i class="fas fa-check-circle"></i><strong>Usos actuales:</strong> No la usan, ChatGPT básico, traducciones</li>
-                        <li><i class="fas fa-lightbulb"></i><strong>Motivación:</strong> Simplificar su día a día</li>
-                        <li><i class="fas fa-bullseye"></i><strong>Objetivos:</strong> Explorar herramientas, mejorar búsquedas, crear contenido simple</li>
+                        <li><i class="fas fa-check-circle"></i><strong>Usos:</strong> No la usan, ChatGPT, traducciones</li>
+                        <li><i class="fas fa-lightbulb"></i><strong>Motivación:</strong> Simplificar su día</li>
+                        <li><i class="fas fa-bullseye"></i><strong>Objetivos:</strong> Explorar herramientas, crear contenido</li>
                     </ul>
                 </div>
-                
                 <div class="experience-card basic">
                     <h3>Nivel básico <span>35%</span></h3>
                     <ul class="list-group">
-                        <li><i class="fas fa-check-circle"></i><strong>Usos actuales:</strong> Búsquedas, resúmenes, correos, publicaciones</li>
-                        <li><i class="fas fa-lightbulb"></i><strong>Motivación:</strong> Ahorrar tiempo, ser más práctico</li>
-                        <li><i class="fas fa-bullseye"></i><strong>Objetivos:</strong> Optimizar tareas, mejorar documentos, aplicación especializada</li>
+                        <li><i class="fas fa-check-circle"></i><strong>Usos:</strong> Búsquedas, resúmenes, correos</li>
+                        <li><i class="fas fa-lightbulb"></i><strong>Motivación:</strong> Ahorrar tiempo</li>
+                        <li><i class="fas fa-bullseye"></i><strong>Objetivos:</strong> Optimizar tareas, mejorar docs</li>
                     </ul>
                 </div>
-                
                 <div class="experience-card intermediate">
                     <h3>Nivel intermedio <span>15%</span></h3>
                     <ul class="list-group">
-                        <li><i class="fas fa-check-circle"></i><strong>Usos actuales:</strong> Presentaciones, reportes, redacción avanzada, plantillas</li>
-                        <li><i class="fas fa-lightbulb"></i><strong>Motivación:</strong> Optimizar trabajo y crecer profesionalmente</li>
-                        <li><i class="fas fa-bullseye"></i><strong>Objetivos:</strong> Automatizar tareas, análisis de datos, conectar herramientas</li>
+                        <li><i class="fas fa-check-circle"></i><strong>Usos:</strong> Presentaciones, reportes</li>
+                        <li><i class="fas fa-lightbulb"></i><strong>Motivación:</strong> Crecer con IA</li>
+                        <li><i class="fas fa-bullseye"></i><strong>Objetivos:</strong> Automatizar, analizar datos</li>
                     </ul>
                 </div>
             </div>
@@ -582,161 +565,53 @@
             <h2><i class="fas fa-tools"></i>Herramientas Aprendidas</h2>
             <div class="tools-container">
                 <ul class="list-group">
-                    <li>
-                        <i class="fas fa-brain"></i>
-                        <div>
-                            <strong>Modelos de lenguaje</strong>
-                            <p>Grok, Claude, Deepseek, ChatGPT y más</p>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-video"></i>
-                        <div>
-                            <strong>Suite completa de herramientas</strong>
-                            <p>Más de 9 herramientas de IA para generación de video, transcripción de audio, visión por computadora, agentes de investigación, formularios automatizados, presentaciones inteligentes y más</p>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-cogs"></i>
-                        <div>
-                            <strong>Automatización</strong>
-                            <p>Zapier y flujos de trabajo eficientes para automatizar procesos</p>
-                        </div>
-                    </li>
+                    <li><i class="fas fa-brain"></i><strong>Modelos de lenguaje:</strong> Grok, ChatGPT, etc.</li>
+                    <li><i class="fas fa-video"></i><strong>Suite de herramientas:</strong> 9+ herramientas de IA para video, audio, etc.</li>
+                    <li><i class="fas fa-cogs"></i><strong>Automatización:</strong> Zapier y flujos eficientes</li>
                 </ul>
             </div>
         </div>
         
-        <div class="section-divider"></div>
-        
         <div class="section">
-            <h2><i class="fas fa-comments"></i>Testimonios de Participantes</h2>
+            <h2><i class="fas fa-comments"></i>Testimonios</h2>
             <div class="testimonials">
                 <div class="testimonial-card">
-                    <p>"En verdad agradecerte porque yo había analizado muchos programas para poder ingresar a ver este tema de la Inteligencia Artificial y las aplicaciones en sí, y en verdad que he quedado más que sorprendido con la cantidad de herramientas que hay, lo que pueden hacer y ver cómo las mismas IA's nos pueden guiar para sacarle mayor provecho. Me has abierto la mente de una forma en que no lo había imaginado."</p>
-                    <footer>
-                        <strong>Víctor Díaz</strong>
-                    </footer>
+                    <p>"En verdad que he quedado más que sorprendido con la cantidad de herramientas que hay y lo que pueden hacer. Me has abierto la mente de una forma en que no lo había imaginado."</p>
+                    <footer><strong>Víctor Díaz</strong></footer>
                 </div>
-                
                 <div class="testimonial-card">
-                    <p>"Los felicito porque el curso ha cumplido todas mis expectativas. Yo no soy muy tecnológica, recién estoy entrando a este mundo, pero creo que lo has explicado de una manera bastante amigable y clara. Rescato mucho el hecho de haber empezado el curso diciéndonos que debemos perder el miedo, creer en nosotros y confiar; creo que eso es algo muy importante."</p>
-                    <footer>
-                        <strong>Ximena Subiría</strong>
-                    </footer>
+                    <p>"El curso ha cumplido todas mis expectativas. Lo has explicado de una manera bastante amigable y clara, me sorprende la manera tan fácil con la que nos has llevado a usar las herramientas."</p>
+                    <footer><strong>Ximena Subiría</strong></footer>
                 </div>
-                
                 <div class="testimonial-card">
-                    <p>"Me ha servido muchísimo, estaba con la idea de poder llevar algo así desde el año pasado pero es un poco difícil encontrar uno bueno, a Dios gracias encontré este taller."</p>
-                    <footer>
-                        <strong>Noel Villanueva</strong>
-                    </footer>
+                    <p>"Lo que más valoro es descubrir todas las posibilidades para mejorar la productividad. El taller me ayudó a optimizar varias áreas de mi trabajo."</p>
+                    <footer><strong>Charly Cervera</strong></footer>
                 </div>
-                
-                <div class="testimonial-card">
-                    <p>"Lo que más valoro es descubrir todas las posibilidades para mejorar la productividad utilizando herramientas que tenía a la mano pero que no aprovechaba a su máximo potencial. El taller me ayudó a optimizar varias áreas de mi trabajo."</p>
-                    <footer>
-                        <strong>Charly Cervera</strong>
-                    </footer>
-                </div>
-
-                <div class="testimonial-card">
-                    <p>"He entrado a un nuevo mundo que antes veía muy complejo. Gracias a Nelson, se me han abierto muchas posibilidades y resultó ser más fácil de lo que pensaba, desde la mentalidad hasta la automatización de tareas."</p>
-                    <footer>
-                        <strong>Juan García</strong>
-                    </footer>
-                </div>
-
-                <div class="testimonial-card">
-                    <p>"Quiero expresar mi sincero agradecimiento por este curso de Inteligencia Artificial. Ha sido una experiencia invaluable que me ha permitido adquirir conocimientos en un campo tan apasionante y en constante evolución."</p>
-                    <footer>
-                        <strong>Victor Hugo Condor</strong>
-                    </footer>
-                </div>
-
-                <div class="testimonial-card">
-                    <p>"Excelente tu disponibilidad para enseñar en esta nueva aventura de la IA. La forma en que nos has guiado ha sido genial y muy práctica para nuestro aprendizaje."</p>
-                    <footer>
-                        <strong>Hugo Saniz</strong>
-                    </footer>
-                </div>
-
-                <div class="testimonial-card">
-                    <p>"Me impresiona la diversidad de aplicaciones de la IA y su impacto positivo en nuestra vida diaria. Me ha abierto los ojos a todas estas posibilidades."</p>
-                    <footer>
-                        <strong>Raúl Ospina</strong>
-                    </footer>
-                </div>
-
-                <div class="testimonial-card">
-                    <p>"Me llevo la apertura a interactuar y apoyarme en la IA, junto con la motivación para seguir insistiendo y mejorando en la utilización de estas herramientas."</p>
-                    <footer>
-                        <strong>Nadya Flores</strong>
-                    </footer>
-                </div>
-
-                <div class="testimonial-card">
-                    <p>"Me ha generado mucha expectativa sobre las herramientas de IA y cómo aprovecharlas al máximo para mejorar la productividad y los servicios de mi consultora."</p>
-                    <footer>
-                        <strong>Beatriz Martinez</strong>
-                    </footer>
-                </div>
-
                 <div class="testimonial-card">
                     <p>"Ha sido una clase muy enriquecedora que nos ha mostrado cómo podemos hacer las cosas de manera más rápida y eficiente. Las herramientas son realmente útiles."</p>
-                    <footer>
-                        <strong>Fiorella Gallo</strong>
-                    </footer>
-                </div>
-
-                <div class="testimonial-card">
-                    <p>"Debemos seguir explorando estas herramientas que están disponibles para ser mejores en todos los frentes de la vida. El potencial de mejora es enorme."</p>
-                    <footer>
-                        <strong>Juan Carlos Vasquez</strong>
-                    </footer>
-                </div>
-
-                <div class="testimonial-card">
-                    <p>"Me llevo mucho aprendizaje para mejorar mi trabajo diario. Ha sido una experiencia muy enriquecedora que me ayudará a ser más eficiente."</p>
-                    <footer>
-                        <strong>Liliam</strong>
-                    </footer>
-                </div>
-
-                <div class="testimonial-card">
-                    <p>"Nos llevamos la tarea de explorar diferentes y múltiples opciones para mejorar nuestra productividad. Hay tanto por descubrir y aplicar en nuestro día a día."</p>
-                    <footer>
-                        <strong>Sigrid</strong>
-                    </footer>
-                </div>
-
-                <div class="testimonial-card">
-                    <p>"He descubierto que es una herramienta muy versátil y útil para todo tipo de tareas. Me sorprende la cantidad de aplicaciones que tiene en diferentes áreas."</p>
-                    <footer>
-                        <strong>Ingrid Alexandra Maldonado</strong>
-                    </footer>
-                </div>
-
-                <div class="testimonial-card">
-                    <p>"Son herramientas prácticas para aumentar la productividad en la vida diaria. Me voy con mucha hambre por seguir aprendiendo y aplicando lo aprendido."</p>
-                    <footer>
-                        <strong>Juliano Seminario</strong>
-                    </footer>
-                </div>
-
-                <div class="testimonial-card">
-                    <p>"He aprendido a enlazar mejor mis preguntas con estas nuevas herramientas. Me entusiasma ver todas las posibilidades que se abren ante nosotros."</p>
-                    <footer>
-                        <strong>Míriam Jiménez</strong>
-                    </footer>
+                    <footer><strong>Fiorella Gallo</strong></footer>
                 </div>
             </div>
         </div>
         
         <div class="about-us">
             <h2><i class="fas fa-info-circle"></i>Quiénes Somos</h2>
-            <p><strong>Portugal Research International SAC</strong>: Consultoría y capacitación con más de una década de experiencia, formando a miles de ejecutivos en Perú y el extranjero (Minsur, Cosapi, Petroperú, Huawei, Entel, entre otros).</p>
+            <p><strong>Portugal Research International SAC</strong>: Consultoría con +10 años formando a miles de ejecutivos en Perú y el extranjero (Minsur, Huawei, Entel).</p>
         </div>
     </div>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('infografia');
+            const opt = {
+                margin: [0.2, 0.2], // Márgenes pequeños para aprovechar espacio
+                filename: 'Infografia_Taller_IA.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' } // A4 apaisada
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+    </script>
 </body>
 </html>
