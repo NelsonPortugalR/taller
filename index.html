@@ -207,10 +207,12 @@
             padding: 32px 40px; /* Aumentado el padding lateral */
             border-radius: 16px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            max-width: 1500px;
+            max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
             flex-wrap: wrap;
+            gap: 30px; /* Aumenta el gap de 20px a 30px para más espacio entre columnas */
+
         }
         
         .info-item {
@@ -243,6 +245,8 @@
         .info-item-value {
             font-weight: 700;
             font-size: 18px;
+            word-break: break-word; /* Añade esta línea para que el texto se ajuste */
+
         }
         
         .price-value {
@@ -1539,7 +1543,7 @@
             
             <div class="info-item">
                 <div class="info-item-title">PREFERENCIAL</div>
-                <div class="info-item-value" style="color: var(--primary); font-weight: 700; font-size: 20px;">S/ 450</div>
+                <div class="info-item-value" style="color: var(--primary); font-weight: 700; font-size: 18px;">S/ 450</div>
             </div>
         </div>
     </div>
