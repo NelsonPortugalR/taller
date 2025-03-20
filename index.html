@@ -3,38 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taller de Inteligencia Artificial Aplicada | Nelson Portugal</title>
-    <meta name="description" content="Integra la IA en tus actividades diarias, haz las cosas 10 veces más rápido y sé 10 veces más creativo(a). Taller 100% práctico con Nelson Portugal.">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="https://via.placeholder.com/32x32" type="image/png">
-    
-    <!-- Google Fonts -->
+    <title>Taller de Inteligencia Artificial Aplicada - Nelson Portugal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS Animation Library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
         :root {
-            --primary: #3ba18e;
-            --primary-dark: #348e7e;
-            --primary-light: #dcf2ef;
-            --secondary: #46688f;
-            --dark: #1a1a1a;
-            --gray: #666;
-            --light-gray: #f5f5f5;
-            --white: #ffffff;
-            --success: #28a745;
-            --warning: #ffc107;
-            --danger: #dc3545;
-            --border-radius: 8px;
-            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #16a34a;
+            --warning: #eab308;
+            --light-bg: #f1f5f9;
         }
         
         * {
@@ -44,11 +28,9 @@
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
-            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
             line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
             background-color: #fff;
         }
         
@@ -59,2208 +41,1365 @@
             padding: 0 20px;
         }
         
-        section {
-            padding: 80px 0;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-        }
-        
-        h2 {
-            font-size: 2.5rem;
-        }
-        
-        h3 {
-            font-size: 1.75rem;
-        }
-        
-        p {
-            margin-bottom: 20px;
-        }
-        
-        a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        a:hover {
-            color: var(--primary-dark);
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-align: center;
-            border-radius: var(--border-radius);
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            color: var(--white);
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-secondary {
-            background-color: var(--secondary);
-            color: var(--white);
-        }
-        
-        .btn-secondary:hover {
-            background-color: #3a5678;
-            color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-lg {
-            padding: 18px 36px;
-            font-size: 1.2rem;
-        }
-        
-        .text-center {
-            text-align: center;
-        }
-        
-        .text-right {
-            text-align: right;
-        }
-        
-        .text-primary {
-            color: var(--primary);
-        }
-        
-        .text-secondary {
-            color: var(--secondary);
-        }
-        
-        .text-light {
-            color: var(--white);
-        }
-        
-        .bg-primary {
-            background-color: var(--primary);
-        }
-        
-        .bg-secondary {
-            background-color: var(--secondary);
-        }
-        
-        .bg-dark {
-            background-color: var(--dark);
-        }
-        
-        .bg-light {
-            background-color: var(--light-gray);
-        }
-        
-        .section-title {
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--primary);
-        }
-        
-        .mb-0 {
-            margin-bottom: 0;
-        }
-        
-        .mb-1 {
-            margin-bottom: 10px;
-        }
-        
-        .mb-2 {
-            margin-bottom: 20px;
-        }
-        
-        .mb-3 {
-            margin-bottom: 30px;
-        }
-        
-        .mb-4 {
-            margin-bottom: 40px;
-        }
-        
-        .mb-5 {
-            margin-bottom: 50px;
-        }
-        
-        .py-6 {
-            padding-top: 60px;
-            padding-bottom: 60px;
-        }
-        
-        .py-8 {
-            padding-top: 80px;
-            padding-bottom: 80px;
-        }
-        
         /* Header */
-        .header {
-            position: fixed;
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            z-index: 100;
         }
         
-        .header.sticky {
-            background-color: var(--white);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header .container {
+        .navbar {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            height: 80px;
+            align-items: center;
+            padding: 16px 0;
         }
         
         .logo {
-            font-size: 1.8rem;
+            font-size: 24px;
             font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .nav-menu {
-            display: flex;
-            align-items: center;
-        }
-        
-        .nav-list {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-item {
-            margin-left: 30px;
-        }
-        
-        .nav-link {
-            font-size: 1rem;
-            font-weight: 500;
             color: var(--dark);
-            transition: all 0.3s ease;
+            text-decoration: none;
         }
         
-        .nav-link:hover {
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
             color: var(--primary);
         }
         
-        .hamburger {
-            display: none;
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
             cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
         
-        .bar {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin: 5px auto;
-            transition: all 0.3s ease;
-            background-color: var(--dark);
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .secondary-button {
+            background-color: white;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .secondary-button:hover {
+            background-color: var(--light-bg);
+        }
+        
+        /* Banner */
+        .banner {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: 500;
         }
         
         /* Hero Section */
         .hero {
-            position: relative;
-            background: linear-gradient(45deg, #1a1a1a 0%, #333333 100%);
-            color: var(--white);
-            padding: 180px 0 100px;
-            overflow: hidden;
+            padding: 80px 0;
+            background-color: var(--light-bg);
+            text-align: center;
         }
         
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
-            opacity: 0.15;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
+        .hero-tag {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 18px;
         }
         
         .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
             margin-bottom: 20px;
-            font-size: 4rem;
+            line-height: 1.2;
         }
         
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
+        .hero-subtitle {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--gray);
         }
         
         .hero-buttons {
             display: flex;
-            gap: 15px;
-            margin-top: 30px;
-        }
-        
-        .hero-cta {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(59, 161, 142, 0.7);
-            }
-            
-            70% {
-                transform: scale(1.05);
-                box-shadow: 0 0 0 15px rgba(59, 161, 142, 0);
-            }
-            
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(59, 161, 142, 0);
-            }
-        }
-        
-        .hero-video {
-            position: relative;
-            margin-top: 40px;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: var(--border-radius);
-        }
-        
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 100px 0;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-box {
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--box-shadow);
-            transition: all 0.3s ease;
-        }
-        
-        .feature-box:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature-icon {
-            display: flex;
-            align-items: center;
+            gap: 16px;
             justify-content: center;
-            width: 70px;
-            height: 70px;
-            margin-bottom: 20px;
-            border-radius: 50%;
-            background-color: var(--primary-light);
-            color: var(--primary);
-            font-size: 1.8rem;
+            margin-top: 32px;
         }
         
-        .feature-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        
-        /* Why Choose Us Section */
-        .why-choose {
-            background-color: var(--light-gray);
-            padding: 100px 0;
-        }
-        
-        .reasons-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        
-        .reason-box {
+        /* Key Info Bar */
+        .key-info {
             display: flex;
-            align-items: flex-start;
-            background-color: var(--white);
-            padding: 25px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-        
-        .reason-icon {
-            flex-shrink: 0;
-            margin-right: 15px;
-            font-size: 1.3rem;
-            color: var(--primary);
-        }
-        
-        .reason-content h4 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-        
-        .reason-content p {
-            font-size: 0.95rem;
-            margin-bottom: 0;
-        }
-        
-        /* Curriculum Section */
-        .curriculum {
-            padding: 100px 0;
-        }
-        
-        .session-tabs {
-            display: flex;
+            justify-content: space-around;
+            background-color: white;
+            padding: 24px;
+            margin-top: -30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
             flex-wrap: wrap;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #e0e0e0;
         }
         
-        .session-tab {
-            padding: 15px 25px;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            font-weight: 600;
-            transition: all 0.3s ease;
+        .info-item {
+            text-align: center;
+            padding: 12px;
         }
         
-        .session-tab:hover {
-            color: var(--primary);
-        }
-        
-        .session-tab.active {
-            color: var(--primary);
-            border-color: var(--primary);
-        }
-        
-        .session-content {
-            display: none;
-            padding: 30px;
-            background: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-        
-        .session-content.active {
-            display: block;
-        }
-        
-        .session-date {
-            display: inline-block;
-            padding: 5px 15px;
-            background: var(--primary-light);
-            color: var(--primary);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .session-content h3 {
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            color: var(--primary);
-        }
-        
-        .session-topics {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-        
-        .session-topics li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        
-        .session-topics i {
-            color: var(--primary);
-            margin-right: 10px;
-            margin-top: 5px;
-        }
-        
-        /* Instructor Section */
-        .instructor {
-            padding: 100px 0;
-            background-color: var(--light-gray);
-        }
-        
-        .instructor-content {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .instructor-image {
-            flex: 0 0 300px;
-        }
-        
-        .instructor-image img {
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-        
-        .instructor-info {
-            flex: 1;
-        }
-        
-        .instructor-name {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        .instructor-title {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+        .info-item-title {
+            font-weight: 700;
+            font-size: 14px;
             color: var(--gray);
+            margin-bottom: 8px;
         }
         
-        .instructor-bio {
-            margin-bottom: 25px;
+        .info-item-value {
+            font-weight: 600;
+            font-size: 16px;
         }
         
-        .credentials {
-            list-style: none;
-            margin-bottom: 25px;
-        }
-        
-        .credentials li {
+        .price-value {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 10px;
+            flex-direction: column;
+            align-items: center;
         }
         
-        .credentials i {
-            color: var(--primary);
-            margin-right: 10px;
-            margin-top: 5px;
+        .regular-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 14px;
         }
         
-        /* Tools Section */
-        .tools {
-            padding: 100px 0;
+        .discount-price {
+            color: var(--success);
+            font-weight: 700;
         }
         
-        .tools-categories {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .tools-category {
-            flex: 1 1 calc(50% - 15px);
-            min-width: 300px;
-            background: var(--white);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--box-shadow);
-        }
-        
-        .tools-category h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary-light);
-            color: var(--primary);
-        }
-        
-        .tools-list {
-            list-style: none;
-        }
-        
-        .tools-list li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        
-        .tools-list i {
-            color: var(--primary);
-            margin-right: 10px;
-            margin-top: 5px;
-        }
-        
-        /* Pricing Section */
-        .pricing {
-            padding: 100px 0;
-            background-color: var(--light-gray);
-        }
-        
-        .pricing-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .pricing-box {
-            flex: 0 0 calc(50% - 15px);
-            max-width: 500px;
-            background: var(--white);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: all 0.3s ease;
-        }
-        
-        .pricing-box:hover {
-            transform: translateY(-10px);
-        }
-        
-        .pricing-header {
-            padding: 30px;
-            background: var(--primary);
-            color: var(--white);
+        /* Credibility */
+        .credibility {
+            padding: 80px 0;
             text-align: center;
         }
         
-        .pricing-title {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-        
-        .pricing-price {
-            font-size: 2.5rem;
+        .section-title {
+            font-size: 32px;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 40px;
+            text-align: center;
         }
         
-        .pricing-price .currency {
-            font-size: 1.5rem;
-            font-weight: 600;
-            vertical-align: top;
-        }
-        
-        .pricing-price .original {
-            font-size: 1.5rem;
-            text-decoration: line-through;
-            opacity: 0.8;
-            margin-right: 10px;
-        }
-        
-        .pricing-body {
-            padding: 30px;
-        }
-        
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-        
-        .pricing-features li {
+        .credibility-stats {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
         
-        .pricing-features i {
+        .credibility-stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
             color: var(--primary);
-            margin-right: 10px;
-            margin-top: 5px;
+            margin-bottom: 8px;
         }
         
-        /* Testimonials Section */
-        .testimonials {
-            padding: 100px 0;
+        .stat-label {
+            font-weight: 500;
+            color: var(--gray);
         }
         
-        .testimonial-grid {
+        .companies {
+            margin: 40px 0;
+        }
+        
+        .companies-title {
+            font-weight: 600;
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+        
+        .companies-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .company-logo {
+            height: 40px;
+            opacity: 0.8;
+        }
+        
+        /* Curriculum */
+        .curriculum {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .sessions {
+            margin-top: 40px;
+        }
+        
+        .session-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+        
+        .session-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        
+        .session-icon {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 16px;
+        }
+        
+        .session-title {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .session-date {
+            font-weight: 500;
+            color: var(--gray);
+        }
+        
+        .session-subtitle {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+        
+        .session-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        
+        .content-section h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        
+        .content-list {
+            list-style-type: none;
+        }
+        
+        .content-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 28px;
+        }
+        
+        .content-list li:before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 24px;
+            top: -5px;
+        }
+        
+        /* Tools */
+        .tools {
+            padding: 80px 0;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        
+        .tool-card {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tool-name {
+            font-weight: 600;
+            margin-top: 12px;
+        }
+        
+        /* Target Audience */
+        .audience {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .audience-cards {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            gap: 24px;
+            margin-top: 40px;
+        }
+        
+        .audience-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .audience-card i {
+            color: var(--primary);
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+        
+        .audience-card p {
+            color: var(--gray);
+            margin-top: 12px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
         }
         
         .testimonial-card {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--box-shadow);
+            background-color: var(--light-bg);
+            border-radius: 12px;
+            padding: 24px;
             position: relative;
-        }
-        
-        .testimonial-card::before {
-            content: '\f10d';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 1.5rem;
-            color: rgba(59, 161, 142, 0.2);
         }
         
         .testimonial-content {
             font-style: italic;
-            margin-bottom: 20px;
+            color: var(--dark);
+            margin-bottom: 16px;
         }
         
         .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .testimonial-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-            background-color: var(--primary-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-weight: 700;
-        }
-        
-        .testimonial-info {
-            flex: 1;
-        }
-        
-        .testimonial-name {
             font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
         }
         
         .testimonial-role {
-            font-size: 0.9rem;
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .quote-icon {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            color: var(--primary);
+            opacity: 0.2;
+            font-size: 48px;
+        }
+        
+        /* Benefits */
+        .benefits {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .benefit-icon {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+        
+        .benefit-title {
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+        
+        .benefit-description {
             color: var(--gray);
         }
         
-        .testimonial-video {
-            margin-top: 50px;
+        /* Instructor */
+        .instructor {
+            padding: 80px 0;
         }
         
-        /* FAQ Section */
-        .faq {
-            padding: 100px 0;
-            background-color: var(--light-gray);
-        }
-        
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            margin-bottom: 15px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-        }
-        
-        .faq-question {
-            position: relative;
-            padding: 20px;
-            cursor: pointer;
-            font-weight: 600;
+        .instructor-content {
             display: flex;
+            gap: 40px;
             align-items: center;
-            justify-content: space-between;
+            margin-top: 40px;
+            flex-wrap: wrap;
         }
         
-        .faq-question::after {
-            content: '\f107';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            color: var(--primary);
-            transition: all 0.3s ease;
+        .instructor-image {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
         }
         
-        .faq-item.active .faq-question::after {
-            transform: rotate(180deg);
+        .instructor-info {
+            flex: 1;
+            min-width: 300px;
         }
         
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
+        .instructor-info h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
         }
         
-        .faq-item.active .faq-answer {
-            padding: 0 20px 20px;
-            max-height: 1000px;
+        .instructor-info h4 {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--gray);
+            margin-bottom: 24px;
         }
         
-        /* CTA Section */
+        .instructor-info ul {
+            list-style-type: none;
+        }
+        
+        .instructor-info li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 28px;
+        }
+        
+        .instructor-info li:before {
+            content: "✓";
+            color: var(--success);
+            position: absolute;
+            left: 0;
+        }
+        
+        /* CTA */
         .cta {
-            padding: 100px 0;
-            background: linear-gradient(45deg, var(--primary) 0%, var(--secondary) 100%);
-            color: var(--white);
+            padding: 80px 0;
+            background-color: var(--primary);
+            color: white;
             text-align: center;
         }
         
         .cta h2 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
         }
         
         .cta p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 32px;
+            font-size: 18px;
         }
         
-        /* Count Down */
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
-        }
-        
-        .countdown-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 80px;
-        }
-        
-        .countdown-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1;
-            color: var(--white);
-            background: rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            border-radius: var(--border-radius);
-            width: 100%;
-            text-align: center;
-        }
-        
-        .countdown-label {
-            font-size: 0.9rem;
-            margin-top: 10px;
-            text-transform: uppercase;
-        }
-        
-        /* Includes Section */
-        .includes {
-            padding: 100px 0;
-        }
-        
-        .includes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .included-item {
-            display: flex;
-            align-items: flex-start;
-            background: var(--white);
-            border-radius: var(--border-radius);
-            padding: 25px;
-            box-shadow: var(--box-shadow);
-            transition: all 0.3s ease;
-        }
-        
-        .included-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .included-icon {
-            flex-shrink: 0;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
+        .cta-white-button {
+            background-color: white;
             color: var(--primary);
-            font-size: 1.3rem;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
         }
         
-        .included-content h4 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+        .cta-white-button:hover {
+            background-color: var(--light);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         
-        .included-content p {
-            font-size: 0.95rem;
-            margin-bottom: 0;
-            color: var(--gray);
+        /* FAQ */
+        .faq {
+            padding: 80px 0;
         }
         
-        /* Companies Section */
-        .companies {
-            padding: 50px 0;
-            background-color: var(--light-gray);
+        .faq-accordion {
+            max-width: 800px;
+            margin: 40px auto 0;
         }
         
-        .companies-grid {
+        .faq-question {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+        
+        .faq-question h4 {
+            font-size: 18px;
+            font-weight: 600;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
+            justify-content: space-between;
         }
         
-        .company-item {
-            max-width: 150px;
-            filter: grayscale(100%);
-            opacity: 0.6;
-            transition: all 0.3s ease;
+        .faq-answer {
+            padding: 16px 24px;
+            color: var(--gray);
+            display: none;
         }
         
-        .company-item:hover {
-            filter: grayscale(0);
-            opacity: 1;
+        .faq-question.active {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question.active .faq-answer {
+            display: block;
         }
         
         /* Footer */
-        .footer {
+        footer {
             background-color: var(--dark);
-            color: var(--white);
-            padding: 80px 0 30px;
+            color: white;
+            padding: 60px 0 30px;
         }
         
         .footer-content {
             display: flex;
+            justify-content: space-between;
             flex-wrap: wrap;
-            gap: 50px;
-            margin-bottom: 50px;
+            gap: 40px;
+            margin-bottom: 40px;
         }
         
-        .footer-logo {
-            flex: 1 1 300px;
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
         }
         
-        .footer-logo img {
-            margin-bottom: 20px;
+        .footer-col h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 24px;
         }
         
-        .footer-logo p {
-            opacity: 0.8;
-            margin-bottom: 20px;
+        .footer-col ul {
+            list-style-type: none;
         }
         
-        .footer-links {
-            flex: 1 1 200px;
+        .footer-col ul li {
+            margin-bottom: 12px;
         }
         
-        .footer-links h3 {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 15px;
+        .footer-col ul li a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
         }
         
-        .footer-links h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--primary);
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            transition: all 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary);
-            padding-left: 5px;
-        }
-        
-        .footer-contact {
-            flex: 1 1 300px;
-        }
-        
-        .contact-info {
-            list-style: none;
-        }
-        
-        .contact-info li {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        
-        .contact-info i {
-            color: var(--primary);
-            margin-right: 15px;
-            margin-top: 5px;
+        .footer-col ul li a:hover {
+            color: white;
+            text-decoration: underline;
         }
         
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 25px;
+            gap: 16px;
         }
         
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .social-link {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            transition: all 0.3s ease;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
         }
         
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-5px);
+        .social-link:hover {
+            background-color: rgba(255,255,255,0.2);
         }
         
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .footer-bottom p {
-            opacity: 0.7;
-            font-size: 0.9rem;
-            margin-bottom: 0;
-        }
-        
-        /* Back to Top */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            z-index: 99;
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            background: var(--primary-dark);
-            transform: translateY(-5px);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--light);
+            font-size: 14px;
         }
         
         /* Responsive */
-        @media screen and (max-width: 991px) {
-            h1 {
-                font-size: 3rem;
+        @media (max-width: 768px) {
+            .session-content {
+                grid-template-columns: 1fr;
             }
             
-            h2 {
-                font-size: 2.2rem;
-            }
-            
-            .header .container {
-                height: 70px;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                flex-direction: column;
-                background-color: var(--white);
-                width: 100%;
-                border-radius: 0 0 10px 10px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                transition: all 0.3s ease;
-                z-index: 99;
-            }
-            
-            .nav-menu.active {
-                left: 0;
-            }
-            
-            .nav-list {
-                flex-direction: column;
-                width: 100%;
-                padding: 20px 0;
-            }
-            
-            .nav-item {
-                margin: 10px 0;
-                text-align: center;
-                width: 100%;
-            }
-            
-            .hamburger {
-                display: block;
-            }
-            
-            .hamburger.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .hamburger.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-            
-            .hamburger.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
-            
-            .hero {
-                padding: 150px 0 80px;
+            .nav-links {
+                display: none;
             }
             
             .hero h1 {
-                font-size: 3rem;
+                font-size: 32px;
             }
             
-            .hero-content {
-                text-align: center;
-                margin: 0 auto;
+            .hero-subtitle {
+                font-size: 18px;
             }
             
-            .hero-buttons {
-                justify-content: center;
+            .section-title {
+                font-size: 28px;
             }
             
-            .instructor-content {
-                justify-content: center;
-                text-align: center;
+            .stat-number {
+                font-size: 36px;
             }
             
-            .instructor-info {
-                text-align: left;
-            }
-            
-            .pricing-box {
-                flex: 0 0 100%;
-            }
-        }
-        
-        @media screen and (max-width: 767px) {
-            section {
-                padding: 60px 0;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
-            
-            .hero {
-                padding: 130px 0 60px;
-            }
-            
-            .session-tabs {
+            .key-info {
                 flex-direction: column;
-                border-bottom: none;
-            }
-            
-            .session-tab {
-                border-bottom: 1px solid #e0e0e0;
-                text-align: center;
-            }
-            
-            .pricing-price {
-                font-size: 2rem;
-            }
-            
-            .countdown-item {
-                min-width: 60px;
-            }
-            
-            .countdown-number {
-                font-size: 1.8rem;
-                padding: 10px;
-            }
-        }
-        
-        @media screen and (max-width: 575px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            .btn {
-                padding: 12px 25px;
-                font-size: 1rem;
+                gap: 16px;
             }
             
             .hero-buttons {
                 flex-direction: column;
-                gap: 10px;
+                gap: 16px;
+            }
+        }
+        
+        /* Mobile menu */
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
             }
             
-            .countdown {
-                flex-wrap: wrap;
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: white;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+    <!-- Banner at the very top -->
+    <div class="banner">
+        Inscríbete hoy y accede, sin costo adicional, una sesión 1 a 1 en la que recibirás asesoría 100% personalizada
+    </div>
+    
+    <!-- Header with navigation -->
+    <header>
         <div class="container">
-            <a href="#" class="logo">Nelson Portugal</a>
-            
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            
-            <nav class="nav-menu">
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="#beneficios" class="nav-link">Beneficios</a></li>
-                    <li class="nav-item"><a href="#temario" class="nav-link">Temario</a></li>
-                    <li class="nav-item"><a href="#instructor" class="nav-link">Instructor</a></li>
-                    <li class="nav-item"><a href="#testimonios" class="nav-link">Testimonios</a></li>
-                    <li class="nav-item"><a href="#inscripcion" class="nav-link btn btn-primary">Inscribirme</a></li>
-                </ul>
+            <nav class="navbar">
+                <a href="#" class="logo">Nelson Portugal</a>
+                <div class="nav-links">
+                    <a href="#curriculum">Temario</a>
+                    <a href="#tools">Herramientas</a>
+                    <a href="#instructor">Instructor</a>
+                    <a href="#testimonials">Testimonios</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <a href="#cta" class="cta-button">Inscribirme</a>
             </nav>
         </div>
     </header>
     
     <!-- Hero Section -->
-    <section class="hero" id="inicio">
+    <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <span class="tag" data-aos="fade-up" data-aos-delay="100">7ma Edición - Más de 150 profesionales capacitados</span>
-                <h1 data-aos="fade-up" data-aos-delay="200">Taller de Inteligencia Artificial Aplicada</h1>
-                <p data-aos="fade-up" data-aos-delay="300">Integra la IA en tus actividades diarias, haz las cosas <strong>10 veces más rápido</strong> y sé <strong>10 veces más creativo(a)</strong>. 4 sesiones 100% prácticas, vía Zoom.</p>
-                <p data-aos="fade-up" data-aos-delay="400"><strong>Próximo inicio:</strong> 5 de marzo 2025</p>
-                
-                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="500">
-                    <a href="#inscripcion" class="btn btn-primary btn-lg hero-cta">¡Reserva tu lugar ahora!</a>
-                    <a href="#beneficios" class="btn btn-outline btn-lg">Conoce más</a>
-                </div>
-            </div>
+            <div class="hero-tag">8va Edición - Más de 150 profesionales capacitados</div>
+            <h1>Taller de Inteligencia Artificial Aplicada</h1>
+            <p class="hero-subtitle">Deja el miedo y la confusión atrás, y empieza a integrar la IA en tus actividades diarias. Harás las cosas 10 veces más rápido y serás 10 veces más creativo(a) y asegurarás tu futuro profesional. ¡Sin conocimientos previos!</p>
             
-            <div class="footer-bottom">
-                <p>&copy; 2025 Portugal Research International SAC. Todos los derechos reservados.</p>
+            <div class="hero-buttons">
+                <a href="#cta" class="cta-button">Reservar tu lugar ahora</a>
+                <a href="#curriculum" class="secondary-button">Conocer los detalles</a>
             </div>
         </div>
-    </footer>
+    </section>
     
-    <!-- Back to Top -->
-    <div class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
+    <!-- Key Information Bar -->
+    <div class="container">
+        <div class="key-info">
+            <div class="info-item">
+                <div class="info-item-title">FORMATO</div>
+                <div class="info-item-value">4 sesiones en vivo vía Zoom</div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-item-title">INICIO</div>
+                <div class="info-item-value">Miércoles 9 de abril 2025</div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-item-title">DURACIÓN</div>
+                <div class="info-item-value">4 semanas</div>
+            </div>
+            
+            <div class="info-item">
+                <div class="info-item-title">PRECIO</div>
+                <div class="info-item-value price-value">
+                    <span class="regular-price">S/ 750</span>
+                    <span class="discount-price">S/ 450</span>
+                </div>
+            </div>
+        </div>
     </div>
     
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        // Inicializar AOS (Animate On Scroll)
-        AOS.init({
-            duration: 1000,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
-        });
-        
-        // Navegación móvil
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-        
-        // Header fixed
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.classList.add('sticky');
-            } else {
-                header.classList.remove('sticky');
-            }
-        });
-        
-        // Tabs de sesiones
-        const sessionTabs = document.querySelectorAll('.session-tab');
-        const sessionContents = document.querySelectorAll('.session-content');
-        
-        sessionTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const target = tab.getAttribute('data-session');
-                
-                // Remover clases activas
-                sessionTabs.forEach(tab => tab.classList.remove('active'));
-                sessionContents.forEach(content => content.classList.remove('active'));
-                
-                // Agregar clases activas al tab y contenido seleccionado
-                tab.classList.add('active');
-                document.getElementById(target).classList.add('active');
-            });
-        });
-        
-        // FAQ Acordeón
-        const faqItems = document.querySelectorAll('.faq-item');
-        
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            
-            question.addEventListener('click', () => {
-                item.classList.toggle('active');
-            });
-        });
-        
-        // Contador regresivo
-        function startCountdown() {
-            // Establecer la fecha límite (24 horas desde ahora)
-            const now = new Date();
-            const deadline = new Date(now.getTime() + 24 * 60 * 60 * 1000);
-            
-            function updateCountdown() {
-                const currentTime = new Date();
-                const diff = deadline - currentTime;
-                
-                if (diff <= 0) {
-                    // Reiniciar el contador si se agota
-                    const newDeadline = new Date(currentTime.getTime() + 24 * 60 * 60 * 1000);
-                    deadline = newDeadline;
-                    return;
-                }
-                
-                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-                
-                // Actualizar los elementos del contador
-                document.getElementById('countdown-days').textContent = days.toString().padStart(2, '0');
-                document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
-                document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
-                
-                document.getElementById('countdown-days-footer').textContent = days.toString().padStart(2, '0');
-                document.getElementById('countdown-hours-footer').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('countdown-minutes-footer').textContent = minutes.toString().padStart(2, '0');
-                document.getElementById('countdown-seconds-footer').textContent = seconds.toString().padStart(2, '0');
-            }
-            
-            // Actualizar el contador cada segundo
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
-        }
-        
-        startCountdown();
-        
-        // Botón de volver arriba
-        const backToTopButton = document.querySelector('.back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('active');
-            } else {
-                backToTopButton.classList.remove('active');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Scroll suave para anclajes
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    const headerHeight = document.querySelector('.header').offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
-    
-                <div class="hero-video" data-aos="zoom-in" data-aos-delay="600">
-                    <div class="video-container">
-                        <!-- Reemplaza con el iframe de tu video de presentación -->
-                        <img src="/api/placeholder/800/450" alt="Video de presentación - IA Aplicada" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Features Section -->
-    <section class="features" id="beneficios">
+    <!-- Credibility Section -->
+    <section class="credibility">
         <div class="container">
-            <div class="section-title text-center">
-                <h2 data-aos="fade-up">¿Qué lograrás con este taller?</h2>
-                <p data-aos="fade-up" data-aos-delay="100">Desarrolla habilidades prácticas en IA para destacar en el mundo profesional actual</p>
+            <div class="credibility-stats">
+                <div class="credibility-stat">
+                    <div class="stat-number">9.5/10</div>
+                    <div class="stat-label">Nivel de satisfacción</div>
+                </div>
+                
+                <div class="credibility-stat">
+                    <div class="stat-number">+80</div>
+                    <div class="stat-label">Empresas</div>
+                </div>
+                
+                <div class="credibility-stat">
+                    <div class="stat-number">+10</div>
+                    <div class="stat-label">Años de experiencia</div>
+                </div>
             </div>
             
-            <div class="features-grid">
-                <div class="feature-box" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Aprende haciendo</h3>
-                    <p>Aprende de forma práctica a utilizar la IA en tus actividades diarias para aumentar tu productividad y ser más estratégico(a).</p>
+            <div class="companies">
+                <p class="companies-title">Profesionales de empresas como:</p>
+                <div class="companies-logos">
+                    <div>Ajinomoto, Pacificio Seguros, Ositrán, BBVA, Indra, Financiera Confianza, PageGroup, AFP Integra, IDAT, Sunartp, InLearning, Osinerming, Ministerio de Economía y Finanzas</div>
                 </div>
-                
-                <div class="feature-box" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Automatiza tareas</h3>
-                    <p>Adquiere un proceso sencillo para automatizar tareas repetitivas, reducir tiempos y mejorar la calidad de tus entregables.</p>
-                </div>
-                
-                <div class="feature-box" data-aos="fade-up" data-aos-delay="300">
-                    <div class="feature-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Potencia tu creatividad</h3>
-                    <p>Descubre cómo la IA puede amplificar tu capacidad creativa para generar ideas, contenidos y soluciones innovadoras.</p>
-                </div>
-                
-                <div class="feature-box" data-aos="fade-up" data-aos-delay="400">
-                    <div class="feature-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>Digitaliza tu organización</h3>
-                    <p>Adquiere los conocimientos para involucrarte con mayor confianza en los proyectos de transformación digital.</p>
-                </div>
-                
-                <div class="feature-box" data-aos="fade-up" data-aos-delay="500">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Ahorra tiempo</h3>
-                    <p>Libera tiempo valioso al automatizar tareas operativas para poder enfocarte en actividades estratégicas de mayor valor.</p>
-                </div>
-                
-                <div class="feature-box" data-aos="fade-up" data-aos-delay="600">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Asegura tu futuro profesional</h3>
-                    <p>Prepárate para el futuro del trabajo dominando las habilidades que serán imprescindibles en cualquier industria.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Why Choose Section -->
-    <section class="why-choose bg-light">
-        <div class="container">
-            <div class="section-title text-center">
-                <h2 data-aos="fade-up">¿Por qué elegir este taller?</h2>
-                <p data-aos="fade-up" data-aos-delay="100">Una experiencia de aprendizaje diseñada para maximizar tu potencial con la IA</p>
             </div>
             
-            <div class="reasons-grid">
-                <div class="reason-box" data-aos="fade-up" data-aos-delay="100">
-                    <div class="reason-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="reason-content">
-                        <h4>Nivel básico, desde cero</h4>
-                        <p>No requiere conocimientos previos ni habilidades de programación.</p>
-                    </div>
-                </div>
-                
-                <div class="reason-box" data-aos="fade-up" data-aos-delay="150">
-                    <div class="reason-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="reason-content">
-                        <h4>100% práctico</h4>
-                        <p>Enfoque en aplicaciones reales y ejercicios prácticos para tu día a día.</p>
-                    </div>
-                </div>
-                
-                <div class="reason-box" data-aos="fade-up" data-aos-delay="200">
-                    <div class="reason-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="reason-content">
-                        <h4>Alto nivel de satisfacción</h4>
-                        <p>9.5/10 de satisfacción en anteriores ediciones con más de 150 participantes.</p>
-                    </div>
-                </div>
-                
-                <div class="reason-box" data-aos="fade-up" data-aos-delay="250">
-                    <div class="reason-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="reason-content">
-                        <h4>Instructor con experiencia</h4>
-                        <p>Consultor con amplia trayectoria en empresas reconocidas.</p>
-                    </div>
-                </div>
-                
-                <div class="reason-box" data-aos="fade-up" data-aos-delay="300">
-                    <div class="reason-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="reason-content">
-                        <h4>Herramientas actualizadas</h4>
-                        <p>Aprenderás a usar los modelos y herramientas más recientes del mercado.</p>
-                    </div>
-                </div>
-                
-                <div class="reason-box" data-aos="fade-up" data-aos-delay="350">
-                    <div class="reason-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="reason-content">
-                        <h4>Soporte continuo</h4>
-                        <p>Acompañamiento personalizado durante todo el taller.</p>
-                    </div>
-                </div>
-                
-                <div class="reason-box" data-aos="fade-up" data-aos-delay="400">
-                    <div class="reason-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="reason-content">
-                        <h4>Comunidad de aprendizaje</h4>
-                        <p>Acceso a un foro con otros participantes para aprendizaje colaborativo.</p>
-                    </div>
-                </div>
-                
-                <div class="reason-box" data-aos="fade-up" data-aos-delay="450">
-                    <div class="reason-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="reason-content">
-                        <h4>Certificado</h4>
-                        <p>Recibirás un certificado de participación al finalizar el taller.</p>
-                    </div>
-                </div>
-            </div>
+            <p>Organizado por <strong>Portugal Research International</strong>, consultora con más de una década de trayectoria en el país.</p>
         </div>
     </section>
     
     <!-- Curriculum Section -->
-    <section class="curriculum" id="temario">
+    <section id="curriculum" class="curriculum">
         <div class="container">
-            <div class="section-title text-center">
-                <h2 data-aos="fade-up">Contenido del taller</h2>
-                <p data-aos="fade-up" data-aos-delay="100">4 sesiones prácticas diseñadas para tu progreso gradual</p>
-            </div>
+            <h2 class="section-title">Conoce todo lo que la IA puede hacer por ti en solo 30 días</h2>
             
-            <div class="session-tabs" data-aos="fade-up" data-aos-delay="200">
-                <div class="session-tab active" data-session="session1">Sesión 1</div>
-                <div class="session-tab" data-session="session2">Sesión 2</div>
-                <div class="session-tab" data-session="session3">Sesión 3</div>
-                <div class="session-tab" data-session="session4">Sesión 4</div>
-            </div>
-            
-            <div class="session-content active" id="session1" data-aos="fade-up" data-aos-delay="300">
-                <div class="session-date">Miércoles 5 de marzo, 7:00pm a 9:00pm</div>
-                <h3>Adquiere los fundamentos para usar el poder de la IA</h3>
-                <ul class="session-topics">
-                    <li><i class="fas fa-check"></i><strong>Tema:</strong> Integración práctica de la Inteligencia Artificial en tu gestión diaria.</li>
-                    <li><i class="fas fa-check"></i><strong>Lo que aprenderás:</strong> 
-                        <ul>
-                            <li>Entenderás la revolución de la IA y su relevancia para tu carrera profesional</li>
-                            <li>Conocerás los tipos de IA y sus aplicaciones prácticas en diversos sectores</li>
-                            <li>Dominarás los fundamentos para interactuar efectivamente con sistemas de IA</li>
-                            <li>Descubrirás cómo integrar la IA en tus flujos de trabajo diarios</li>
-                        </ul>
-                    </li>
-                    <li><i class="fas fa-check"></i><strong>Herramientas:</strong> Mentalidad, perspectiva, confianza personal.</li>
-                    <li><i class="fas fa-check"></i><strong>Ejercicios prácticos:</strong> Diagnóstico personal, identificación de oportunidades de aplicación, primeras interacciones con modelos de IA.</li>
-                </ul>
-            </div>
-            
-            <div class="session-content" id="session2" data-aos="fade-up" data-aos-delay="300">
-                <div class="session-date">Miércoles 12 de marzo, 7:00pm a 9:00pm</div>
-                <h3>Aumenta tu productividad y sé más rápido(a) y creativo(a)</h3>
-                <ul class="session-topics">
-                    <li><i class="fas fa-check"></i><strong>Tema:</strong> Domina las más de 20 capacidades de los modelos de lenguaje.</li>
-                    <li><i class="fas fa-check"></i><strong>Lo que aprenderás:</strong> 
-                        <ul>
-                            <li>Comprenderás cómo funcionan los diferentes modelos de lenguaje</li>
-                            <li>Aprenderás a escribir prompts efectivos para obtener resultados precisos</li>
-                            <li>Dominarás técnicas para generar ideas, contenidos y soluciones creativas</li>
-                            <li>Descubrirás cómo acelerar tareas cotidianas con asistencia de IA</li>
-                        </ul>
-                    </li>
-                    <li><i class="fas fa-check"></i><strong>Herramientas:</strong> Claude, Chat GPT, Gemini, Llama, Grok</li>
-                    <li><i class="fas fa-check"></i><strong>Ejercicios prácticos:</strong> Creación de contenidos, generación de ideas, análisis de información, resolución de problemas.</li>
-                </ul>
-            </div>
-            
-            <div class="session-content" id="session3" data-aos="fade-up" data-aos-delay="300">
-                <div class="session-date">Miércoles 19 de marzo, 7:00pm a 9:00pm</div>
-                <h3>Agiliza procesos y sé más eficiente en lo que haces</h3>
-                <ul class="session-topics">
-                    <li><i class="fas fa-check"></i><strong>Tema:</strong> Utiliza las herramientas de IA para crear sistemas y optimizar procesos.</li>
-                    <li><i class="fas fa-check"></i><strong>Lo que aprenderás:</strong> 
-                        <ul>
-                            <li>Descubrirás herramientas no-code para crear soluciones digitales</li>
-                            <li>Aprenderás a analizar y optimizar procesos con asistencia de IA</li>
-                            <li>Conocerás cómo transformar ideas en prototipos funcionales</li>
-                            <li>Implementarás sistemas eficientes para mejorar tu productividad</li>
-                        </ul>
-                    </li>
-                    <li><i class="fas fa-check"></i><strong>Herramientas:</strong> Presentaciones inteligentes, avatares en video, análisis de audio, formularios automáticos, visión por computadora.</li>
-                    <li><i class="fas fa-check"></i><strong>Ejercicios prácticos:</strong> Diseño de procesos, creación de prototipos, implementación de soluciones.</li>
-                </ul>
-            </div>
-            
-            <div class="session-content" id="session4" data-aos="fade-up" data-aos-delay="300">
-                <div class="session-date">Miércoles 26 de marzo, 7:00pm a 9:00pm</div>
-                <h3>Automatiza actividades y libera tiempo para la estrategia</h3>
-                <ul class="session-topics">
-                    <li><i class="fas fa-check"></i><strong>Tema:</strong> Implementa aplicativos para automatizar tareas repetitivas.</li>
-                    <li><i class="fas fa-check"></i><strong>Lo que aprenderás:</strong> 
-                        <ul>
-                            <li>Dominarás la integración entre diferentes herramientas y aplicaciones</li>
-                            <li>Aprenderás a crear flujos de trabajo automatizados sin programación</li>
-                            <li>Implementarás soluciones que funcionan mientras tú no estás</li>
-                            <li>Desarrollarás un plan para seguir creciendo en la aplicación de IA</li>
-                        </ul>
-                    </li>
-                    <li><i class="fas fa-check"></i><strong>Herramientas:</strong> Zapier y otras herramientas de automatización.</li>
-                    <li><i class="fas fa-check"></i><strong>Ejercicios prácticos:</strong> Creación de flujos de trabajo automatizados, implementación de sistemas de monitoreo, desarrollo de un plan de acción personal.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Instructor Section -->
-    <section class="instructor bg-light" id="instructor">
-        <div class="container">
-            <div class="section-title text-center">
-                <h2 data-aos="fade-up">Consultor a cargo</h2>
-                <p data-aos="fade-up" data-aos-delay="100">Conoce la experiencia de quien guiará tu aprendizaje</p>
-            </div>
-            
-            <div class="instructor-content">
-                <div class="instructor-image" data-aos="fade-right" data-aos-delay="200">
-                    <img src="/api/placeholder/400/400" alt="Nelson Portugal - Consultor">
+            <div class="sessions">
+                <!-- Session 1 -->
+                <div class="session-card">
+                    <div class="session-header">
+                        <div class="session-title">
+                            <i class="fas fa-bullseye session-icon"></i>
+                            Sesión 1: Ingeniería de Prompts
+                        </div>
+                        <div class="session-date">Miércoles 9 de abril | 7:00pm a 9:00pm</div>
+                    </div>
+                    
+                    <div class="session-subtitle">Diseña instrucciones precisas para potenciar tus actividades y avanzar en tu carrera</div>
+                    
+                    <div class="session-content">
+                        <div class="content-section">
+                            <h4>Lo que dominarás:</h4>
+                            <ul class="content-list">
+                                <li>Fundamentos de la IA generativa y cómo está revolucionando todas las industrias</li>
+                                <li>Los principios clave de la ingeniería de prompts que las empresas buscan</li>
+                                <li>Técnicas avanzadas para crear instrucciones que generen resultados excepcionales</li>
+                                <li>La estructura perfecta de prompts según tu objetivo (análisis, creación, edición)</li>
+                                <li>Cómo convertirte en el experto en IA que toda empresa quiere contratar</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="content-section">
+                            <h4>Ejercicios prácticos:</h4>
+                            <ul class="content-list">
+                                <li>Creación de tu biblioteca personal de prompts para diferentes situaciones</li>
+                                <li>Transformación de instrucciones básicas en prompts de calidad profesional</li>
+                                <li>Diseño de prompts especializados para tu industria o sector</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="instructor-info" data-aos="fade-left" data-aos-delay="300">
-                    <h3 class="instructor-name">Nelson Portugal</h3>
-                    <p class="instructor-title">Consultor en Desarrollo Personal y Especialista en IA Aplicada</p>
+                <!-- Session 2 -->
+                <div class="session-card">
+                    <div class="session-header">
+                        <div class="session-title">
+                            <i class="fas fa-bolt session-icon"></i>
+                            Sesión 2: Agiliza tus procesos
+                        </div>
+                        <div class="session-date">Miércoles 16 de abril | 7:00pm a 9:00pm</div>
+                    </div>
                     
-                    <p class="instructor-bio">Consultor en desarrollo personal, autor del libro El Círculo de Crecimiento y especialista en el diseño de programas formativos dirigidos a jefes, gerentes y propietarios(as) de empresas.</p>
+                    <div class="session-subtitle">Optimiza tus flujos de trabajo diarios mediante una efectiva simbiosis humano-IA</div>
                     
-                    <ul class="credentials">
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>Ha asesorado a profesionales de empresas como Cosapi, Minsur, Huawei, Entel, Colliers, PetroPerú, La Marina de Guerra del Perú, entre otras.</div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>Ha integrado diversas herramientas no code en la parte comercial y de marketing de diferentes empresas.</div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>Ha dictado talleres de IA para empresas del sector salud, educación y seguros.</div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>Administrador de profesión por la UPC, ha brindado capacitaciones en diversas empresas en el país.</div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>Ha sido invitado a dictar clases ejecutivas en Centrum PUCP y se ha desempeñado como profesor universitario en la universidad Continental.</div>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <div>Complementó su experiencia empresarial participando en el programa especializado en el Liderazgo de Firmas de Servicios Profesionales en la escuela de negocios de Harvard.</div>
-                        </li>
-                    </ul>
+                    <div class="session-content">
+                        <div class="content-section">
+                            <h4>Lo que dominarás:</h4>
+                            <ul class="content-list">
+                                <li>Las más de 20 capacidades clave de los modelos de lenguaje modernos</li>
+                                <li>Estrategias para hacer tu trabajo 10 veces más rápido sin sacrificar calidad</li>
+                                <li>Técnicas para delegar tareas repetitivas a la IA mientras te enfocas en lo estratégico</li>
+                                <li>La combinación perfecta entre creatividad humana e inteligencia artificial</li>
+                                <li>Métodos para revisar, mejorar y personalizar los resultados de IA</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="content-section">
+                            <h4>Ejercicios prácticos:</h4>
+                            <ul class="content-list">
+                                <li>Rediseño de tus flujos de trabajo integrando IA en cada paso</li>
+                                <li>Aceleración de procesos de investigación, análisis y creación de contenido</li>
+                                <li>Implementación de sistemas de retroalimentación para mejorar constantemente</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+                
+                <!-- Session 3 -->
+                <div class="session-card">
+                    <div class="session-header">
+                        <div class="session-title">
+                            <i class="fas fa-tools session-icon"></i>
+                            Sesión 3: Dominio de herramientas
+                        </div>
+                        <div class="session-date">Miércoles 23 de abril | 7:00pm a 9:00pm</div>
+                    </div>
+                    
+                    <div class="session-subtitle">Conviértete en experto en el uso de plataformas y aplicaciones de IA para la gestión</div>
+                    
+                    <div class="session-content">
+                        <div class="content-section">
+                            <h4>Lo que dominarás:</h4>
+                            <ul class="content-list">
+                                <li>El ecosistema completo de herramientas de IA disponibles actualmente</li>
+                                <li>Implementación práctica de capacidades IA: razonamiento avanzado, investigación profunda, generación de informes/gráficas y análisis de múltiples documentos</li>
+                                <li>Generación de presentaciones profesionales en segundos con IA</li>
+                                <li>Creación de avatares en video, edición automática y análisis de audios</li>
+                                <li>Selección de la herramienta ideal según el tipo de tarea o proyecto</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="content-section">
+                            <h4>Ejercicios prácticos:</h4>
+                            <ul class="content-list">
+                                <li>Comparativa práctica entre diferentes herramientas para las mismas tareas</li>
+                                <li>Creación de un ecosistema personalizado de herramientas para tu trabajo</li>
+                                <li>Desarrollo de proyectos en tiempo real utilizando múltiples plataformas de IA</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Session 4 -->
+                <div class="session-card">
+                    <div class="session-header">
+                        <div class="session-title">
+                            <i class="fas fa-robot session-icon"></i>
+                            Sesión 4: Automatización inteligente
+                        </div>
+                        <div class="session-date">Miércoles 30 de abril | 7:00pm a 9:00pm</div>
+                    </div>
+                    
+                    <div class="session-subtitle">Aprende a automatizar procesos de manera eficiente, sin tener que programar</div>
+                    
+                    <div class="session-content">
+                        <div class="content-section">
+                            <h4>Lo que dominarás:</h4>
+                            <ul class="content-list">
+                                <li>Principios de automatización sin código accesibles para cualquier profesional</li>
+                                <li>Implementación de aplicativos para eliminar tareas repetitivas de tu agenda</li>
+                                <li>Creación de sistemas que funcionan por ti mientras te enfocas en lo importante</li>
+                                <li>Diseño de flujos de trabajo automáticos que mejoran con el tiempo</li>
+                                <li>Estrategias para liberar tiempo y dedicarlo a actividades de mayor valor</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="content-section">
+                            <h4>Ejercicios prácticos:</h4>
+                            <ul class="content-list">
+                                <li>Automatización de procesos en tu trabajo diario</li>
+                                <li>Integración de aplicativos de IA en tus sistemas actuales</li>
+                                <li>Método para priorizar proyectos de automatización</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="font-weight: 600; font-size: 20px;">¡Todo esto sin conocimientos previos en tecnología!</p>
             </div>
         </div>
     </section>
     
     <!-- Tools Section -->
-    <section class="tools">
+    <section id="tools" class="tools">
         <div class="container">
-            <div class="section-title text-center">
-                <h2 data-aos="fade-up">Herramientas que conocerás</h2>
-                <p data-aos="fade-up" data-aos-delay="100">Domina las tecnologías más relevantes en el mundo de la IA</p>
-            </div>
+            <h2 class="section-title">Qué herramientas veremos</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Y no necesitarás la versión pagada para aprender a usarlas</p>
             
-            <div class="tools-categories">
-                <div class="tools-category" data-aos="fade-up" data-aos-delay="200">
-                    <h3><i class="fas fa-brain"></i> Modelos de lenguaje</h3>
-                    <ul class="tools-list">
-                        <li><i class="fas fa-check-circle"></i>Claude: Modelo conversacional de Anthropic</li>
-                        <li><i class="fas fa-check-circle"></i>Deepseek: IA especializada en búsqueda y análisis</li>
-                        <li><i class="fas fa-check-circle"></i>Chat GPT: El popular asistente de OpenAI</li>
-                        <li><i class="fas fa-check-circle"></i>Gemini: La evolución de Bard de Google</li>
-                        <li><i class="fas fa-check-circle"></i>Llama: Modelo de Meta para diversas aplicaciones</li>
-                        <li><i class="fas fa-check-circle"></i>Grok: Nueva IA conversacional de xAI</li>
-                    </ul>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <i class="fas fa-comment-alt" style="font-size: 24px; color: var(--primary);"></i>
+                    <div class="tool-name">Claude</div>
                 </div>
                 
-                <div class="tools-category" data-aos="fade-up" data-aos-delay="300">
-                    <h3><i class="fas fa-cogs"></i> Capacidades</h3>
-                    <ul class="tools-list">
-                        <li><i class="fas fa-check-circle"></i>Razonar: Pensamiento lógico y resolución de problemas</li>
-                        <li><i class="fas fa-check-circle"></i>Analizar: Procesamiento de datos y extracción de insights</li>
-                        <li><i class="fas fa-check-circle"></i>Investigar: Búsqueda y síntesis de información</li>
-                        <li><i class="fas fa-check-circle"></i>Diagramar: Visualización de ideas y procesos</li>
-                        <li><i class="fas fa-check-circle"></i>Redactar: Generación de contenido de alta calidad</li>
-                        <li><i class="fas fa-check-circle"></i>Crear: Gráficas, imágenes y soluciones web</li>
-                    </ul>
+                <div class="tool-card">
+                    <i class="fas fa-robot" style="font-size: 24px; color: var(--primary);"></i>
+                    <div class="tool-name">Grok</div>
                 </div>
                 
-                <div class="tools-category" data-aos="fade-up" data-aos-delay="400">
-                    <h3><i class="fas fa-tools"></i> Herramientas no-code</h3>
-                    <ul class="tools-list">
-                        <li><i class="fas fa-check-circle"></i>Presentaciones inteligentes: Crea slides optimizados</li>
-                        <li><i class="fas fa-check-circle"></i>Avatares en video: Genera presentadores virtuales</li>
-                        <li><i class="fas fa-check-circle"></i>Análisis de audio: Transcribe y analiza conversaciones</li>
-                        <li><i class="fas fa-check-circle"></i>Formularios automáticos: Recopila datos eficientemente</li>
-                        <li><i class="fas fa-check-circle"></i>Visión por computadora: Analiza imágenes y videos</li>
-                        <li><i class="fas fa-check-circle"></i>Llamadas inteligentes: Automatiza comunicaciones</li>
-                    </ul>
+                <div class="tool-card">
+                    <i class="fas fa-search" style="font-size: 24px; color: var(--primary);"></i>
+                    <div class="tool-name">Deepseek</div>
                 </div>
                 
-                <div class="tools-category" data-aos="fade-up" data-aos-delay="500">
-                    <h3><i class="fas fa-robot"></i> Automatización</h3>
-                    <ul class="tools-list">
-                        <li><i class="fas fa-check-circle"></i>Zapier: Conecta aplicaciones sin programación</li>
-                        <li><i class="fas fa-check-circle"></i>Integraciones: Conecta diferentes herramientas</li>
-                        <li><i class="fas fa-check-circle"></i>Flujos de trabajo: Diseña procesos automáticos</li>
-                        <li><i class="fas fa-check-circle"></i>Disparadores: Inicia acciones automáticamente</li>
-                        <li><i class="fas fa-check-circle"></i>Acciones: Ejecuta tareas sin intervención humana</li>
-                        <li><i class="fas fa-check-circle"></i>Filtros y condiciones: Personaliza tu automatización</li>
-                    </ul>
+                <div class="tool-card">
+                    <i class="fas fa-gem" style="font-size: 24px; color: var(--primary);"></i>
+                    <div class="tool-name">Gemini</div>
+                </div>
+                
+                <div class="tool-card">
+                    <i class="fas fa-comments" style="font-size: 24px; color: var(--primary);"></i>
+                    <div class="tool-name">ChatGPT</div>
+                </div>
+                
+                <div class="tool-card">
+                    <i class="fas fa-wind" style="font-size: 24px; color: var(--primary);"></i>
+                    <div class="tool-name">Mistral</div>
+                </div>
+                
+                <div class="tool-card">
+                    <i class="fas fa-bolt" style="font-size: 24px; color: var(--primary);"></i>
+                    <div class="tool-name">Dapta</div>
+                </div>
+                
+                <div class="tool-card">
+                    <i class="fas fa-video" style="font-size: 24px; color: var(--primary);"></i>
+                    <div class="tool-name">Heygen</div>
+                </div>
+                
+                <div class="tool-card">
+                    <i class="fas fa-video-slash" style="font-size: 24px; color: var(--primary);"></i>
+                    <div class="tool-name">Zoom AI Companion</div>
+                </div>
+                
+                <div class="tool-card">
+                    <i class="fas fa-tasks" style="font-size: 24px; color: var(--primary);"></i>
+                    <div class="tool-name">Forms</div>
+                </div>
+                
+                <div class="tool-card">
+                    <i class="fas fa-chart-bar" style="font-size: 24px; color: var(--primary);"></i>
+                    <div class="tool-name">Gamma</div>
+                </div>
+                
+                <div class="tool-card">
+                    <i class="fas fa-plane-arrival" style="font-size: 24px; color: var(--primary);"></i>
+                    <div class="tool-name">Landing.ai</div>
+                </div>
+                
+                <div class="tool-card">
+                    <i class="fas fa-cogs" style="font-size: 24px; color: var(--primary);"></i>
+                    <div class="tool-name">Zapier</div>
+                </div>
+                
+                <div class="tool-card">
+                    <i class="fas fa-ellipsis-h" style="font-size: 24px; color: var(--primary);"></i>
+                    <div class="tool-name">Y muchas más</div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Includes Section -->
-    <section class="includes bg-light">
+    <!-- Target Audience Section -->
+    <section id="audience" class="audience">
         <div class="container">
-            <div class="section-title text-center">
-                <h2 data-aos="fade-up">Lo que incluye el taller</h2>
-                <p data-aos="fade-up" data-aos-delay="100">Todo lo que necesitas para dominar la IA aplicada</p>
-            </div>
+            <h2 class="section-title">Este taller es ideal para</h2>
             
-            <div class="includes-grid">
-                <div class="included-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="included-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <div class="included-content">
-                        <h4>Sesiones interactivas</h4>
-                        <p>4 sesiones vía Zoom de 2 horas cada una con demostraciones y ejercicios prácticos.</p>
-                    </div>
+            <div class="audience-cards">
+                <div class="audience-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Profesionales del sector privado y público</h3>
+                    <p>Que aún no utilizan IA y desean descubrir cómo puede transformar su gestión diaria, multiplicando su productividad sin curvas de aprendizaje complejas.</p>
                 </div>
                 
-                <div class="included-item" data-aos="fade-up" data-aos-delay="150">
-                    <div class="included-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <div class="included-content">
-                        <h4>Soporte personalizado</h4>
-                        <p>Acompañamiento durante todo el mes del curso para resolver dudas y profundizar aprendizajes.</p>
-                    </div>
+                <div class="audience-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Usuarios actuales de ChatGPT</h3>
+                    <p>Que buscan expandir sus conocimientos hacia el ecosistema completo de herramientas de IA disponibles hoy, manteniéndose a la vanguardia de la revolución tecnológica.</p>
                 </div>
                 
-                <div class="included-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="included-icon">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <div class="included-content">
-                        <h4>Plataforma privada</h4>
-                        <p>Acceso a una plataforma con las grabaciones de las sesiones para revisarlas cuando quieras.</p>
-                    </div>
-                </div>
-                
-                <div class="included-item" data-aos="fade-up" data-aos-delay="250">
-                    <div class="included-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <div class="included-content">
-                        <h4>Recursos adicionales</h4>
-                        <p>Lista de herramientas de IA para productividad laboral y materiales complementarios.</p>
-                    </div>
-                </div>
-                
-                <div class="included-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="included-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="included-content">
-                        <h4>Comunidad de aprendizaje</h4>
-                        <p>Foro con participantes para aprendizaje colaborativo y networking profesional.</p>
-                    </div>
-                </div>
-                
-                <div class="included-item" data-aos="fade-up" data-aos-delay="350">
-                    <div class="included-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="included-content">
-                        <h4>Sesión individual</h4>
-                        <p>Sesión 1 a 1 para absolver dudas específicas y complementar tu aprendizaje.</p>
-                    </div>
-                </div>
-                
-                <div class="included-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="included-icon">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <div class="included-content">
-                        <h4>Certificado</h4>
-                        <p>Certificado de participación al finalizar el taller que podrás compartir en tu perfil profesional.</p>
-                    </div>
+                <div class="audience-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Ejecutivos y especialistas</h3>
+                    <p>Que necesitan automatizar procesos repetitivos para liberar tiempo valioso y enfocarse en actividades estratégicas de mayor impacto en sus organizaciones.</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonios">
+    <section id="testimonials" class="testimonials">
         <div class="container">
-            <div class="section-title text-center">
-                <h2 data-aos="fade-up">Lo que dicen nuestros participantes</h2>
-                <p data-aos="fade-up" data-aos-delay="100">Nivel de satisfacción: 9.5/10</p>
-            </div>
+            <h2 class="section-title">Lo que dicen nuestros participantes</h2>
             
-            <div class="testimonial-video" data-aos="zoom-in" data-aos-delay="200">
-                <div class="video-container">
-                    <!-- Reemplazar con el iframe de tu video de testimonios -->
-                    <img src="/api/placeholder/800/450" alt="Video de testimonios - IA Aplicada" />
-                </div>
-            </div>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <p class="testimonial-content">"En verdad agradecerte porque yo había analizado muchos programas para poder ingresar a ver este tema de la Inteligencia Artificial y las aplicaciones en sí, y en verdad que he quedado <strong>más que sorprendido</strong> con la cantidad de herramientas que hay, lo que pueden hacer y ver cómo las mismas IA's nos pueden guiar para sacarle mayor provecho."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">VD</div>
-                        <div class="testimonial-info">
-                            <div class="testimonial-name">Víctor Díaz</div>
-                        </div>
-                    </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <p class="testimonial-content">Ha sido una clase muy enriquecedora que nos ha mostrado cómo podemos hacer las cosas de manera más rápida y eficiente. Las herramientas son realmente útiles.</p>
+                    <div class="testimonial-author">Fiorella Gallo</div>
+                    <div class="testimonial-role">Abogada y Empresaria</div>
                 </div>
                 
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="150">
-                    <p class="testimonial-content">"Lo que más valoro es descubrir <strong>todas las posibilidades</strong> para mejorar la productividad utilizando herramientas que tenía a la mano pero que no aprovechaba a su máximo potencial. El taller me ayudó a optimizar varias áreas de mi trabajo."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">CC</div>
-                        <div class="testimonial-info">
-                            <div class="testimonial-name">Charly Cervera</div>
-                        </div>
-                    </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <p class="testimonial-content">El curso ha cumplido todas mis expectativas. Lo has explicado de manera bastante amigable y clara.</p>
+                    <div class="testimonial-author">Ximena Subiría</div>
+                    <div class="testimonial-role">Sub Gerente de Venta</div>
                 </div>
                 
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <p class="testimonial-content">"He entrado a un nuevo mundo que antes veía muy complejo. Gracias a Nelson, se me han abierto <strong>muchas posibilidades</strong> y resultó ser más fácil de lo que pensaba, desde la mentalidad hasta la automatización de tareas."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">JG</div>
-                        <div class="testimonial-info">
-                            <div class="testimonial-name">Juan García</div>
-                        </div>
-                    </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <p class="testimonial-content">Me ha servido muchísimo, estaba con la idea de poder llevar algo así desde el año pasado pero es un poco difícil encontrar uno bueno, a Dios gracias encontré este taller.</p>
+                    <div class="testimonial-author">Noel Villanueva</div>
+                    <div class="testimonial-role">Desarrollador</div>
                 </div>
                 
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="250">
-                    <p class="testimonial-content">"Quiero expresar mi sincero agradecimiento por este curso de Inteligencia Artificial. Ha sido una experiencia <strong>invaluable</strong> que me ha permitido adquirir conocimientos en un campo tan apasionante y en constante evolución."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">VH</div>
-                        <div class="testimonial-info">
-                            <div class="testimonial-name">Victor Hugo Condor</div>
-                        </div>
-                    </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <p class="testimonial-content">Lo que más valoro es descubrir todas las posibilidades para mejorar la productividad utilizando herramientas que tenía a la mano pero que no aprovechaba a su máximo potencial. El taller me ayudó a optimizar varias áreas de mi trabajo.</p>
+                    <div class="testimonial-author">Charly Cervera</div>
+                    <div class="testimonial-role">Gerente General</div>
                 </div>
                 
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-                    <p class="testimonial-content">"Excelente tu disponibilidad para enseñar en esta nueva aventura de la IA. La forma en que nos has guiado ha sido <strong>genial y muy práctica</strong> para nuestro aprendizaje."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">HS</div>
-                        <div class="testimonial-info">
-                            <div class="testimonial-name">Hugo Saniz</div>
-                        </div>
-                    </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <p class="testimonial-content">He entrado a un nuevo mundo que antes veía muy complejo. Gracias a Nelson, se me han abierto muchas posibilidades y resultó ser más fácil de lo que pensaba, desde la mentalidad hasta la automatización de tareas.</p>
+                    <div class="testimonial-author">Juan García</div>
+                    <div class="testimonial-role">Gerente de Planta</div>
                 </div>
                 
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="350">
-                    <p class="testimonial-content">"Me ha generado mucha expectativa sobre las herramientas de IA y cómo aprovecharlas al máximo para mejorar la <strong>productividad y los servicios</strong> de mi consultora."</p>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">BM</div>
-                        <div class="testimonial-info">
-                            <div class="testimonial-name">Beatriz Martinez</div>
-                        </div>
-                    </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <p class="testimonial-content">Quiero expresar mi sincero agradecimiento por este curso de Inteligencia Artificial. Ha sido una experiencia invaluable que me ha permitido adquirir conocimientos en un campo tan apasionante y en constante evolución.</p>
+                    <div class="testimonial-author">Victor Hugo Condor</div>
+                    <div class="testimonial-role">Ejecutivo</div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Pricing Section -->
-    <section class="pricing" id="inscripcion">
+    <!-- Benefits Section -->
+    <section class="benefits">
         <div class="container">
-            <div class="section-title text-center">
-                <h2 data-aos="fade-up">Invierte en tu futuro profesional</h2>
-                <p data-aos="fade-up" data-aos-delay="100">Elige el plan que mejor se adapte a tus necesidades</p>
-            </div>
+            <h2 class="section-title">Inscríbete ahora y recibe</h2>
             
-            <div class="pricing-container">
-                <div class="pricing-box" data-aos="fade-up" data-aos-delay="200">
-                    <div class="pricing-header">
-                        <h3 class="pricing-title">Tarifa Regular</h3>
-                        <div class="pricing-price">
-                            <span class="currency">S/</span> 750
-                        </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-certificate"></i>
                     </div>
-                    <div class="pricing-body">
-                        <ul class="pricing-features">
-                            <li><i class="fas fa-check-circle"></i>4 sesiones prácticas vía Zoom</li>
-                            <li><i class="fas fa-check-circle"></i>Soporte durante el taller</li>
-                            <li><i class="fas fa-check-circle"></i>Acceso a la plataforma con grabaciones</li>
-                            <li><i class="fas fa-check-circle"></i>Materiales y recursos adicionales</li>
-                            <li><i class="fas fa-check-circle"></i>Acceso al foro de participantes</li>
-                            <li><i class="fas fa-check-circle"></i>Certificado de participación</li>
-                        </ul>
-                        <a href="#" class="btn btn-outline btn-lg">Inscribirme Ahora</a>
-                    </div>
+                    <h3 class="benefit-title">Certificado de participación</h3>
+                    <p class="benefit-description">Al finalizar el taller emitido por Portugal Research International, consultora con más de una década de trayectoria en el país.</p>
                 </div>
                 
-                <div class="pricing-box" data-aos="fade-up" data-aos-delay="300">
-                    <div class="pricing-header">
-                        <h3 class="pricing-title">Tarifa Preferencial</h3>
-                        <div class="pricing-price">
-                            <span class="original"><span class="currency">S/</span>750</span>
-                            <span class="currency">S/</span> 450
-                        </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-video"></i>
                     </div>
-                    <div class="pricing-body">
-                        <ul class="pricing-features">
-                            <li><i class="fas fa-check-circle"></i><strong>Todo lo de la tarifa regular +</strong></li>
-                            <li><i class="fas fa-check-circle"></i>Acceso prioritario al instructor</li>
-                            <li><i class="fas fa-check-circle"></i>Sesión 1 a 1 de consulta</li>
-                            <li><i class="fas fa-check-circle"></i>Descuento especial con código promocional</li>
-                            <li><i class="fas fa-check-circle"></i>Acceso anticipado a futuros talleres</li>
-                            <li><i class="fas fa-check-circle"></i>Bonus: Lista completa de herramientas IA</li>
-                        </ul>
-                        <a href="#" class="btn btn-primary btn-lg">Aprovechar Descuento</a>
+                    <h3 class="benefit-title">Sesiones interactivas</h3>
+                    <p class="benefit-description">4 sesiones vía Zoom de 2 horas cada una 100% prácticas, que te permitirán hacer las cosas 10 veces más rápido y ser 10 veces más creativo(a) y estratégico(a).</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
                     </div>
+                    <h3 class="benefit-title">Soporte personalizado</h3>
+                    <p class="benefit-description">Durante todo el mes del curso, cualquier duda que tengas recibirás guía y soporte.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="benefit-title">Acceso a plataforma privada</h3>
+                    <p class="benefit-description">Con las grabaciones, lista de más de 100 herramientas de IA y prompts listos para utilizar en tu gestión.</p>
                 </div>
             </div>
             
-            <div class="countdown" data-aos="fade-up" data-aos-delay="400">
-                <div class="countdown-item">
-                    <div class="countdown-number" id="countdown-days">00</div>
-                    <div class="countdown-label">Días</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="countdown-hours">00</div>
-                    <div class="countdown-label">Horas</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="countdown-minutes">00</div>
-                    <div class="countdown-label">Minutos</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="countdown-seconds">00</div>
-                    <div class="countdown-label">Segundos</div>
-                </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="margin-bottom: 12px;"><span style="text-decoration: line-through;">Precio regular S/ 750</span></p>
+                <p style="font-weight: 700; font-size: 24px; color: var(--success);">Inscribe hoy y accede a la tarifa preferencial de S/ 450</p>
             </div>
             
-            <p class="text-center" data-aos="fade-up" data-aos-delay="500">El descuento expira pronto. ¡No pierdas esta oportunidad!</p>
+            <div style="background-color: white; max-width: 800px; margin: 40px auto 0; padding: 32px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px;">Nuestra Garantía – Tu Confianza Asegurada</h3>
+                <p>Mi compromiso es claro: <strong>te garantizo que aprenderás a integrar la IA en tu día a día.</strong> Para asegurarlo, incluimos sin costo adicional una sesión individual de 60 minutos vía Zoom, donde te daré consejos y recomendaciones 100% personalizadas para que puedas implementar la IA en tu gestión.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Instructor Section -->
+    <section id="instructor" class="instructor">
+        <div class="container">
+            <h2 class="section-title">Consultor a cargo</h2>
+            
+            <div class="instructor-content">
+                <img src="/api/placeholder/400/400" alt="Nelson Portugal" class="instructor-image">
+                
+                <div class="instructor-info">
+                    <h3>Nelson Portugal</h3>
+                    <h4>Consultor en Desarrollo Personal y Especialista en IA Aplicada</h4>
+                    
+                    <p style="margin-bottom: 24px;">Consultor en desarrollo personal, autor del libro El Círculo de Crecimiento y especialista en el diseño de programas formativos dirigidos a jefes, gerentes y propietarios(as) de empresas.</p>
+                    
+                    <ul>
+                        <li>Ha asesorado a profesionales de empresas como Cosapi, Minsur, Huawei, Entel, Colliers, PetroPerú, La Marina de Guerra del Perú, entre otras.</li>
+                        <li>Ha integrado diversas herramientas no code en la parte comercial y de marketing de diferentes empresas.</li>
+                        <li>Ha dictado talleres de IA para empresas del sector salud, educación y seguros.</li>
+                        <li>Administrador de profesión por la UPC, ha brindado capacitaciones en diversas empresas en el país.</li>
+                        <li>Ha sido invitado a dictar clases ejecutivas en Centrum PUCP y se ha desempeñado como profesor universitario en la universidad Continental.</li>
+                        <li>Complementó su experiencia empresarial participando en el programa especializado en el Liderazgo de Firmas de Servicios Profesionales en la escuela de negocios de Harvard.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final CTA Section -->
+    <section id="cta" class="cta">
+        <div class="container">
+            <h2>¡Tu carrera depende de lo que decidas hoy!</h2>
+            <p>Dentro de poco, <strong>el 85% de las empresas contratará exclusivamente profesionales con habilidades en Inteligencia Artificial</strong>. La IA no va a quitarte el trabajo, pero quienes la dominen sí reemplazarán rápidamente a quienes no.</p>
+            <p>Esta es tu oportunidad clave para adelantarte y asegurar tu futuro profesional. Empieza ya a integrar la IA de forma efectiva y diferénciate claramente tanto de quienes aún no la usan como de aquellos que lo hacen sin sacarle verdadero provecho.</p>
+            <p style="margin-bottom: 32px;"><strong>No esperes a que sea tarde. ¡Da el primer paso ahora y sé indispensable para las empresas del mañana!</strong></p>
+            
+            <a href="#" class="cta-white-button">¡Inscríbete ahora y asegura tu futuro profesional!</a>
         </div>
     </section>
     
     <!-- FAQ Section -->
-    <section class="faq">
+    <section id="faq" class="faq">
         <div class="container">
-            <div class="section-title text-center">
-                <h2 data-aos="fade-up">Preguntas frecuentes</h2>
-                <p data-aos="fade-up" data-aos-delay="100">Resolvemos tus dudas sobre el taller</p>
-            </div>
+            <h2 class="section-title">Preguntas Frecuentes</h2>
             
-            <div class="faq-container">
-                <div class="faq-item active" data-aos="fade-up" data-aos-delay="200">
-                    <div class="faq-question">¿Necesito conocimientos previos de programación?</div>
+            <div class="faq-accordion">
+                <div class="faq-question">
+                    <h4>¿Cómo me inscribo al taller? <i class="fas fa-chevron-down"></i></h4>
                     <div class="faq-answer">
-                        <p>No, el taller está diseñado para principiantes y no requiere conocimientos previos de programación. Está pensado para profesionales de cualquier área que quieran aplicar la IA en su día a día.</p>
+                        <p>Puedes inscribirte fácilmente haciendo clic <strong>aquí para WhatsApp</strong> o, si prefieres pagar con tarjeta de crédito, usa este <strong>enlace seguro</strong>. También puedes escribirnos a <strong>nportugal@trasciende.la</strong> para coordinar tu inscripción.</p>
                     </div>
                 </div>
                 
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
-                    <div class="faq-question">¿Cómo son las sesiones? ¿Se graban?</div>
+                <div class="faq-question">
+                    <h4>¿Cuáles son las formas de pago disponibles? <i class="fas fa-chevron-down"></i></h4>
                     <div class="faq-answer">
-                        <p>Las sesiones son 100% prácticas y se realizan vía Zoom. Todas las sesiones se graban y se comparten en una plataforma privada para que puedas revisarlas cuando quieras, incluso si no pudiste asistir en vivo.</p>
+                        <p>Tienes varias opciones: Yape, Plin, transferencia bancaria o tarjeta de crédito, según lo que te resulte más cómodo. Para pagos con tarjeta, usa este enlace: <strong>https://pagolink.niubiz.com.pe/pagoseguro/PORTUGALRESEACHINTERNATIONALSAC/3971527</strong>.</p>
                     </div>
                 </div>
                 
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="faq-question">¿Qué pasa si no puedo asistir a alguna sesión en vivo?</div>
+                <div class="faq-question">
+                    <h4>¿Emiten factura? <i class="fas fa-chevron-down"></i></h4>
                     <div class="faq-answer">
-                        <p>No hay problema. Todas las sesiones se graban y tendrás acceso a las grabaciones en nuestra plataforma. Además, podrás hacer preguntas en el foro de participantes y en las sesiones de soporte.</p>
+                        <p>Por supuesto. Solo necesitas enviarnos el RUC. La inscripción se realiza a nombre de <strong>Portugal Research International SAC</strong>. Usa la cuenta BCP: <strong>193-2225743-0-51</strong>. Si transfieres desde otro banco, el CCI es: <strong>00219300222574305116</strong>.</p>
                     </div>
                 </div>
                 
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="350">
-                    <div class="faq-question">¿Qué herramientas necesito para participar?</div>
+                <div class="faq-question">
+                    <h4>¿Cuál es el costo del taller? <i class="fas fa-chevron-down"></i></h4>
                     <div class="faq-answer">
-                        <p>Solo necesitas una computadora con conexión a internet y acceso a Zoom. Durante el taller te guiaremos para que puedas registrarte y usar las diferentes herramientas de IA que veremos, muchas de ellas con versiones gratuitas o de prueba.</p>
+                        <p>El precio regular es <strong>S/ 750</strong>. Pero si te inscribes hoy, accedes a la tarifa preferencial de <strong>S/ 450</strong>. Puedes empezar con un pago inicial de <strong>S/ 150</strong> y abonar los S/ 300 restantes en dos cuotas durante el taller.</p>
                     </div>
                 </div>
                 
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="faq-question">¿El taller es aplicable a mi industria específica?</div>
+                <div class="faq-question">
+                    <h4>¿Las clases son en vivo? <i class="fas fa-chevron-down"></i></h4>
                     <div class="faq-answer">
-                        <p>¡Absolutamente! El taller está diseñado para ser aplicable a cualquier industria o rol profesional. Hemos tenido participantes de sectores como salud, educación, finanzas, legal, marketing, recursos humanos, ingeniería y muchos más. Las herramientas y técnicas que aprenderás son versátiles y adaptables a tu contexto específico.</p>
+                        <p>Sí, todas las sesiones son en vivo vía Zoom, los miércoles de 7:00 p.m. a 9:00 p.m. (hora Perú). Además, tendrás acceso a las grabaciones y soporte personalizado durante 30 días para que aproveches al máximo el contenido.</p>
                     </div>
                 </div>
                 
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="450">
-                    <div class="faq-question">¿Cómo funcionan los pagos y la facturación?</div>
+                <div class="faq-question">
+                    <h4>¿Hay grabaciones disponibles si no puedo asistir en vivo? <i class="fas fa-chevron-down"></i></h4>
                     <div class="faq-answer">
-                        <p>Aceptamos pagos por transferencia bancaria, depósito, tarjeta de crédito/débito y Yape. Una vez realizado el pago, recibirás tu comprobante electrónico y las instrucciones para acceder al taller.</p>
+                        <p>Sí, todas las sesiones se graban y estarán disponibles en una plataforma privada por un año. Además, durante los 30 días del taller, puedes consultarme cualquier duda y agendar una sesión individual para aclarar lo que necesites.</p>
                     </div>
                 </div>
                 
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-                    <div class="faq-question">¿Ofrecen algún tipo de garantía?</div>
+                <div class="faq-question">
+                    <h4>¿Necesito conocimientos previos o saber programar? <i class="fas fa-chevron-down"></i></h4>
                     <div class="faq-answer">
-                        <p>Sí, ofrecemos una garantía de satisfacción. Si después de la primera sesión consideras que el taller no cumple con tus expectativas, puedes solicitar la devolución de tu inversión sin compromiso.</p>
+                        <p>No, el taller está diseñado para que cualquier persona, incluso sin experiencia en IA o programación, pueda aprender a implementar soluciones prácticas desde cero.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Companies Section -->
-    <section class="companies">
-        <div class="container">
-            <div class="section-title text-center">
-                <h2 data-aos="fade-up">Empresas participantes</h2>
-                <p data-aos="fade-up" data-aos-delay="100">Más de 150 profesionales de reconocidas organizaciones nos respaldan</p>
-            </div>
-            
-            <div class="companies-grid" data-aos="fade-up" data-aos-delay="200">
-                <img src="/api/placeholder/150/80" alt="Cosapi" class="company-item">
-                <img src="/api/placeholder/150/80" alt="Minsur" class="company-item">
-                <img src="/api/placeholder/150/80" alt="Huawei" class="company-item">
-                <img src="/api/placeholder/150/80" alt="Entel" class="company-item">
-                <img src="/api/placeholder/150/80" alt="PetroPerú" class="company-item">
-                <img src="/api/placeholder/150/80" alt="Marina de Guerra" class="company-item">
-            </div>
-        </div>
-    </section>
-    
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2 data-aos="fade-up">¡Asegura tu lugar ahora!</h2>
-            <p data-aos="fade-up" data-aos-delay="100">Invierte en tu futuro profesional y prepárate para la revolución de la IA. Plazas limitadas.</p>
-            
-            <div class="countdown" data-aos="fade-up" data-aos-delay="200">
-                <div class="countdown-item">
-                    <div class="countdown-number" id="countdown-days-footer">00</div>
-                    <div class="countdown-label">Días</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="countdown-hours-footer">00</div>
-                    <div class="countdown-label">Horas</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="countdown-minutes-footer">00</div>
-                    <div class="countdown-label">Minutos</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="countdown-seconds-footer">00</div>
-                    <div class="countdown-label">Segundos</div>
-                </div>
-            </div>
-            
-            <a href="#inscripcion" class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="300">¡Inscríbete ahora!</a>
         </div>
     </section>
     
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="/api/placeholder/200/80" alt="Nelson Portugal" class="mb-3">
-                    <p>Transformando profesionales y empresas con la potencia de la Inteligencia Artificial aplicada.</p>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li>Email: nportugal@trasciende.la</li>
+                        <li>WhatsApp: +51 XXX XXX XXX</li>
+                    </ul>
                 </div>
                 
-                <div class="footer-links">
-                    <h3>Enlaces rápidos</h3>
+                <div class="footer-col">
+                    <h4>Enlaces rápidos</h4>
                     <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#beneficios">Beneficios</a></li>
-                        <li><a href="#temario">Temario</a></li>
+                        <li><a href="#curriculum">Temario</a></li>
+                        <li><a href="#tools">Herramientas</a></li>
                         <li><a href="#instructor">Instructor</a></li>
-                        <li><a href="#testimonios">Testimonios</a></li>
-                        <li><a href="#inscripcion">Inscripción</a></li>
+                        <li><a href="#testimonials">Testimonios</a></li>
+                        <li><a href="#faq">FAQ</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-links">
-                    <h3>Recursos</h3>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Podcast</a></li>
-                        <li><a href="#">Guías gratuitas</a></li>
-                        <li><a href="#">Canal de YouTube</a></li>
-                        <li><a href="#">Consultoría</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h3>Contacto</h3>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <div>info@nelsonportugal.com</div>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <div>+51 XXX XXX XXX</div>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>Lima, Perú</div>
-                        </li>
-                    </ul>
-                    
+                <div class="footer-col">
+                    <h4>Sigue a Nelson</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
                     </div>
                 </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Portugal Research International SAC. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // FAQ accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                question.classList.toggle('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
