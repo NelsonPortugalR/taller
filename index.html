@@ -1465,7 +1465,7 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo"><img src="http://nelsonportugal.com/wp-content/uploads/2020/12/descarga.png" alt="Nelson Portugal" height="50"></a>
+                <a href="#" class="logo"><img src="http://nelsonportugal.com/wp-content/uploads/2016/06/logo.png" alt="Nelson Portugal" height="50"></a>
                 <div class="nav-links">
                     <a href="#curriculum">Temario</a>
                     <a href="#tools">Herramientas</a>
@@ -1511,7 +1511,7 @@
     </section>
     
     <!-- Key Information Bar -->
-    <div class="key-info-container">
+            <div class="key-info-container">
         <div class="key-info">
             <div class="info-item">
                 <div class="info-item-title">INICIO</div>
@@ -1539,6 +1539,31 @@
             </div>
         </div>
     </div>
+    
+    <style>
+    .key-info {
+        grid-template-columns: repeat(5, 1fr);
+        display: grid;
+    }
+    
+    @media (max-width: 992px) {
+        .key-info {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .key-info {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .key-info {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
     
     <!-- Credibility Section -->
     <section class="credibility">
@@ -2137,7 +2162,7 @@
                         <div class="pricing-note">Puedes hacer el pago en 3 cuotas de solo S/ 150</div>
                     </div>
                     
-                    <a href="https://wa.link/g9rery" class="pricing-button">¡Inscríbete ahora!</a>
+                    <a href="https://wa.link/g9rery" target="_blank" class="pricing-button">¡Inscríbete ahora!</a>
                 </div>
             </div>
             
@@ -2277,8 +2302,7 @@
                 </div>
                 
                 <div class="instructor-info">
-                    <h3>Nelson Portugal</h3>
-                    <h4>Consultor en Desarrollo Personal y Especialista en IA Aplicada</h4>
+                    <h4>Nelson Portugal</h4>
                     
                     <p>Consultor en desarrollo personal, autor del libro El Círculo de Crecimiento y especialista en el diseño de programas formativos dirigidos a jefes, gerentes y propietarios(as) de empresas.</p>
                     
@@ -2465,11 +2489,11 @@
                 
                 <style>
                 .social-link-bright {
-                    background-color: rgba(255,255,255,0.2);
+                    background-color: rgba(255,255,255,0.3);
                 }
                 
                 .social-link-bright:hover {
-                    background-color: var(--primary);
+                    background-color: rgba(255,255,255,0.5);
                 }
                 </style>
             </div>
