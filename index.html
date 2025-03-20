@@ -135,7 +135,7 @@
         
         /* Hero Section */
         .hero {
-            padding: 100px 0 80px;
+            padding: 60px 0 80px; /* Reducido de 100px a 60px */
             background-color: var(--light-bg);
             text-align: center;
             position: relative;
@@ -197,14 +197,14 @@
             margin-top: -40px;
             position: relative;
             z-index: 10;
-            padding: 0 20px;
+            padding: 0; /* Eliminado el padding lateral */
         }
         
         .key-info {
             display: flex;
             justify-content: space-between;
             background-color: white;
-            padding: 32px;
+            padding: 32px 40px; /* Aumentado el padding lateral */
             border-radius: 16px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.08);
             max-width: 1000px;
@@ -723,7 +723,7 @@
         
         /* Benefits */
         .benefits {
-            padding: 100px 0 80px;
+            padding: 80px 0 80px; /* Reducido padding-top de 100px a 80px */
             background-color: var(--light-bg);
         }
         
@@ -777,7 +777,7 @@
         
         /* Pricing */
         .pricing-section {
-            padding: 40px 0;
+            padding: 40px 0 80px; /* Aumentado padding-bottom de 40px a 80px */
             text-align: center;
         }
         
@@ -1172,7 +1172,7 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background-color: rgba(255,255,255,0.1);
+            background-color: white; /* Fondo blanco sólido */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1181,12 +1181,14 @@
         }
         
         .social-link:hover {
-            background-color: var(--primary);
+            background-color: #f0f0f0; /* Gris claro al hacer hover */
             transform: translateY(-3px);
         }
+        
         .social-link i {
             color: white !important; /* Forzar el color blanco */
         }
+        
         .footer-bottom {
             text-align: center;
             padding-top: 40px;
@@ -1543,9 +1545,24 @@
     </div>
     
     <style>
+    .key-info-container {
+        margin-top: -40px;
+        position: relative;
+        z-index: 10;
+        padding: 0; /* Eliminado el padding lateral */
+    }
+    
     .key-info {
         grid-template-columns: repeat(5, 1fr);
         display: grid;
+        background-color: white;
+        padding: 32px 40px; /* Aumentado el padding lateral para simetría */
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 20px; /* Añade espacio entre las columnas */
     }
     
     @media (max-width: 992px) {
