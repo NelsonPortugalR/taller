@@ -2707,12 +2707,6 @@
         });
         // Urgency Floating Button Logic
         document.addEventListener('DOMContentLoaded', function() {
-            if (localStorage.getItem('urgencyMessagesShown')) {
-                return;
-            }
-
-            localStorage.setItem('urgencyMessagesShown', 'true');
-
             const urgencyCta = document.querySelector('.urgency-cta');
             const urgencyMessage = document.querySelector('.urgency-message');
 
@@ -2720,6 +2714,17 @@
                 console.error('No se encontraron los elementos .urgency-cta o .urgency-message');
                 return;
             }
+
+            // Verificar si el usuario ya vio los mensajes (primera visita o no)
+            if (localStorage.getItem('urgencyMessagesShown')) {
+                // A partir de la segunda visita, mostrar el botón con el mensaje fijo
+                urgencyCta.style.display = 'block';
+                urgencyMessage.textContent = '¡No pierdas tu cupo, inscríbete ahora!';
+                return; // No ejecutar más lógica
+            }
+
+            // Primera visita: marcar que el usuario ya vio los mensajes y mostrar la secuencia
+            localStorage.setItem('urgencyMessagesShown', 'true');
 
             setTimeout(() => {
                 urgencyCta.style.display = 'block';
