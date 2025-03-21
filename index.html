@@ -1201,8 +1201,18 @@
             color: var(--light);
             font-size: 15px;
         }
-        footer .footer-content .footer-col .social-links .social-link i {
-            color: #ff0000 !important; /* Cambia a rojo para probar */
+        footer .footer-content .footer-col .social-links .social-link i,
+        footer .footer-content .footer-col .social-links .social-link:hover i,
+        footer .footer-content .footer-col .social-links .social-link:active i,
+        footer .footer-content .footer-col .social-links .social-link:visited i {
+            color: #ffffff !important; /* Blanco en todos los estados */
+        }
+        
+        .social-link [class*="fa-"],
+        .social-link:hover [class*="fa-"],
+        .social-link:active [class*="fa-"],
+        .social-link:visited [class*="fa-"] {
+            color: #ffffff !important; /* Blanco en todos los estados */
         }
         
         /* Responsive */
