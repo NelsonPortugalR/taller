@@ -1507,105 +1507,6 @@
             }
         }
         
-        /* Floating button */
-        .floating-cta {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--primary);
-            color: white;
-            padding: 14px 24px;
-            border-radius: 50px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            font-weight: 600;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            z-index: 99;
-            transition: all 0.3s;
-        }
-        
-        .floating-cta:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-        }
-        
-        .floating-cta i {
-            font-size: 18px;
-        }
-        
-        @media (max-width: 768px) {
-            .floating-cta {
-                bottom: 20px;
-                right: 20px;
-                padding: 12px 20px;
-                font-size: 14px;
-            }
-        }
-            /* Urgency Floating Button */
-        .urgency-cta {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background-color: #ffffff;
-            color: #2563eb;
-            padding: 14px 24px; /* Ajustado para coincidir con floating-cta */
-            border-radius: 50px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            font-weight: 600;
-            font-size: 14px; /* Ajustado para coincidir con floating-cta */
-            z-index: 99;
-            transition: all 0.3s ease;
-            border: 2px solid #2563eb;
-            display: none;
-            animation: slideIn 0.5s ease forwards;
-        }
-
-        .urgency-cta:hover {
-            background-color: #2563eb;
-            color: #ffffff;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-        }
-
-        .urgency-message {
-            color: inherit;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .urgency-message::before {
-            content: "⚡";
-            font-size: 16px;
-            color: #ffcc00;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .urgency-cta {
-                bottom: 20px;
-                left: 20px;
-                padding: 12px 20px;
-                font-size: 14px;
-            }
-
-            .urgency-message::before {
-                font-size: 14px;
-            }
-        }
             /* Audio Testimonials */
         .audio-testimonials {
             text-align: center;
@@ -2797,16 +2698,6 @@
         </div>
     </footer>
     
-    <!-- Floating CTA Button -->
-    <a href="https://wa.link/g9rery" target="_blank" class="floating-cta">
-        <i class="fas fa-rocket"></i> Inscríbete ahora
-    </a>
-
-    <!-- Urgency Floating Button -->
-    <div class="urgency-cta">
-        <span class="urgency-message">Un nuevo profesional se ha inscrito al taller</span>
-    </div>
-    
     <script>
         // Mobile menu toggle
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
@@ -2904,56 +2795,6 @@
                     navLinks.classList.remove('active');
                 }
             });
-        });
-        // Urgency Floating Button Logic
-        document.addEventListener('DOMContentLoaded', function() {
-            const urgencyCta = document.querySelector('.urgency-cta');
-            const urgencyMessage = document.querySelector('.urgency-message');
-
-            if (!urgencyCta || !urgencyMessage) {
-                console.error('No se encontraron los elementos .urgency-cta o .urgency-message');
-                return;
-            }
-
-            // Verificar si el usuario ya vio los mensajes (primera visita o no)
-            if (localStorage.getItem('urgencyMessagesShown')) {
-                // A partir de la segunda visita, mostrar el botón con el mensaje fijo
-                urgencyCta.style.display = 'block';
-                urgencyMessage.textContent = '¡No pierdas tu cupo, inscríbete ahora!';
-                return; // No ejecutar más lógica
-            }
-
-            // Primera visita: marcar que el usuario ya vio los mensajes y mostrar la secuencia
-            localStorage.setItem('urgencyMessagesShown', 'true');
-
-            setTimeout(() => {
-                urgencyCta.style.display = 'block';
-                urgencyMessage.textContent = 'Un nuevo profesional se ha inscrito al taller';
-            }, 1000);
-
-            setTimeout(() => {
-                urgencyMessage.textContent = 'Cinco profesionales están viendo esta página ahora';
-            }, 4000);
-
-            setTimeout(() => {
-                urgencyMessage.textContent = 'Quedan solo 4 cupos disponibles';
-            }, 14000);
-
-            setTimeout(() => {
-                urgencyMessage.textContent = '8 profesionales están viendo esta página ahora';
-            }, 39000);
-
-            setTimeout(() => {
-                urgencyMessage.textContent = '¡No pierdas tu cupo, inscríbete ahora!';
-            }, 74000);
-
-            setTimeout(() => {
-                urgencyMessage.textContent = '¡Última oportunidad para inscribirte!';
-            }, 134000);
-
-            setTimeout(() => {
-                urgencyCta.style.display = 'none';
-            }, 164000);
         });
         // Audio Control Logic (para ambos reproductores)
         document.addEventListener('DOMContentLoaded', function() {
