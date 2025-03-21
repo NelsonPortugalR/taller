@@ -1481,6 +1481,68 @@
                 font-size: 14px;
             }
         }
+            /* Urgency Floating Button */
+        .urgency-cta {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: #ffffff;
+            color: #2563eb;
+            padding: 16px 32px;
+            border-radius: 50px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            font-weight: 600;
+            font-size: 18px;
+            z-index: 99;
+            transition: all 0.3s ease;
+            border: 2px solid #2563eb;
+            display: none;
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .urgency-cta:hover {
+            background-color: #2563eb;
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+        }
+
+        .urgency-message {
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .urgency-message::before {
+            content: "⚡";
+            font-size: 20px;
+            color: #ffcc00;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .urgency-cta {
+                bottom: 20px;
+                left: 20px;
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+
+            .urgency-message::before {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2551,6 +2613,11 @@
     <a href="https://wa.link/g9rery" target="_blank" class="floating-cta">
         <i class="fas fa-rocket"></i> Inscríbete ahora
     </a>
+
+    <!-- Urgency Floating Button -->
+    <div class="urgency-cta">
+        <span class="urgency-message">Un nuevo profesional se ha inscrito al taller</span>
+    </div>
     
     <script>
         // Mobile menu toggle
@@ -2637,6 +2704,51 @@
                     navLinks.classList.remove('active');
                 }
             });
+        });
+        // Urgency Floating Button Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('urgencyMessagesShown')) {
+                return;
+            }
+
+            localStorage.setItem('urgencyMessagesShown', 'true');
+
+            const urgencyCta = document.querySelector('.urgency-cta');
+            const urgencyMessage = document.querySelector('.urgency-message');
+
+            if (!urgencyCta || !urgencyMessage) {
+                console.error('No se encontraron los elementos .urgency-cta o .urgency-message');
+                return;
+            }
+
+            setTimeout(() => {
+                urgencyCta.style.display = 'block';
+                urgencyMessage.textContent = 'Un nuevo profesional se ha inscrito al taller';
+            }, 1000);
+
+            setTimeout(() => {
+                urgencyMessage.textContent = 'Cinco profesionales están viendo esta página ahora';
+            }, 4000);
+
+            setTimeout(() => {
+                urgencyMessage.textContent = 'Quedan solo 4 cupos disponibles';
+            }, 14000);
+
+            setTimeout(() => {
+                urgencyMessage.textContent = '8 profesionales están viendo esta página ahora';
+            }, 39000);
+
+            setTimeout(() => {
+                urgencyMessage.textContent = '¡No pierdas tu cupo, inscríbete ahora!';
+            }, 74000);
+
+            setTimeout(() => {
+                urgencyMessage.textContent = '¡Última oportunidad para inscribirte!';
+            }, 134000);
+
+            setTimeout(() => {
+                urgencyCta.style.display = 'none';
+            }, 164000);
         });
     </script>
 </body>
