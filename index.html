@@ -2955,93 +2955,90 @@
                 urgencyCta.style.display = 'none';
             }, 164000);
         });
-            // Audio Testimonials Logic
+        // Audio Control Logic (para ambos reproductores)
         document.addEventListener('DOMContentLoaded', function() {
             const audioPlayer = document.querySelector('.audio-player');
             const playPauseBtn = document.querySelector('.play-pause-btn');
-            const audio = document.getElementById('testimonial-audio');
-
-            if (!audioPlayer || !playPauseBtn || !audio) {
-                console.error('No se encontraron los elementos del reproductor de audio');
-                return;
-            }
-
-            audioPlayer.addEventListener('click', function() {
-                if (audio.paused) {
-                    audio.play();
-                    audioPlayer.classList.add('playing');
-                } else {
-                    audio.pause();
-                    audioPlayer.classList.remove('playing');
-                }
-            });
-
-            audio.addEventListener('ended', function() {
-                audioPlayer.classList.remove('playing');
-            });
-        });    
-        // Controlar la reproducción del audio desde el ícono del menú
-        document.addEventListener('DOMContentLoaded', function() {
             const navPlayBtn = document.getElementById('nav-play-btn');
-            const audioPlayer = document.querySelector('.audio-player');
             const audio = document.getElementById('testimonial-audio');
 
-            if (!navPlayBtn || !audioPlayer || !audio) {
-                console.error('No se encontraron los elementos para controlar el audio desde el menú');
+            if (!audioPlayer || !playPauseBtn || !navPlayBtn || !audio) {
+                console.error('No se encontraron los elementos para controlar el audio');
                 return;
             }
 
-            navPlayBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (audio.paused) {
-                    console.log('Reproduciendo audio desde el menú');
-                    audio.play().catch(error => {
-                        console.error('Error al reproducir el audio desde el menú:', error);
-                    });
+            console.log('Audio inicializado:', audio);
+            console.log('Estado inicial del audio - Pausado:', audio.paused);
+
+            // Función para reproducir el audio
+            const playAudio = () => {
+                console.log('Intentando reproducir audio');
+                audio.play().then(() => {
+                    console.log('Audio reproducido exitosamente');
                     audioPlayer.classList.add('playing');
                     navPlayBtn.classList.add('playing');
+                    navPlayBtn.querySelector('i').classList.remove('fa-volume-up');
+                    navPlayBtn.querySelector('i').classList.add('fa-pause');
+                }).catch(error => {
+                    console.error('Error al reproducir el audio:', error);
+                });
+            };
+
+            // Función para pausar el audio
+            const pauseAudio = () => {
+                console.log('Pausando audio');
+                audio.pause();
+                audioPlayer.classList.remove('playing');
+                navPlayBtn.classList.remove('playing');
+                navPlayBtn.querySelector('i').classList.remove('fa-pause');
+                navPlayBtn.querySelector('i').classList.add('fa-volume-up');
+            };
+
+            // Controlar la reproducción desde el botón de la sección de audio
+            audioPlayer.addEventListener('click', function() {
+                console.log('Clic en el botón de la sección de audio - Estado actual del audio - Pausado:', audio.paused);
+                if (audio.paused) {
+                    playAudio();
                 } else {
-                    console.log('Pausando audio desde el menú');
-                    audio.pause();
-                    audioPlayer.classList.remove('playing');
-                    navPlayBtn.classList.remove('playing');
+                    pauseAudio();
                 }
             });
 
-            // Sincronizar el estado del ícono del menú cuando el audio termina
+            // Controlar la reproducción desde el ícono del menú
+            navPlayBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Clic en el botón de navegación - Estado actual del audio - Pausado:', audio.paused);
+                if (audio.paused) {
+                    playAudio();
+                } else {
+                    pauseAudio();
+                }
+            });
+
+            // Sincronizar el estado cuando el audio termina
             audio.addEventListener('ended', function() {
+                console.log('Audio terminado');
                 audioPlayer.classList.remove('playing');
                 navPlayBtn.classList.remove('playing');
+                navPlayBtn.querySelector('i').classList.remove('fa-pause');
+                navPlayBtn.querySelector('i').classList.add('fa-volume-up');
             });
 
-            // Sincronizar el estado del ícono del menú cuando se pausa desde el botón de la sección de audio
+            // Sincronizar el estado cuando el audio se pausa
             audio.addEventListener('pause', function() {
+                console.log('Audio pausado');
                 audioPlayer.classList.remove('playing');
                 navPlayBtn.classList.remove('playing');
+                navPlayBtn.querySelector('i').classList.remove('fa-pause');
+                navPlayBtn.querySelector('i').classList.add('fa-volume-up');
             });
 
-            // Sincronizar el estado del ícono del menú cuando se reproduce desde el botón de la sección de audio
+            // Sincronizar el estado cuando el audio se reproduce
             audio.addEventListener('play', function() {
+                console.log('Audio reproducido');
                 audioPlayer.classList.add('playing');
                 navPlayBtn.classList.add('playing');
-            });
-        });
-
-            // Sincronizar el estado del ícono del menú cuando el audio termina
-            audio.addEventListener('ended', function() {
-                navPlayBtn.querySelector('i').classList.remove('fa-pause');
-                navPlayBtn.querySelector('i').classList.add('fa-play');
-            });
-
-            // Sincronizar el estado del ícono del menú cuando se pausa desde el botón de la sección de audio
-            audio.addEventListener('pause', function() {
-                navPlayBtn.querySelector('i').classList.remove('fa-pause');
-                navPlayBtn.querySelector('i').classList.add('fa-play');
-            });
-
-            // Sincronizar el estado del ícono del menú cuando se reproduce desde el botón de la sección de audio
-            audio.addEventListener('play', function() {
-                navPlayBtn.querySelector('i').classList.remove('fa-play');
+                navPlayBtn.querySelector('i').classList.remove('fa-volume-up');
                 navPlayBtn.querySelector('i').classList.add('fa-pause');
             });
         });
