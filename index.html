@@ -1214,7 +1214,13 @@
         .social-link:visited [class*="fa-"] {
             color: #ffffff !important; /* Blanco en todos los estados */
         }
-        
+        .social-links a,
+        .social-links a:hover,
+        .social-links a:active,
+        .social-links a:visited {
+            color: #ffffff !important; /* Forzar el color blanco en los enlaces */
+            text-decoration: none; /* Evitar subrayado */
+        }
         /* Responsive */
         @media (max-width: 992px) {
             .section-title {
