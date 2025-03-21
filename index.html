@@ -1652,7 +1652,7 @@
         }    
     </style>
 </head>
-<body>
+<body id="top">
     <!-- Banner at the very top -->
     <div class="banner">
         Inscríbete hoy y accede, sin costo adicional, una sesión 1 a 1 en la que recibirás asesoría 100% personalizada.
@@ -1662,7 +1662,7 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo"><img src="http://nelsonportugal.com/wp-content/uploads/2016/06/logo.png" alt="Nelson Portugal" height="50"></a>
+            <a href="#top" class="logo"><img src="http://nelsonportugal.com/wp-content/uploads/2016/06/logo.png" alt="Nelson Portugal" height="50"></a>
                 <div class="nav-links">
                     <a href="#curriculum">Temario</a>
                     <a href="#tools">Herramientas</a>
@@ -2806,22 +2806,34 @@
             currentGroup = currentGroup === totalGroups ? 1 : currentGroup + 1;
             updateActiveGroup();
         });
-        
-        // Smooth scrolling for anchor links
+                // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
+                
+                // Si el enlace es solo "#", no hacer nada
                 if (targetId === '#') return;
                 
+                // Si el enlace es "#top", desplazarse al inicio de la página
+                if (targetId === '#top') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                    return;
+                }
+                
+                // Para otros enlaces con "#", desplazarse al elemento correspondiente
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                    
                     // Close mobile menu if open
                     navLinks.classList.remove('active');
                 }
