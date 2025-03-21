@@ -83,7 +83,33 @@
         .nav-links a:hover {
             color: var(--primary);
         }
-        
+
+                .nav-play-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary); /* Azul (--primary) */
+            text-decoration: none;
+            font-size: 18px; /* Tamaño del ícono */
+            transition: color 0.3s;
+        }
+
+        .nav-play-btn:hover {
+            color: var(--primary-dark); /* Azul más oscuro al hacer hover */
+        }
+
+        /* Ajustar el espaciado para centrar entre FAQ e Inscríbete ahora */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        @media (max-width: 1000px) {
+            .nav-play-btn {
+                font-size: 16px; /* Tamaño del ícono en móviles */
+            }
+        }
         .cta-button {
             background-color: var(--primary);
             color: white;
@@ -1669,6 +1695,9 @@
                     <a href="#testimonials">Testimonios</a>
                     <a href="#instructor">Consultor</a>
                     <a href="#faq">FAQ</a>
+                    <a href="#" class="nav-play-btn" id="nav-play-btn">
+                        <i class="fas fa-play"></i>
+                    </a>
                 </div>
                 <button class="mobile-menu-toggle">
                     <i class="fas fa-bars"></i>
@@ -2914,6 +2943,54 @@
                 audioPlayer.classList.remove('playing');
             });
         });    
+                // Controlar la reproducción del audio desde el ícono del menú
+        document.addEventListener('DOMContentLoaded', function() {
+            const navPlayBtn = document.getElementById('nav-play-btn');
+            const audioPlayer = document.querySelector('.audio-player');
+            const audio = document.getElementById('testimonial-audio');
+
+            if (!navPlayBtn || !audioPlayer || !audio) {
+                console.error('No se encontraron los elementos para controlar el audio desde el menú');
+                return;
+            }
+
+            navPlayBtn.addEventListener('click', function(e) {
+                e.preventDefault(); // Evitar el comportamiento por defecto del enlace
+                if (audio.paused) {
+                    console.log('Reproduciendo audio desde el menú');
+                    audio.play().catch(error => {
+                        console.error('Error al reproducir el audio desde el menú:', error);
+                    });
+                    audioPlayer.classList.add('playing');
+                    navPlayBtn.querySelector('i').classList.remove('fa-play');
+                    navPlayBtn.querySelector('i').classList.add('fa-pause');
+                } else {
+                    console.log('Pausando audio desde el menú');
+                    audio.pause();
+                    audioPlayer.classList.remove('playing');
+                    navPlayBtn.querySelector('i').classList.remove('fa-pause');
+                    navPlayBtn.querySelector('i').classList.add('fa-play');
+                }
+            });
+
+            // Sincronizar el estado del ícono del menú cuando el audio termina
+            audio.addEventListener('ended', function() {
+                navPlayBtn.querySelector('i').classList.remove('fa-pause');
+                navPlayBtn.querySelector('i').classList.add('fa-play');
+            });
+
+            // Sincronizar el estado del ícono del menú cuando se pausa desde el botón de la sección de audio
+            audio.addEventListener('pause', function() {
+                navPlayBtn.querySelector('i').classList.remove('fa-pause');
+                navPlayBtn.querySelector('i').classList.add('fa-play');
+            });
+
+            // Sincronizar el estado del ícono del menú cuando se reproduce desde el botón de la sección de audio
+            audio.addEventListener('play', function() {
+                navPlayBtn.querySelector('i').classList.remove('fa-play');
+                navPlayBtn.querySelector('i').classList.add('fa-pause');
+            });
+        });
     </script>
 </body>
 </html>
