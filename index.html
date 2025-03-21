@@ -1543,6 +1543,113 @@
                 font-size: 14px;
             }
         }
+            /* Audio Testimonials */
+        .audio-testimonials {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .audio-testimonials p {
+            font-size: 18px; /* Reducido de 20px a 18px */
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .audio-player {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--light-bg);
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .audio-player:hover {
+            background-color: var(--primary);
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .audio-player:hover .play-pause-btn,
+        .audio-player:hover .audio-label {
+            color: #ffffff;
+        }
+
+        .audio-player:hover .wave {
+            background-color: #ffffff; /* Blanco durante hover */
+        }
+
+        .play-pause-btn {
+            font-size: 20px;
+            color: var(--primary);
+            transition: color 0.3s ease;
+        }
+
+        .audio-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            transition: color 0.3s ease;
+        }
+
+        .sound-waves {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-left: 8px;
+        }
+
+        .wave {
+            width: 5px;
+            height: 16px;
+            background-color: var(--primary); /* Azul cuando se reproduce y no hay hover */
+            border-radius: 3px;
+            animation: wave 1s infinite ease-in-out;
+            display: none;
+        }
+
+        .wave:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .wave:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .wave:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .playing .wave {
+            display: block;
+        }
+
+        .playing .play-pause-btn::before {
+            content: "\f28b"; /* Icono de pausa */
+        }
+
+        .playing .audio-label {
+            display: none;
+        }
+
+        .audio-player:not(.playing) .play-pause-btn::before {
+            content: "\f144"; /* Icono de play */
+        }
+
+        @keyframes wave {
+            0%, 100% {
+                height: 16px;
+            }
+            50% {
+                height: 32px;
+            }
+        }    
     </style>
 </head>
 <body>
@@ -1707,6 +1814,22 @@
                     <div class="stat-number">+10</div>
                     <div class="stat-label">Años de experiencia</div>
                 </div>
+            </div>
+
+                        <div class="audio-testimonials">
+                <p>Escucha algunos de los testimonios aquí</p>
+                <div class="audio-player">
+                    <i class="play-pause-btn fas"></i>
+                    <span class="audio-label">Reproducir</span>
+                    <div class="sound-waves">
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                        <div class="wave"></div>
+                    </div>
+                </div>
+                <!-- Reemplaza el src con el enlace a tu archivo de audio -->
+                <audio id="testimonial-audio" src="ruta/a/tu/audio.mp3"></audio>
             </div>
             
             <div class="organizer-box">
@@ -2755,6 +2878,31 @@
                 urgencyCta.style.display = 'none';
             }, 164000);
         });
+            // Audio Testimonials Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const audioPlayer = document.querySelector('.audio-player');
+            const playPauseBtn = document.querySelector('.play-pause-btn');
+            const audio = document.getElementById('testimonial-audio');
+
+            if (!audioPlayer || !playPauseBtn || !audio) {
+                console.error('No se encontraron los elementos del reproductor de audio');
+                return;
+            }
+
+            audioPlayer.addEventListener('click', function() {
+                if (audio.paused) {
+                    audio.play();
+                    audioPlayer.classList.add('playing');
+                } else {
+                    audio.pause();
+                    audioPlayer.classList.remove('playing');
+                }
+            });
+
+            audio.addEventListener('ended', function() {
+                audioPlayer.classList.remove('playing');
+            });
+        });    
     </script>
 </body>
 </html>
