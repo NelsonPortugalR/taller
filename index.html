@@ -84,18 +84,37 @@
             color: var(--primary);
         }
 
-                .nav-play-btn {
+        /* Navigation Play Button */
+        .nav-play-btn {
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary); /* Azul (--primary) */
             text-decoration: none;
-            font-size: 18px; /* Tamaño del ícono */
+            font-size: 20px; /* Tamaño del ícono más grande */
             transition: color 0.3s;
+            margin-left: 12px; /* Espaciado a la izquierda para centrar */
+            margin-right: 12px; /* Espaciado a la derecha para centrar */
+            animation: pulse 1.5s infinite ease-in-out; /* Animación de palpitación */
         }
 
         .nav-play-btn:hover {
             color: var(--primary-dark); /* Azul más oscuro al hacer hover */
+        }
+
+        /* Detener la animación de palpitación cuando el audio se está reproduciendo */
+        .nav-play-btn.playing {
+            animation: none;
+        }
+
+        /* Cambiar el ícono a "pause" cuando se está reproduciendo */
+        .nav-play-btn.playing i::before {
+            content: "\f04c"; /* Icono de pausa (Font Awesome) */
+        }
+
+        /* Icono de altavoz para indicar audio (más evidente) */
+        .nav-play-btn:not(.playing) i::before {
+            content: "\f028"; /* Icono de altavoz (Font Awesome) */
         }
 
         /* Ajustar el espaciado para centrar entre FAQ e Inscríbete ahora */
@@ -107,7 +126,25 @@
 
         @media (max-width: 1000px) {
             .nav-play-btn {
-                font-size: 16px; /* Tamaño del ícono en móviles */
+                font-size: 18px; /* Tamaño del ícono en móviles */
+                margin-left: 8px;
+                margin-right: 8px;
+            }
+        }
+
+        /* Animación de palpitación */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
             }
         }
         .cta-button {
@@ -2943,7 +2980,7 @@
                 audioPlayer.classList.remove('playing');
             });
         });    
-                // Controlar la reproducción del audio desde el ícono del menú
+        // Controlar la reproducción del audio desde el ícono del menú
         document.addEventListener('DOMContentLoaded', function() {
             const navPlayBtn = document.getElementById('nav-play-btn');
             const audioPlayer = document.querySelector('.audio-player');
@@ -2955,23 +2992,40 @@
             }
 
             navPlayBtn.addEventListener('click', function(e) {
-                e.preventDefault(); // Evitar el comportamiento por defecto del enlace
+                e.preventDefault();
                 if (audio.paused) {
                     console.log('Reproduciendo audio desde el menú');
                     audio.play().catch(error => {
                         console.error('Error al reproducir el audio desde el menú:', error);
                     });
                     audioPlayer.classList.add('playing');
-                    navPlayBtn.querySelector('i').classList.remove('fa-play');
-                    navPlayBtn.querySelector('i').classList.add('fa-pause');
+                    navPlayBtn.classList.add('playing');
                 } else {
                     console.log('Pausando audio desde el menú');
                     audio.pause();
                     audioPlayer.classList.remove('playing');
-                    navPlayBtn.querySelector('i').classList.remove('fa-pause');
-                    navPlayBtn.querySelector('i').classList.add('fa-play');
+                    navPlayBtn.classList.remove('playing');
                 }
             });
+
+            // Sincronizar el estado del ícono del menú cuando el audio termina
+            audio.addEventListener('ended', function() {
+                audioPlayer.classList.remove('playing');
+                navPlayBtn.classList.remove('playing');
+            });
+
+            // Sincronizar el estado del ícono del menú cuando se pausa desde el botón de la sección de audio
+            audio.addEventListener('pause', function() {
+                audioPlayer.classList.remove('playing');
+                navPlayBtn.classList.remove('playing');
+            });
+
+            // Sincronizar el estado del ícono del menú cuando se reproduce desde el botón de la sección de audio
+            audio.addEventListener('play', function() {
+                audioPlayer.classList.add('playing');
+                navPlayBtn.classList.add('playing');
+            });
+        });
 
             // Sincronizar el estado del ícono del menú cuando el audio termina
             audio.addEventListener('ended', function() {
