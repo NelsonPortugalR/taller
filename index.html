@@ -219,7 +219,7 @@
             text-align: center;
             padding: 16px;
             flex: 1;
-            min-width: 200px;
+            min-width: 0; /* Añade esta línea */
             position: relative;
         }
         
@@ -245,7 +245,8 @@
         .info-item-value {
             font-weight: 700;
             font-size: 18px;
-            word-break: break-word; /* Añade esta línea para que el texto se ajuste */
+            word-break: break-all; /* Cambia de break-word a break-all */
+
 
         }
         
