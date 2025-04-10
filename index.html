@@ -2508,6 +2508,7 @@
             .pricing-feature i {
                 margin-top: 3px;
             }
+            /* Estilos ajustados para mantener márgenes originales */
             .tools {
                 padding: 100px 0 80px;
             }
@@ -2517,6 +2518,9 @@
                 grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
                 gap: 24px;
                 margin-top: 50px;
+                max-width: 1200px; /* Limitar el ancho máximo */
+                margin-left: auto;
+                margin-right: auto;
             }
             
             .tool-card {
@@ -2527,7 +2531,7 @@
                 transition: all 0.3s;
                 position: relative;
                 overflow: hidden;
-                height: 140px; /* Altura fija para mantener consistencia */
+                aspect-ratio: 1/1; /* Mantener proporción cuadrada en lugar de altura fija */
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -2539,7 +2543,6 @@
                 align-items: center;
                 justify-content: center;
                 transition: opacity 0.3s;
-                height: 100%;
                 width: 100%;
             }
             
@@ -2588,14 +2591,19 @@
             }
             
             /* Estilos responsivos */
+            @media (max-width: 992px) {
+                .tools-grid {
+                    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                }
+            }
+            
             @media (max-width: 768px) {
                 .tools-grid {
-                    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
                 }
                 
                 .tool-card {
                     padding: 20px 15px;
-                    height: 120px;
                 }
                 
                 .tool-icon {
@@ -2611,10 +2619,11 @@
                     font-size: 13px;
                     padding: 10px;
                 }
-            } 
+            }
+            
             @media (max-width: 576px) {
                 .tools-grid {
-                    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
                 }
             }
             </style>
