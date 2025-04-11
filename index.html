@@ -1731,9 +1731,9 @@
                     <div class="laptop-screen">
                         <div id="laptop-content">
                             <!-- Contenido inicial (imagen) -->
-                            <img id="laptop-image" src="http://nelsonportugal.com/wp-content/uploads/2025/04/Captura-de-pantalla-2025-04-10-a-las-7.50.52 p. m.png" alt="Participantes en sesión de taller virtual">
+                            <img id="laptop-image" src="ruta-a-tu-imagen.jpg" alt="Participantes en sesión de taller virtual">
                             <!-- El video que se mostrará al hacer clic (con la URL de player.vimeo.com) -->
-                            <iframe id="laptop-video" style="display:none" width="100%" height="100%" src="https://player.vimeo.com/video/1074510971?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe id="laptop-video" style="display:none" width="100%" height="100%" src="https://player.vimeo.com/video/TU_ID_DE_VIDEO?autoplay=1&muted=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         
                         <!-- Botón de reproducción superpuesto -->
@@ -1744,14 +1744,19 @@
                             <div class="play-button-text">Ver extracto de 6 minutos</div>
                         </div>
                         
-                        <!-- Capa con texto informativo -->
-                        <div class="laptop-overlay">
+                        <!-- Capa con texto informativo (cuando está la imagen) -->
+                        <div id="image-overlay" class="laptop-overlay">
                             <span>Más de 180 profesionales capacitados en ediciones anteriores</span>
-                            <div id="video-note" style="display:none; font-size: 13px; margin-top: 5px;">Video reproducido a 2X para una vista rápida</div>
+                        </div>
+                        
+                        <!-- Capa con texto informativo (cuando está el video) -->
+                        <div id="video-note" class="video-speed-note" style="display:none;">
+                            Video reproducido a 2X para una vista rápida
                         </div>
                     </div>
                     <div class="laptop-base"></div>
                 </div>
+                
                 <style>
                 .laptop-frame {
                     max-width: 800px;
@@ -1797,6 +1802,20 @@
                     font-weight: 600;
                     text-align: center;
                     z-index: 10;
+                }
+                
+                .video-speed-note {
+                    position: absolute;
+                    bottom: 5px; /* Posicionado más abajo */
+                    left: 0;
+                    right: 0;
+                    background: rgba(0, 0, 0, 0.5); /* Fondo más sutil */
+                    color: white;
+                    padding: 6px 10px; /* Padding más pequeño */
+                    font-weight: 400; /* Menos prominente */
+                    text-align: center;
+                    z-index: 10;
+                    font-size: 12px; /* Texto más pequeño */
                 }
                 
                 .laptop-base {
@@ -1870,20 +1889,25 @@
                         playButton.addEventListener('click', function() {
                             var laptopImage = document.getElementById('laptop-image');
                             var laptopVideo = document.getElementById('laptop-video');
+                            var imageOverlay = document.getElementById('image-overlay');
                             var videoNote = document.getElementById('video-note');
                             
+                            // Ocultar imagen y mostrar video
                             if (laptopImage) laptopImage.style.display = 'none';
                             if (laptopVideo) laptopVideo.style.display = 'block';
                             
                             // Ocultar el botón de reproducción
                             this.style.display = 'none';
                             
+                            // Ocultar el overlay de la imagen
+                            if (imageOverlay) imageOverlay.style.display = 'none';
+                            
                             // Mostrar nota sobre velocidad del video
                             if (videoNote) videoNote.style.display = 'block';
                         });
                     }
                 });
-                </script>      
+                </script>    
                 <div class="professions-banner">
                     <p>Ya sea que trabajes en <span class="profession">recursos humanos</span>, <span class="profession">legal</span>, <span class="profession">finanzas</span>, <span class="profession">manufactura</span>, <span class="profession">marketing</span> o <span class="profession">cualquier otra área</span>: lo que aprenderás es 100% aplicable a tu contexto específico.</p>
                 </div>
