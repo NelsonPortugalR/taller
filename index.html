@@ -1729,9 +1729,13 @@
                <!-- INSERTAR AQUÍ LA IMAGEN CON MARCO DE LAPTOP -->
                 <div class="laptop-frame">
                     <div class="laptop-screen">
-                        <img src="http://nelsonportugal.com/wp-content/uploads/2025/04/Captura-de-pantalla-2025-04-10-a-las-7.50.52%E2%80%AFp.%E2%80%AFm.png" alt="Participantes en sesión de taller virtual">
-                        <iframe id="laptop-video" style="display:none" width="100%" height="100%" src="https://player.vimeo.com/video/1074510971" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div id="laptop-content">
+                            <!-- Contenido inicial (imagen) -->
+                            <img id="laptop-image" src="ruta-a-tu-imagen.jpg" alt="Participantes en sesión de taller virtual">
+                            <!-- El video que se mostrará al hacer clic (con la URL de player.vimeo.com) -->
+                            <iframe id="laptop-video" style="display:none" width="100%" height="100%" src="https://player.vimeo.com/video/TU_ID_DE_VIDEO?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
+                        
                         <!-- Botón de reproducción superpuesto -->
                         <div id="play-button" class="play-button-overlay">
                             <div class="play-button-icon">
@@ -1858,18 +1862,28 @@
                 </style>
                 
                 <script>
-                document.getElementById('play-button').addEventListener('click', function() {
-                    // Ocultar la imagen y mostrar el video
-                    document.getElementById('laptop-image').style.display = 'none';
-                    document.getElementById('laptop-video').style.display = 'block';
+                // Esperar a que el DOM esté completamente cargado
+                document.addEventListener('DOMContentLoaded', function() {
+                    var playButton = document.getElementById('play-button');
                     
-                    // Ocultar el botón de reproducción
-                    this.style.display = 'none';
-                    
-                    // Mostrar nota sobre velocidad del video
-                    document.getElementById('video-note').style.display = 'block';
+                    if (playButton) {
+                        playButton.addEventListener('click', function() {
+                            var laptopImage = document.getElementById('laptop-image');
+                            var laptopVideo = document.getElementById('laptop-video');
+                            var videoNote = document.getElementById('video-note');
+                            
+                            if (laptopImage) laptopImage.style.display = 'none';
+                            if (laptopVideo) laptopVideo.style.display = 'block';
+                            
+                            // Ocultar el botón de reproducción
+                            this.style.display = 'none';
+                            
+                            // Mostrar nota sobre velocidad del video
+                            if (videoNote) videoNote.style.display = 'block';
+                        });
+                    }
                 });
-                </script>        
+                </script>      
                 <div class="professions-banner">
                     <p>Ya sea que trabajes en <span class="profession">recursos humanos</span>, <span class="profession">legal</span>, <span class="profession">finanzas</span>, <span class="profession">manufactura</span>, <span class="profession">marketing</span> o <span class="profession">cualquier otra área</span>: lo que aprenderás es 100% aplicable a tu contexto específico.</p>
                 </div>
