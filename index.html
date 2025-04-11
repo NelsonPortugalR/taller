@@ -1710,9 +1710,6 @@
                     <a href="#tools">Herramientas</a>
                     <a href="#testimonials">Testimonios</a>
                     <a href="#faq">Preguntas</a>
-                    <a href="#" class="nav-play-btn" id="nav-play-btn">
-                        <i class="fas fa-play"></i>
-                    </a>
                 </div>
                 <button class="mobile-menu-toggle">
                     <i class="fas fa-bars"></i>
@@ -1733,12 +1730,146 @@
                 <div class="laptop-frame">
                     <div class="laptop-screen">
                         <img src="http://nelsonportugal.com/wp-content/uploads/2025/04/Captura-de-pantalla-2025-04-10-a-las-7.50.52%E2%80%AFp.%E2%80%AFm.png" alt="Participantes en sesión de taller virtual">
+                        <iframe id="laptop-video" style="display:none" width="100%" height="100%" src="https://vimeo.com/1074510971?share=copy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <!-- Botón de reproducción superpuesto -->
+                        <div id="play-button" class="play-button-overlay">
+                            <div class="play-button-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="play-button-text">Ver extracto de 6 minutos</div>
+                        </div>
+                        
+                        <!-- Capa con texto informativo -->
                         <div class="laptop-overlay">
                             <span>Más de 180 profesionales capacitados en ediciones anteriores</span>
+                            <div id="video-note" style="display:none; font-size: 13px; margin-top: 5px;">Video reproducido a 2X para una vista rápida</div>
                         </div>
                     </div>
                     <div class="laptop-base"></div>
                 </div>
+                <style>
+                .laptop-frame {
+                    max-width: 800px;
+                    margin: 40px auto;
+                    position: relative;
+                }
+                
+                .laptop-screen {
+                    background: #000;
+                    border-radius: 15px;
+                    padding: 15px 15px 20px;
+                    position: relative;
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                }
+                
+                #laptop-content {
+                    position: relative;
+                    width: 100%;
+                    padding-bottom: 56.25%; /* Proporción 16:9 */
+                    height: 0;
+                    overflow: hidden;
+                }
+                
+                #laptop-content img,
+                #laptop-content iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 3px;
+                    display: block;
+                }
+                
+                .laptop-overlay {
+                    position: absolute;
+                    bottom: 30px;
+                    left: 0;
+                    right: 0;
+                    background: rgba(37, 99, 235, 0.85);
+                    color: white;
+                    padding: 12px 20px;
+                    font-weight: 600;
+                    text-align: center;
+                    z-index: 10;
+                }
+                
+                .laptop-base {
+                    height: 15px;
+                    background: #e2e8f0;
+                    width: 70%;
+                    margin: 0 auto;
+                    border-radius: 0 0 10px 10px;
+                }
+                
+                .play-button-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: calc(100% - 50px); /* Ajustar para no superponerse con el overlay de texto */
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    z-index: 5;
+                    transition: all 0.3s;
+                }
+                
+                .play-button-overlay:hover {
+                    background: rgba(0,0,0,0.3);
+                }
+                
+                .play-button-icon {
+                    width: 80px;
+                    height: 80px;
+                    background-color: rgba(37, 99, 235, 0.9);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 15px;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                    transition: transform 0.3s;
+                }
+                
+                .play-button-overlay:hover .play-button-icon {
+                    transform: scale(1.1);
+                    background-color: var(--primary);
+                }
+                
+                .play-button-icon i {
+                    color: white;
+                    font-size: 30px;
+                    margin-left: 5px; /* Ajuste visual para el ícono de play */
+                }
+                
+                .play-button-text {
+                    color: white;
+                    font-size: 18px;
+                    font-weight: 600;
+                    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+                    background: rgba(0,0,0,0.5);
+                    padding: 8px 20px;
+                    border-radius: 30px;
+                }
+                </style>
+                
+                <script>
+                document.getElementById('play-button').addEventListener('click', function() {
+                    // Ocultar la imagen y mostrar el video
+                    document.getElementById('laptop-image').style.display = 'none';
+                    document.getElementById('laptop-video').style.display = 'block';
+                    
+                    // Ocultar el botón de reproducción
+                    this.style.display = 'none';
+                    
+                    // Mostrar nota sobre velocidad del video
+                    document.getElementById('video-note').style.display = 'block';
+                });
+                </script>        
                 <div class="professions-banner">
                     <p>Ya sea que trabajes en <span class="profession">recursos humanos</span>, <span class="profession">legal</span>, <span class="profession">finanzas</span>, <span class="profession">manufactura</span>, <span class="profession">marketing</span> o <span class="profession">cualquier otra área</span>: lo que aprenderás es 100% aplicable a tu contexto específico.</p>
                 </div>
