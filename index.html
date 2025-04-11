@@ -832,7 +832,45 @@
             align-items: center;
             font-weight: 500;
         }
+        .laptop-frame {
+            max-width: 800px;
+            margin: 40px auto;
+            position: relative;
+        }
         
+        .laptop-screen {
+            background: #000;
+            border-radius: 15px;
+            padding: 15px 15px 20px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .laptop-screen img {
+            width: 100%;
+            border-radius: 3px;
+            display: block;
+        }
+        
+        .laptop-overlay {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            background: rgba(37, 99, 235, 0.85);
+            color: white;
+            padding: 12px 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .laptop-base {
+            height: 15px;
+            background: #e2e8f0;
+            width: 70%;
+            margin: 0 auto;
+            border-radius: 0 0 10px 10px;
+        }
         /* Benefits */
         .benefits {
             padding: 80px 0 80px; /* Reducido padding-top de 100px a 80px */
@@ -1691,6 +1729,16 @@
                 <div class="hero-tag">9na Edición - Más de 180 profesionales capacitados</div>
                 <h1>Taller de Inteligencia Artificial Aplicada</h1>
                 <p class="hero-subtitle">Deja el miedo y la confusión atrás, y empieza a <strong>aplicar la IA en tu trabajo diario</strong>. Harás las cosas <strong>10 veces más rápido</strong>, serás <strong>10 veces más estratégico(a)</strong> y asegurarás tu futuro profesional. <span class="no-experience">¡Sin conocimientos previos!</span></p>
+               <!-- INSERTAR AQUÍ LA IMAGEN CON MARCO DE LAPTOP -->
+                <div class="laptop-frame">
+                    <div class="laptop-screen">
+                        <img src="ruta-a-tu-imagen.jpg" alt="Participantes en sesión de taller virtual">
+                        <div class="laptop-overlay">
+                            <span>Más de 180 profesionales capacitados en ediciones anteriores</span>
+                        </div>
+                    </div>
+                    <div class="laptop-base"></div>
+                </div>
                 <div class="professions-banner">
                     <p>Ya sea que trabajes en <span class="profession">recursos humanos</span>, <span class="profession">legal</span>, <span class="profession">finanzas</span>, <span class="profession">manufactura</span>, <span class="profession">marketing</span> o <span class="profession">cualquier otra área</span>: lo que aprenderás es 100% aplicable a tu contexto específico.</p>
                 </div>
