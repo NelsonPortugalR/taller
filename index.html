@@ -1710,9 +1710,6 @@
                     <a href="#tools">Herramientas</a>
                     <a href="#testimonials">Testimonios</a>
                     <a href="#faq">Preguntas</a>
-                    <a href="#" class="nav-play-btn" id="nav-play-btn">
-                        <i class="fas fa-volume-up"></i>
-                    </a>
                 </div>
                 <button class="mobile-menu-toggle">
                     <i class="fas fa-bars"></i>
@@ -2653,7 +2650,7 @@
                         <li class="pricing-feature">
                             <i class="fas fa-user-friends"></i>
                             <div>
-                                <strong>Sesión individual de 60 minutos</strong> vía Zoom, donde recibirás asesoría 100% personalizada para implementar la IA en tu gestión.
+                                <strong>Sesión individual de 30 minutos</strong> vía Zoom, donde recibirás guía 100% personalizada para absolver dudas sobre cómo implementar la IA en tu gestión.
                             </div>
                         </li>
                     </ul>
@@ -3228,45 +3225,43 @@
                 }
             });
         });
-        // Audio Control Logic (para ambos reproductores)
+        // Audio Control Logic
         document.addEventListener('DOMContentLoaded', function() {
             const audioPlayer = document.querySelector('.audio-player');
             const playPauseBtn = document.querySelector('.play-pause-btn');
-            const navPlayBtn = document.getElementById('nav-play-btn');
             const audio = document.getElementById('testimonial-audio');
-
-            if (!audioPlayer || !playPauseBtn || !navPlayBtn || !audio) {
+        
+            // Verificar que los elementos existan
+            if (!audioPlayer || !playPauseBtn || !audio) {
                 console.error('No se encontraron los elementos para controlar el audio');
                 return;
             }
-
+        
             console.log('Audio inicializado:', audio);
             console.log('Estado inicial del audio - Pausado:', audio.paused);
-
+        
             // Función para reproducir el audio
             const playAudio = () => {
                 console.log('Intentando reproducir audio');
                 audio.play().then(() => {
                     console.log('Audio reproducido exitosamente');
                     audioPlayer.classList.add('playing');
-                    navPlayBtn.classList.add('playing');
-                    navPlayBtn.querySelector('i').classList.remove('fa-volume-up');
-                    navPlayBtn.querySelector('i').classList.add('fa-pause');
+                    playPauseBtn.classList.remove('fa-play');
+                    playPauseBtn.classList.add('fa-pause');
                 }).catch(error => {
                     console.error('Error al reproducir el audio:', error);
                 });
             };
-
+        
             // Función para pausar el audio
             const pauseAudio = () => {
                 console.log('Pausando audio');
                 audio.pause();
                 audioPlayer.classList.remove('playing');
-                navPlayBtn.classList.remove('playing');
-                navPlayBtn.querySelector('i').classList.remove('fa-pause');
-                navPlayBtn.querySelector('i').classList.add('fa-volume-up');
+                playPauseBtn.classList.remove('fa-pause');
+                playPauseBtn.classList.add('fa-play');
             };
-
+        
             // Controlar la reproducción desde el botón de la sección de audio
             audioPlayer.addEventListener('click', function() {
                 console.log('Clic en el botón de la sección de audio - Estado actual del audio - Pausado:', audio.paused);
@@ -3276,43 +3271,29 @@
                     pauseAudio();
                 }
             });
-
-            // Controlar la reproducción desde el ícono del menú
-            navPlayBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                console.log('Clic en el botón de navegación - Estado actual del audio - Pausado:', audio.paused);
-                if (audio.paused) {
-                    playAudio();
-                } else {
-                    pauseAudio();
-                }
-            });
-
+        
             // Sincronizar el estado cuando el audio termina
             audio.addEventListener('ended', function() {
                 console.log('Audio terminado');
                 audioPlayer.classList.remove('playing');
-                navPlayBtn.classList.remove('playing');
-                navPlayBtn.querySelector('i').classList.remove('fa-pause');
-                navPlayBtn.querySelector('i').classList.add('fa-volume-up');
+                playPauseBtn.classList.remove('fa-pause');
+                playPauseBtn.classList.add('fa-play');
             });
-
+        
             // Sincronizar el estado cuando el audio se pausa
             audio.addEventListener('pause', function() {
                 console.log('Audio pausado');
                 audioPlayer.classList.remove('playing');
-                navPlayBtn.classList.remove('playing');
-                navPlayBtn.querySelector('i').classList.remove('fa-pause');
-                navPlayBtn.querySelector('i').classList.add('fa-volume-up');
+                playPauseBtn.classList.remove('fa-pause');
+                playPauseBtn.classList.add('fa-play');
             });
-
+        
             // Sincronizar el estado cuando el audio se reproduce
             audio.addEventListener('play', function() {
                 console.log('Audio reproducido');
                 audioPlayer.classList.add('playing');
-                navPlayBtn.classList.add('playing');
-                navPlayBtn.querySelector('i').classList.remove('fa-volume-up');
-                navPlayBtn.querySelector('i').classList.add('fa-pause');
+                playPauseBtn.classList.remove('fa-play');
+                playPauseBtn.classList.add('fa-pause');
             });
         });
     </script>
