@@ -3312,7 +3312,7 @@
     </div>
     
     <!-- Mensaje de éxito (inicialmente oculto) -->
-    <div id="success-message" style="display: none;" class="success-message">
+    <div id="success-message" style="display: none;" class="success-message" onshow="fbq('track', 'CompleteRegistration', {content_name: 'Inscripción Taller IA'});">
       <div class="success-icon"><i class="fas fa-check-circle"></i></div>
       <h3>¡Inscripción exitosa!</h3>
       <p>Te contactaremos pronto por WhatsApp con los detalles para confirmar tu inscripción.</p>
@@ -3754,7 +3754,16 @@ document.addEventListener('DOMContentLoaded', function() {
         loadingIndicator.style.display = 'none';
         successMessage.style.display = 'block';
         
-        // NO hay cierre automático - el usuario debe cerrar manualmente
+        // Enviar evento de conversión a Facebook Pixel
+        try {
+            fbq('track', 'CompleteRegistration', {
+                content_name: 'Inscripción Taller IA',
+                status: 'success'
+            });
+            console.log('Evento de Facebook Pixel enviado: CompleteRegistration');
+        } catch (e) {
+            console.error('Error al enviar evento a Facebook Pixel:', e);
+        }
         
       } catch (error) {
         console.error('Error al enviar el formulario:', error);
@@ -3777,5 +3786,35 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+<script>
+// Observar cambios en el atributo style del mensaje de éxito
+document.addEventListener('DOMContentLoaded', function() {
+  // Crear un observador para monitorear cambios en el elemento
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.attributeName === 'style') {
+        var successMessage = document.getElementById('success-message');
+        if (successMessage && successMessage.style.display === 'block') {
+          // Disparar el evento de Facebook cuando el mensaje se muestre
+          fbq('track', 'CompleteRegistration', {
+            content_name: 'Inscripción Taller IA',
+            status: 'success'
+          });
+          console.log('Evento de CompleteRegistration enviado a Facebook');
+          // Desconectar el observador después de enviar el evento
+          observer.disconnect();
+        }
+      }
+    });
+  });
+
+  // Elemento que queremos observar
+  var successMessage = document.getElementById('success-message');
+  if (successMessage) {
+    // Configurar el observador para vigilar cambios en atributos
+    observer.observe(successMessage, { attributes: true });
+  }
+});
+</script>    
 </body>
 </html>
