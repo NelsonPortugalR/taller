@@ -1668,6 +1668,250 @@
             }
         }    
     </style>
+        <style>
+    .exit-popup-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      animation: exitFadeIn 0.3s ease-out;
+    }
+
+    @keyframes exitFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .exit-popup-content {
+      background-color: white;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      animation: exitPopupSlideUp 0.4s ease-out;
+      padding: 0;
+    }
+
+    @keyframes exitPopupSlideUp {
+      from { transform: translateY(70px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .close-exit-popup {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #64748b;
+      transition: color 0.3s;
+      z-index: 10;
+    }
+
+    .close-exit-popup:hover {
+      color: #1e293b;
+    }
+
+    .exit-popup-header {
+      background-color: var(--primary);
+      color: white;
+      padding: 25px 30px;
+      text-align: center;
+      border-radius: 16px 16px 0 0;
+      position: relative;
+    }
+
+    .exit-popup-icon {
+      font-size: 36px;
+      margin-bottom: 15px;
+      animation: pulseIcon 1.5s infinite ease-in-out;
+    }
+
+    @keyframes pulseIcon {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .exit-popup-header h2 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .exit-popup-header h3 {
+      font-size: 20px;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .exit-popup-body {
+      padding: 30px;
+    }
+
+    .exit-popup-highlight {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 20px;
+      text-align: center;
+      padding: 15px;
+      background-color: var(--primary-light);
+      border-radius: 8px;
+    }
+
+    .exit-popup-benefits {
+      margin: 25px 0;
+    }
+
+    .exit-popup-benefit {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .exit-popup-benefit i {
+      color: var(--success);
+      margin-right: 12px;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .exit-popup-benefit span {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .exit-popup-stats {
+      background-color: var(--light-bg);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 25px 0;
+      text-align: center;
+    }
+
+    .exit-popup-stats-title {
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .exit-popup-stat-item {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    .exit-popup-stat-number {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .exit-popup-stat-text {
+      font-size: 14px;
+      color: var(--dark);
+    }
+
+    .exit-popup-guarantee {
+      display: flex;
+      align-items: center;
+      background-color: #eef6ff;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .exit-popup-guarantee i {
+      color: var(--primary);
+      font-size: 26px;
+      margin-right: 15px;
+    }
+
+    .exit-popup-guarantee p {
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .exit-popup-buttons {
+      padding: 0 30px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .exit-popup-cta {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 18px;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: block;
+    }
+
+    .exit-popup-cta:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .exit-popup-secondary {
+      color: var(--primary);
+      text-align: center;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 10px;
+      transition: all 0.3s;
+      display: block;
+    }
+
+    .exit-popup-secondary:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .exit-popup-content {
+        width: 95%;
+      }
+      
+      .exit-popup-header {
+        padding: 20px;
+      }
+      
+      .exit-popup-header h2 {
+        font-size: 24px;
+      }
+      
+      .exit-popup-header h3 {
+        font-size: 18px;
+      }
+      
+      .exit-popup-body {
+        padding: 20px;
+      }
+      
+      .exit-popup-highlight {
+        font-size: 18px;
+        padding: 12px;
+      }
+      
+      .exit-popup-buttons {
+        padding: 0 20px 20px;
+      }
+    }
+    </style>
 </head>
 <body id="top">
     <!-- Header with navigation -->
@@ -3805,5 +4049,149 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>    
+<!-- El resto de tu código HTML existente -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Variables para el control del pop-up
+  let exitPopupShown = false;
+  let exitPopupEligible = true;
+  
+  // Obtenemos referencia al pop-up
+  const exitPopup = document.getElementById('exit-popup');
+  const closeExitPopupBtn = document.querySelector('.close-exit-popup');
+  
+  // Función para mostrar el pop-up
+  function showExitPopup() {
+    if (exitPopupEligible && !exitPopupShown) {
+      exitPopup.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // Prevenir scroll
+      exitPopupShown = true;
+      
+      // Registrar evento de Facebook Pixel
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'ViewContent', {
+          content_name: 'Exit Popup - Taller IA'
+        });
+      }
+    }
+  }
+  
+  // Función para cerrar el pop-up
+  function closeExitPopup() {
+    exitPopup.style.display = 'none';
+    document.body.style.overflow = ''; // Restaurar scroll
+  }
+  
+  // Detectar intento de salida (movimiento hacia la parte superior de la página)
+  document.addEventListener('mouseleave', function(e) {
+    // Si el mouse sale por la parte superior de la ventana
+    if (e.clientY < 20 && exitPopupEligible && !exitPopupShown) {
+      showExitPopup();
+    }
+  });
+  
+  // Agregar evento de cierre al botón X
+  if (closeExitPopupBtn) {
+    closeExitPopupBtn.addEventListener('click', closeExitPopup);
+  }
+  
+  // Cerrar al hacer clic fuera del contenido
+  exitPopup.addEventListener('click', function(e) {
+    if (e.target === exitPopup) {
+      closeExitPopup();
+    }
+  });
+  
+  // Evitar mostrar el pop-up nuevamente en esta sesión después de cerrarlo
+  window.addEventListener('beforeunload', function() {
+    sessionStorage.setItem('exitPopupShown', 'true');
+  });
+  
+  // Verificar si ya se mostró el pop-up en esta sesión
+  if (sessionStorage.getItem('exitPopupShown') === 'true') {
+    exitPopupEligible = false;
+  }
+  
+  // Configurar los enlaces dentro del pop-up
+  const popupLinks = exitPopup.querySelectorAll('a');
+  popupLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      closeExitPopup();
+      
+      // Si el enlace apunta a un ancla en la misma página
+      if (this.getAttribute('href').startsWith('#')) {
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          setTimeout(() => {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }, 100);
+        }
+      }
+    });
+  });
+});
+</script>
+<!-- Pop-up de Salida -->
+<div id="exit-popup" class="exit-popup-container">
+  <div class="exit-popup-content">
+    <span class="close-exit-popup">&times;</span>
+    
+    <div class="exit-popup-header">
+      <div class="exit-popup-icon">
+        <i class="fas fa-exclamation-circle"></i>
+      </div>
+      <h2>¡Espera un momento!</h2>
+      <h3>No dejes escapar esta oportunidad única</h3>
+    </div>
+    
+    <div class="exit-popup-body">
+      <p class="exit-popup-highlight">En solo <strong>8 meses</strong>, la IA ha transformado por completo el mercado laboral.</p>
+      
+      <p>Mientras algunos profesionales <strong>luchan por mantener su relevancia</strong>, otros están:</p>
+      
+      <div class="exit-popup-benefits">
+        <div class="exit-popup-benefit">
+          <i class="fas fa-check-circle"></i>
+          <span>Completando en <strong>minutos</strong> lo que antes les tomaba horas</span>
+        </div>
+        <div class="exit-popup-benefit">
+          <i class="fas fa-check-circle"></i>
+          <span>Destacándose con <strong>propuestas estratégicas brillantes</strong> generadas con IA</span>
+        </div>
+        <div class="exit-popup-benefit">
+          <i class="fas fa-check-circle"></i>
+          <span>Asegurando <strong>aumentos de sueldo</strong> y nuevas oportunidades</span>
+        </div>
+      </div>
+      
+      <div class="exit-popup-stats">
+        <p class="exit-popup-stats-title">Tu última oportunidad:</p>
+        <div class="exit-popup-stat-item">
+          <div class="exit-popup-stat-number">9.5/10</div>
+          <div class="exit-popup-stat-text">Nivel de satisfacción</div>
+        </div>
+        <div class="exit-popup-stat-item">
+          <div class="exit-popup-stat-number">40%</div>
+          <div class="exit-popup-stat-text">Descuento disponible ahora</div>
+        </div>
+      </div>
+      
+      <div class="exit-popup-guarantee">
+        <i class="fas fa-shield-alt"></i>
+        <p>Te garantizo que aprenderás a integrar la IA en tu trabajo o <strong>te devuelvo el 100% de tu inversión</strong>.</p>
+      </div>
+    </div>
+    
+    <div class="exit-popup-buttons">
+      <a href="#pricing" class="exit-popup-cta">¡Quiero asegurar mi lugar ahora!</a>
+      <a href="#testimonials" class="exit-popup-secondary">Ver testimonios de participantes</a>
+    </div>
+  </div>
+</div>  
 </body>
 </html>
