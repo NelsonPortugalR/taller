@@ -3294,7 +3294,7 @@
     </a>
 <!-- Añadir esto justo antes del cierre del </body> -->
 
-<!-- Pop-up de inscripción mejorado con AJAX -->
+<!-- Pop-up de inscripción mejorado con prefijo de WhatsApp -->
 <div id="inscripcion-popup" class="popup-container">
   <div class="popup-content">
     <span class="close-popup">&times;</span>
@@ -3315,8 +3315,12 @@
           <input type="email" id="email" name="email" required>
         </div>
         <div class="form-group">
-          <label for="whatsapp">WhatsApp (incluye código de país)*</label>
-          <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: +51 994123456" required>
+          <label for="whatsapp">WhatsApp*</label>
+          <div class="phone-input-container">
+            <div class="country-code">+51</div>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="9XXXXXXXX" pattern="9[0-9]{8}" required>
+          </div>
+          <small class="form-helper">Número de celular peruano que comienza con 9</small>
         </div>
         <div class="form-group">
           <label for="ocupacion">¿A qué te dedicas actualmente?*</label>
@@ -3346,9 +3350,12 @@
       <div class="error-icon"><i class="fas fa-exclamation-circle"></i></div>
       <h3>Ha ocurrido un problema</h3>
       <p>No pudimos procesar tu inscripción. Por favor, intenta de nuevo o contáctanos directamente por WhatsApp.</p>
-      <a href="https://wa.link/vhsg0r" target="_blank" class="whatsapp-btn">
-        <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
-      </a>
+      <div class="error-buttons">
+        <button class="retry-btn">Intentar de nuevo</button>
+        <a href="https://wa.link/vhsg0r" target="_blank" class="whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+        </a>
+      </div>
     </div>
     
     <div class="form-footer">
@@ -3456,6 +3463,34 @@
   outline: none;
 }
 
+/* Estilos para input de teléfono */
+.phone-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.country-code {
+  background-color: #f1f5f9;
+  padding: 12px 15px;
+  border: 1px solid #e2e8f0;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.phone-input-container input {
+  border-radius: 0 8px 8px 0;
+  flex: 1;
+}
+
+.form-helper {
+  display: block;
+  margin-top: 5px;
+  font-size: 13px;
+  color: #64748b;
+}
+
 .form-submit {
   margin-top: 25px;
   text-align: center;
@@ -3552,6 +3587,28 @@
   margin-bottom: 20px;
 }
 
+.error-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.retry-btn {
+  background-color: #f1f5f9;
+  color: #1e293b;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.retry-btn:hover {
+  background-color: #e2e8f0;
+}
+
 .whatsapp-btn {
   display: inline-flex;
   align-items: center;
@@ -3602,6 +3659,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const loadingIndicator = document.getElementById('loading-indicator');
   const successMessage = document.getElementById('success-message');
   const errorMessage = document.getElementById('error-message');
+  
+  // Añadir botón de reintentar
+  if (document.querySelector('.retry-btn')) {
+    document.querySelector('.retry-btn').addEventListener('click', function() {
+      errorMessage.style.display = 'none';
+      formContainer.style.display = 'block';
+    });
+  }
   
   // Función para abrir el pop-up
   function openPopup() {
@@ -3660,11 +3725,15 @@ document.addEventListener('DOMContentLoaded', function() {
       jsonData[key] = value;
     });
     
+    // Concatenar el código de país con el número de teléfono
+    const phoneNumber = document.getElementById('whatsapp').value;
+    jsonData.whatsapp = "+51" + phoneNumber;
+    
     // Añadir la fuente del formulario
     jsonData.fuente = 'Formulario Pop-up Landing Taller IA';
     
     // URL del script de Apps Script (reemplaza con tu URL)
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxIcUiYXwwqBbH6L2sG_C4Jw7iFOexqUmm5GyHA3poU0Lm6p8Qtb7_Zr2UDLs06QzFq/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzKFj7X6gjvlGsBhvNV_wrdJR0ia5-uV7UJFt99cZeJhFEO-Ei6cx1X_5fpL6hEy7Lr/exec';
     
     // Crear un iframe oculto para enviar los datos sin abrir una nueva página
     const iframe = document.createElement('iframe');
@@ -3701,6 +3770,8 @@ document.addEventListener('DOMContentLoaded', function() {
         loadingIndicator.style.display = 'none';
         successMessage.style.display = 'block';
         
+        // NO hay cierre automático - el usuario debe cerrar manualmente
+        
       } catch (error) {
         console.error('Error al enviar el formulario:', error);
         
@@ -3721,7 +3792,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1500);
   });
 });
-</script>
 </script>
 </body>
 </html>
