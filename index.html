@@ -3754,17 +3754,6 @@ document.addEventListener('DOMContentLoaded', function() {
         loadingIndicator.style.display = 'none';
         successMessage.style.display = 'block';
         
-        // Enviar evento de conversión a Facebook Pixel
-        try {
-            fbq('track', 'CompleteRegistration', {
-                content_name: 'Inscripción Taller IA',
-                status: 'success'
-            });
-            console.log('Evento de Facebook Pixel enviado: CompleteRegistration');
-        } catch (e) {
-            console.error('Error al enviar evento a Facebook Pixel:', e);
-        }
-        
       } catch (error) {
         console.error('Error al enviar el formulario:', error);
         
