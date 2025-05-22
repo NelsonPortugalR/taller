@@ -3915,7 +3915,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Asignar todos los botones de inscripción para abrir el pop-up
-  const inscripcionButtons = document.querySelectorAll('a[href*="wa.link"]');
+  const inscripcionButtons = document.querySelectorAll('a[href*="wa.link"], #inscribirse-menu');
   inscripcionButtons.forEach(button => {
     button.addEventListener('click', function(e) {
       e.preventDefault();
